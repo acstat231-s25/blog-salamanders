@@ -1,0 +1,53 @@
+---
+title: "Data Wrangling"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+#| label: set-up
+#| include: false
+
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small",   # slightly smaller font for code
+  message=FALSE)   
+
+# load packages here
+library(rvest)
+library(tidyverse)
+library(kableExtra)
+library(mdsr)
+library(stringr)
+library(robotstxt)
+library(tidytext)
+```
+
+You can add options to executable code like this
+
+```{r}
+# check permissions ----------------------------------------------------------
+songs_url <- "https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html"
+paths_allowed(songs_url)
+# scrape the table -----------------------------------------------------------
+songs <- songs_url |>
+  read_html() |>
+  html_elements("table") |>
+  purrr::pluck(2) |>
+  html_table()
+
+songs
+
+# urls <- paste0("https://cs.uwaterloo.ca/~dtompkin/music/track/", hrefs) 
+# clean up the table
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
