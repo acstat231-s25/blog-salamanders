@@ -62,6 +62,35 @@ songs_use <- songs_clean |>
     # remove spaces
     , artist_l = str_replace_all(artist_lwr, " ", "")
     , title_l = str_replace_all(title_lwr, " ", "")
+    # remove the from artists
+    , artist_l = str_remove(artist_l, "the")
+    # remove characters from titles
+    , title_1 = str_remove_all(title_l, "\\(")
+    , title_1 = str_remove_all(title_1, "\\)")
+    , title_1 = str_remove_all(title_1, "'")
+    , title_1 = str_remove_all(title_1, "-")
+    , title_1 = str_remove_all(title_1, "\\.")
+    , title_1 = str_remove_all(title_1, ",")
+    , title_1 = str_remove_all(title_1, "\\!")
+    , title_1 = str_remove_all(title_1, "\\?")
+    # adjust artist conventions
+    , artist_1 = str_replace_all(artist_l, "&", "andthe")
+    , artist_1 = str_remove_all(artist_1, "\\.")
+    , artist_1 = str_remove_all(artist_1, "'")
+    , artist_1 = str_remove_all(artist_1, ",")
     )
+
+
+```
+
+```{r}
+
+titles <- as.vector(unlist(songs_use['title_1']))
+class(titles)
+
+artists <- as.vector(unlist(songs_use['artist_1']))
+class(artists)
+# https://www.azlyrics.com/lyrics/primalscream/96tears.html
+urls <- paste0("https://www.azlyrics.com/lyrics/", artists, "/", titles, ".html")
 
 ```
