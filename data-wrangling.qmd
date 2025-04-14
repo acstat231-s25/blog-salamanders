@@ -32,14 +32,13 @@ songs <- songs_url |>
   read_html() |>
   html_elements("table") |>
   purrr::pluck(2) |>
-  html_table()
-songs
+  html_table()  
 
-# clean up the table
 ```
 
 ```{r}
-#| label: scraped to usable
+#| label: cleanup table
+
 songs_clean <- songs |> 
   rename(number = X1, artist = X3, title = X4, time = X5
          , bpm = X6, year = X7 , genre = X8, track = X9) |>
@@ -47,55 +46,18 @@ songs_clean <- songs |>
   filter(artist != "ARTIST")
 ```
 
-```{r}
-# (https://www.azlyrics.com/lyrics/mileycyrus/endoftheworld.html)
-#songs_use <- songs_clean |>
- # mutate(# to lowercase
-  #  artist_lwr = str_to_lower(artist)
-  #  , title_lwr = str_to_lower(title)
-    # remove spaces
-  #  , artist_l = str_replace_all(artist_lwr, " ", "")
-  #  , title_l = str_replace_all(title_lwr, " ", "")
-    # remove the from artists
-  #  , artist_l = str_remove(artist_l, "the")
-    # remove characters from titles
-   # , title_1 = str_remove_all(title_l, "\\(")
-   # , title_1 = str_remove_all(title_1, "\\)")
-   # , title_1 = str_remove_all(title_1, "'")
-   # , title_1 = str_remove_all(title_1, "-")
-   # , title_1 = str_remove_all(title_1, "\\.")
-   # , title_1 = str_remove_all(title_1, ",")
-  #  , title_1 = str_remove_all(title_1, "\\!")
-   # , title_1 = str_remove_all(title_1, "\\?")
-    # adjust artist conventions
-   # , artist_1 = str_replace_all(artist_l, "&", "andthe")
-   # , artist_1 = str_remove_all(artist_1, "\\.")
-  #  , artist_1 = str_remove_all(artist_1, "'")
-   # , artist_1 = str_remove_all(artist_1, ",")
-    # add subset of track id
-   # , track_gen = str_remove_all(track, "-..")
-  #  )
-
-
+```{}
 ```
 
 ```{r}
 
-#titles <- as.vector(unlist(songs_use['title_1']))
-#class(titles)
-
-#artists <- as.vector(unlist(songs_use['artist_1']))
-#class(artists)
-
+# create vectors compatible with paste0
 tracks <- as.vector(unlist(songs_use['track']))
-class(titles)
-
 tracks_gens <- as.vector(unlist(songs_use['track_gen']))
-# https://www.azlyrics.com/lyrics/primalscream/96tears.html
-# urls <- paste0("https://www.azlyrics.com/lyrics/", artists, "/", titles, ".html")
-# head(urls2)
 
-urls2 <- paste0("https://cs.uwaterloo.ca/~dtompkin/music/track/", tracks_gens, "/", tracks, ".html")
+# build urls
+urls2 <- paste0("https://cs.uwaterloo.ca/~dtompkin/music/track/", tracks_gens, "/", tracks
+                , ".html")
 head(urls2)
 ```
 
@@ -104,8 +66,7 @@ song_lyrics <- tibble(title = titles
                            , url = urls2
                            # Create empty character vector the same
                            # length as our titles vector
-                           , text = vector(mode = "character"
-                                           , length = length(titles)))
+                           )
 ```
 
 ```{r}
@@ -117,17 +78,22 @@ n_iter <- 1
                            , url = urls2
                            # Create empty character vector the same
                            # length as our titles vector
-                           , text = vector(mode = "character"
-                                           , length = length(titles))) |>
+                           ) |>
     # Limit to only the rows we are trying to work with
     slice(1:n_iter)
   # Iterate through links to grab nursery rhyme text
   for (i in 1:n_iter) {
     # Scrape nursery rhyme i's text and save it to row i of the `text` variable
-    song_lyrics1$text[i] <- song_lyrics1$url[i] |>
+    tables <- song_lyrics1$url[i] |>
       read_html() |>
       html_elements("table") |>
       purrr::pluck(6) |>
       html_table()
-}
+    
+    df <- tables[[3,1]]
+    
+    bind_cols(song_lyrics1$url[i], df)
+    
+  }
+  
 ```
