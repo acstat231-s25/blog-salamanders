@@ -33,11 +33,35 @@ songs <- songs_url |>
   html_elements("table") |>
   purrr::pluck(2) |>
   html_table()
-
 songs
-
+# (https://www.azlyrics.com/lyrics/mileycyrus/endoftheworld.html)
 # urls <- paste0("https://cs.uwaterloo.ca/~dtompkin/music/track/", hrefs) 
 # clean up the table
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+```{r}
+#| label: scraped to usable
+songs_clean <- songs |> 
+  rename(number = X1
+         , artist = X3
+         , title = X4
+         , time = X5
+         , bpm = X6
+         , year = X7
+         , genre = X8) |>
+  select(-X2,-X9,-X10) |>
+  filter(artist != "ARTIST")
+```
+
+```{r}
+# (https://www.azlyrics.com/lyrics/mileycyrus/endoftheworld.html)
+songs_use <- songs_clean |>
+  mutate(# to lowercase
+    artist_lwr = str_to_lower(artist)
+    , title_lwr = str_to_lower(title)
+    # remove spaces
+    , artist_l = str_replace_all(artist_lwr, " ", "")
+    , title_l = str_replace_all(title_lwr, " ", "")
+    )
+
+```
