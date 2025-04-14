@@ -62,19 +62,7 @@ head(urls2)
 ```
 
 ```{r}
-
-```
-
-```{r}
-
-# create vectors compatible with paste0
-tracks <- as.vector(unlist(songs_use['track']))
-tracks_gens <- as.vector(unlist(songs_use['track_gen']))
-
-# build urls
-urls2 <- paste0("https://cs.uwaterloo.ca/~dtompkin/music/track/", tracks_gens, "/", tracks
-                , ".html")
-head(urls2)
+# I don't know how to delete these
 ```
 
 ```{r}
@@ -83,30 +71,30 @@ head(urls2)
 
 ```{r}
 
- # Identify number of iterations (start with 1!)
+# Identify number of iterations (start with 1!)
 n_iter <- 100
-  # Pre-allocate space
-  song_lyrics1 <- tibble(title = titles, url = urls2 ) |>
-    # Limit to only the rows we are trying to work with
-    slice(1:n_iter)
+# Pre-allocate space
+song_lyrics1 <- tibble(title = titles, url = urls2) |>
+  # Limit to only the rows we are trying to work with
+  slice(1:n_iter)
+
+lyrics_df <- tibble(# Create empty character vector the same
+  # length as our titles vector
+  lyrics = vector(mode = "character", length = length(titles))) |>
+  slice(1:n_iter)
+# Iterate through links to grab nursery rhyme text
+for (i in 1:n_iter) {
+  # Scrape song i's lyric table and save it to row i of the `text` variable
+  tables <- song_lyrics1$url[i] |>
+    read_html() |>
+    html_elements("table") |>
+    purrr::pluck(6) |>
+    html_table()
+  # extract cell of table with lyrics
+  lyrics_df$lyrics[i] <- tables[[3, 1]]
   
-  lyrics_df <- tibble(# Create empty character vector the same
-              # length as our titles vector
-    lyrics = vector(mode = "character", length = length(titles))) |>
-    slice(1:n_iter)
-  # Iterate through links to grab nursery rhyme text
-  for (i in 1:n_iter) {
-    # Scrape song i's lyric table and save it to row i of the `text` variable
-    tables <- song_lyrics1$url[i] |>
-      read_html() |>
-      html_elements("table") |>
-      purrr::pluck(6) |>
-      html_table()
-    # extract cell of table with lyrics
-    lyrics_df$lyrics[i] <- tables[[3,1]]
-    
-  }
-  # combine the two datafiles
-  song_lyrics1 <- bind_cols(song_lyrics1, lyrics_df)
+}
+# combine the two datafiles
+song_lyrics1 <- bind_cols(song_lyrics1, lyrics_df)
   
 ```
