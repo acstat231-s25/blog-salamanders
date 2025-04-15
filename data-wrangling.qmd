@@ -41,9 +41,9 @@ songs <- songs_url |>
 
 songs_clean <- songs |> 
   select(-X2,-X10) |>
-  filter(artist != "ARTIST") |>
   rename(number = X1, artist = X3, title = X4, time = X5
          , bpm = X6, year = X7 , genre = X8, track = X9) |>
+   filter(artist != "ARTIST") |>
   mutate(track_gen = str_remove(track, "-.."))
 ```
 
@@ -83,7 +83,7 @@ song_lyrics1 <- tibble(title = titles, url = urls2) |>
 lyrics_df <- tibble(# Create empty character vector the same
   # length as our titles vector
   lyrics = vector(mode = "character", length = length(titles))) |>
-  slice(1:n_iter)
+  slice(1:n_iter) 
 # Iterate through links to grab nursery rhyme text
 for (i in 1:n_iter) {
   # Scrape song i's lyric table and save it to row i of the `text` variable
