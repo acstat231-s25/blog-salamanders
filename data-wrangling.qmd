@@ -43,13 +43,14 @@ songs_clean <- songs |>
   rename(number = X1, artist = X3, title = X4, time = X5
          , bpm = X6, year = X7 , genre = X8, track = X9) |>
   select(-X2,-X10) |>
-  filter(artist != "ARTIST")
+  filter(artist != "ARTIST") |>
+  mutate(track_gen = str_remove(track, "-.."))
 ```
 
 ```{r}
 # create vectors compatible with paste0
-tracks <- as.vector(unlist(songs_use['track']))
-tracks_gens <- as.vector(unlist(songs_use['track_gen']))
+tracks <- as.vector(unlist(songs_clean['track']))
+tracks_gens <- as.vector(unlist(songs_clean['track_gen']))
 
 # build urls
 urls2 <- paste0("https://cs.uwaterloo.ca/~dtompkin/music/track/", tracks_gens, "/", tracks
