@@ -40,10 +40,10 @@ songs <- songs_url |>
 #| label: cleanup table
 
 songs_clean <- songs |> 
-  rename(number = X1, artist = X3, title = X4, time = X5
-         , bpm = X6, year = X7 , genre = X8, track = X9) |>
   select(-X2,-X10) |>
   filter(artist != "ARTIST") |>
+  rename(number = X1, artist = X3, title = X4, time = X5
+         , bpm = X6, year = X7 , genre = X8, track = X9) |>
   mutate(track_gen = str_remove(track, "-.."))
 ```
 
@@ -51,10 +51,11 @@ songs_clean <- songs |>
 # create vectors compatible with paste0
 tracks <- as.vector(unlist(songs_clean['track']))
 tracks_gens <- as.vector(unlist(songs_clean['track_gen']))
+titles <- as.vector(unlist(songs_clean['title']))
 
 # build urls
-urls2 <- paste0("https://cs.uwaterloo.ca/~dtompkin/music/track/", tracks_gens, "/", tracks
-                , ".html")
+urls2 <- paste0("https://cs.uwaterloo.ca/~dtompkin/music/track/"
+                , tracks_gens, "/", tracks, ".html")
 head(urls2)
 ```
 
@@ -73,7 +74,7 @@ head(urls2)
 ```{r}
 
 # Identify number of iterations (start with 1!)
-n_iter <- 100
+n_iter <- 20
 # Pre-allocate space
 song_lyrics1 <- tibble(title = titles, url = urls2) |>
   # Limit to only the rows we are trying to work with
