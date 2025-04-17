@@ -59,18 +59,6 @@ urls2 <- paste0("https://cs.uwaterloo.ca/~dtompkin/music/track/"
 head(urls2)
 ```
 
-``` r
-{r}
-```
-
-```{r}
-# I don't know how to delete these
-```
-
-```{r}
-
-```
-
 ```{r}
 
 # Identify number of iterations (start with 1!)
