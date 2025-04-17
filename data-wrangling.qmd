@@ -21,6 +21,7 @@ library(mdsr)
 library(stringr)
 library(robotstxt)
 library(tidytext)
+library(dplyr)
 ```
 
 ```{r}
@@ -86,5 +87,9 @@ for (i in 1:n_iter) {
 }
 # combine the two datafiles
 song_lyrics1 <- bind_cols(song_lyrics1, lyrics_df)
-  
+
+#merge song_lyrics with songs_clean to add `url` and `lyrics` to songs_clean
+merged_songs <- songs_clean |>
+  left_join(song_lyrics1 |> select(title, url, lyrics), by = "title")
+
 ```
