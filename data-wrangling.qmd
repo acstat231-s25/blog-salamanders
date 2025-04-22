@@ -88,8 +88,29 @@ for (i in 1:n_iter) {
 # combine the two datafiles
 song_lyrics1 <- bind_cols(song_lyrics1, lyrics_df)
 
-#merge song_lyrics with songs_clean to add `url` and `lyrics` to songs_clean
+# merge song_lyrics with songs_clean to add `url` and `lyrics` to songs_clean
 merged_songs <- songs_clean |>
   left_join(song_lyrics1 |> select(title, url, lyrics), by = "title")
 
+# create df for cumulative songs dataset
+#write_csv(merged_songs, "blog-salamanders/data/merged_songs.csv")
+#read_csv("blog-salamanders/data/merged_songs.csv")
+
+# create bigrams dataset for lyrics
+ merged_songs_bigrams <- merged_songs |>
+    unnest_tokens(output = bigram, input = lyrics, token = "ngrams", n = 2) |>
+   select(number, artist, title, bigram)
+ 
+ # create trigrams dataset for lyrics
+ merged_songs_trigrams <- merged_songs |>
+   unnest_tokens(output = trigram, input = lyrics, token = "ngrams", n = 3) |>
+   select(number, artist, title, trigram)
+ 
+ # df for word frequencies for word clouds
+ lyrics_word_freqs <- merged_songs |>
+    unnest_tokens(output = word, input = lyrics) |>
+    anti_join(stop_words, by = "word") |>
+    count(word, sort = TRUE)
+
 ```
+
