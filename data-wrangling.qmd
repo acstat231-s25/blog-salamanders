@@ -63,7 +63,7 @@ head(urls2)
 ```{r}
 
 # Identify number of iterations (start with 1!)
-n_iter <- 100
+n_iter <- 250
 # Pre-allocate space
 song_lyrics1 <- tibble(title = titles, url = urls2) |>
   # Limit to only the rows we are trying to work with
@@ -91,7 +91,9 @@ song_lyrics1 <- bind_cols(song_lyrics1, lyrics_df)
 # merge song_lyrics with songs_clean to add `url` and `lyrics` to songs_clean
 merged_songs <- songs_clean |>
   left_join(song_lyrics1 |> select(title, url, lyrics), by = "title")
+```
 
+```{r}
 # create df for cumulative songs dataset
 #write_csv(merged_songs, "blog-salamanders/data/merged_songs.csv")
 #read_csv("blog-salamanders/data/merged_songs.csv")
@@ -111,6 +113,20 @@ merged_songs <- songs_clean |>
     unnest_tokens(output = word, input = lyrics) |>
     anti_join(stop_words, by = "word") |>
     count(word, sort = TRUE)
+
+```
+
+```{r}
+
+afinn_lexicon = get_sentiments("afinn")
+
+words_by_year = merged_songs |>
+  unnest_tokens(output = word, input = lyrics, token = "ngrams", n = 1)
+
+matched_words = inner_join(afinn_lexicon, words_by_year) |>
+  group_by(year) |>
+  mutate(average_sentiment_yearly = mean(value)) |>
+  arrange(year)
 
 ```
 
