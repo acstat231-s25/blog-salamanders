@@ -124,9 +124,17 @@ words_by_year = merged_songs |>
   unnest_tokens(output = word, input = lyrics, token = "ngrams", n = 1)
 
 matched_words = inner_join(afinn_lexicon, words_by_year) |>
+  mutate(year = as.numeric(year)) |>
   group_by(year) |>
-  mutate(average_sentiment_yearly = mean(value)) |>
+  summarize(average_sentiment_yearly = mean(value, na.rm = TRUE)) |>
   arrange(year)
 
 ```
+```{r}
 
+ggplot(matched_words, aes(x = year, y = average_sentiment_yearly)) +
+  geom_point() +
+  geom_line(linewidth = 0.75, alpha = 0.6) +
+  scale_x_continuous(breaks = seq(min(matched_words$year), max(matched_words$year), by = 2)) +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
+```
