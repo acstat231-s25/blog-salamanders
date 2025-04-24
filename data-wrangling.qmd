@@ -110,16 +110,19 @@ merged_songs <- songs_clean |>
 
 # create bigrams dataset for lyrics
  merged_songs_bigrams <- merged_songs |>
+  filter(number <= 250) |>
     unnest_tokens(output = bigram, input = lyrics, token = "ngrams", n = 2) |>
    select(number, artist, title, bigram)
  
  # create trigrams dataset for lyrics
  merged_songs_trigrams <- merged_songs |>
+  filter(number <= 250) |>
    unnest_tokens(output = trigram, input = lyrics, token = "ngrams", n = 3) |>
    select(number, artist, title, trigram)
  
  # df for word frequencies for word clouds
  lyrics_word_freqs <- merged_songs |>
+  filter(number <= 250) |>
     unnest_tokens(output = word, input = lyrics) |>
     anti_join(stop_words, by = "word") |>
     count(word, sort = TRUE)
