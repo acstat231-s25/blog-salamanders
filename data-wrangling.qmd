@@ -104,9 +104,7 @@ merged_songs <- songs_clean |>
 ```
 
 ```{r}
-# create df for cumulative songs dataset
-#
-#read_csv("blog-salamanders/data/merged_songs.csv")
+#| label: creating additional, necessary datasets
 
 # create bigrams dataset for lyrics
  merged_songs_bigrams <- merged_songs |>
@@ -130,9 +128,24 @@ merged_songs <- songs_clean |>
 ```
 
 ```{r}
-#write_csv(merged_songs, "blog-salamanders/data/merged_songs.csv")
+#| label: creating csv files
+
+# merged_songs
 write_csv(merged_songs, "data/merged_songs.csv")
 read_csv("data/merged_songs.csv")
+
+# merged_songs_bigrams
+write_csv(merged_songs_bigrams, "data/merged_songs_bigrams.csv")
+read_csv("data/merged_songs_bigrams.csv")
+
+#merged_songs_trigrams
+write_csv(merged_songs_trigrams, "data/merged_songs_trigrams.csv")
+read_csv("data/merged_songs_trigrams.csv")
+
+#lyrics_word_freqs
+write_csv(lyrics_word_freqs, "data/lyrics_word_freqs.csv")
+read_csv("data/lyrics_word_freqs.csv")
+
 ```
 
 ```{r}
