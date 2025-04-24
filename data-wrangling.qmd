@@ -105,7 +105,7 @@ merged_songs <- songs_clean |>
 
 ```{r}
 # create df for cumulative songs dataset
-#write_csv(merged_songs, "blog-salamanders/data/merged_songs.csv")
+#
 #read_csv("blog-salamanders/data/merged_songs.csv")
 
 # create bigrams dataset for lyrics
@@ -127,6 +127,12 @@ merged_songs <- songs_clean |>
 ```
 
 ```{r}
+#write_csv(merged_songs, "blog-salamanders/data/merged_songs.csv")
+write_csv(merged_songs, "data/merged_songs.csv")
+read_csv("data/merged_songs.csv")
+```
+
+```{r}
 
 afinn_lexicon = get_sentiments("afinn")
 
@@ -135,7 +141,7 @@ words_by_year = merged_songs |>
 
 matched_words = inner_join(afinn_lexicon, words_by_year) |>
   mutate(year = as.numeric(year)) |>
-  group_by(year) |>
+  group_by(year, ) |>
   summarize(average_sentiment_yearly = mean(value, na.rm = TRUE)) |>
   arrange(year)
 
