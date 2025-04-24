@@ -1,0 +1,247 @@
+year,number,artist,title,time,bpm,genre,average_sentiment_yearly
+1953,213,Hank Williams,Your Cheatin' Heart,2:42,128.5,Country,-0.3
+1954,126,Big Joe Turner,"Shake, Rattle And Roll",3:00,153.0,TBD,0.7777777777777778
+1955,151,The Penguins,Earth Angel (Will You Be Mine),2:55,103.8,Slow,1.1515151515151516
+1955,158,Bill Haley and His Comets,Rock Around the Clock,2:10,89.9,Rock 1950s,1.1111111111111112
+1955,18,Chuck Berry,Maybellene,2:19,118.4,Rock 1950s,1.8666666666666667
+1956,164,Johnny Cash,Folsom Prison Blues,2:46,102.6,Country,-0.5714285714285714
+1956,19,Elvis Presley,Hound Dog,2:15,88.8,Rock 1950s,-0.2
+1956,197,Elvis Presley,Don't Be Cruel,2:04,84.6,Rock 1950s,0.1935483870967742
+1956,30,Johnny Cash,I Walk the Line,2:41,106.4,Country,0.4444444444444444
+1956,423,Elvis Presley,Blue Suede Shoes,1:59,95.6,Rock 1950s,0
+1956,43,Little Richard,Tutti-Frutti,2:22,184.6,Rock 1950s,0.6
+1956,45,Elvis Presley,Heartbreak Hotel,2:09,107.8,Rock 1950s,-2
+1956,56,Little Richard,Long Tall Sally,2:06,189.8,Rock 1950s,2.5
+1956,81,Fats Domino,Blueberry Hill,2:19,125.5,Slow,1.75
+1956,90,The Five Satins,In the Still of the Night,3:02,105.4,Slow,2
+1956,95,Carl Perkins,Blue Suede Shoes,2:14,85.9,Rock 1950s,0
+1957,115,Sam Cooke,You Send Me,2:45,95.7,Slow,2.142857142857143
+1957,128,Chuck Berry,Rock & Roll Music,2:31,165.8,Rock 1950s,0.8571428571428571
+1957,132,Bo Diddley,Who Do You Love,2:30,114.3,TBD,2.3846153846153846
+1957,194,Buddy Holly,Peggy Sue,2:29,148.8,Rock 1950s,1.9655172413793103
+1957,207,Everly Brothers,Bye Bye Love,2:15,86.3,Rock 1950s,1.4705882352941178
+1957,236,Buddy Holly,Everyday,2:07,136.5,Rock 1950s,2.4375
+1957,39,Buddy Holly,That'll Be the Day,2:16,116.3,Rock 1950s,-0.043478260869565216
+1957,61,Jerry Lee Lewis,Whole Lotta Shakin' Going On,2:51,121.0,Rock 1950s,1.25
+1957,62,Bo Diddley,Bo Diddley,2:20,106.0,TBD,0.5714285714285714
+1957,67,Elvis Presley,Jailhouse Rock,2:27,84.2,Rock 1950s,-0.7857142857142857
+1957,96,Jerry Lee Lewis,Great Balls of Fire,1:51,161.2,Rock 1950s,1.5833333333333333
+1958,141,Everly Brothers,All I Have to Do Is Dream,2:22,96.9,Slow,0.7368421052631579
+1958,154,Buddy Holly,Rave On,1:49,159.5,Rock 1950s,1.0588235294117647
+1958,195,The Chantels,Maybe,2:52,103.9,TBD,0.6666666666666666
+1958,7,Chuck Berry,Johnny B. Goode,2:38,84.1,Rock 1950s,0.6666666666666666
+1958,94,Little Richard,Good Golly Miss Molly,2:07,84.4,Rock 1950s,0.96
+1959,10,Ray Charles,What'd I Say (Parts 1 And 2),5:06,89.6,Rock 1950s,2.1
+1959,157,The Flamingos,I Only Have Eyes for You,3:22,88.6,Slow,1.2857142857142858
+1959,193,The Drifters,There Goes My Baby,2:07,119.8,Slow,0.16666666666666666
+1959,97,Chuck Berry,Roll Over Beethoven,2:25,92.8,TBD,0.8888888888888888
+1960,118,The Isley Brothers,Shout,4:36,138.9,Rock 1960s,1.8651685393258426
+1960,12,Sam Cooke,A Change Is Gonna Come,3:13,138.3,TBD,0.3
+1960,149,Everly Brothers,Cathy's Clown,2:22,121.3,Rock 1960s,0.4117647058823529
+1960,182,The Drifters,Save the Last Dance for Me,2:27,144.2,Slow,1.4
+1960,225,Muddy Waters,I'm Your Hoochie Coochie Man,2:52,108.9,TBD,0.5555555555555556
+1960,229,Muddy Waters,Mannish Boy,2:58,105.4,TBD,0.19047619047619047
+1960,232,Roy Orbison,Only the Lonely (Know How I Feel),2:26,119.9,Slow,-1.0454545454545454
+1961,121,Ben E. King,Stand by Me,2:54,108.9,Slow,-1.4285714285714286
+1961,125,The Shirelles,Will You Love Me Tomorrow,2:43,125.2,Rock 1960s,2.5714285714285716
+1961,238,Patsy Cline,I Fall to Pieces,2:49,111.2,Country,1.5555555555555556
+1961,239,Dion,The Wanderer,2:42,114.1,Rock 1960s,1.4375
+1961,85,Patsy Cline,Crazy,2:41,110.8,Country,-0.88
+1962,113,The Drifters,Up on the Roof,2:37,121.3,Rock 1960s,0.7692307692307693
+1962,161,Ray Charles,I Can't Stop Loving You,4:21,107.3,TBD,-0.08
+1962,218,John Lee Hooker,Boom Boom,2:10,91.5,TBD,1.125
+1963,139,The Beatles,I Saw Her Standing There,2:51,160.7,TBD,2.5
+1963,209,The Beach Boys,In My Room,2:15,103.7,TBD,-0.8
+1963,22,The Ronettes,Be My Baby,2:37,128.0,Dance 1960s,2
+1963,55,The Kingsmen,Louie Louie,2:42,124.0,Rock 1960s,0.25925925925925924
+1963,87,Johnny Cash,Ring of Fire,2:38,103.4,Country,-0.8636363636363636
+1964,122,The Animals,House of the Rising Sun,4:28,116.7,Slow,-0.8888888888888888
+1964,176,The Beach Boys,Don't Worry Baby,2:45,121.8,Slow,-2.111111111111111
+1964,222,Roy Orbison,"Oh, Pretty Woman",2:57,127.2,Rock 1960s,1.1470588235294117
+1964,34,The Righteous Brothers,You've Lost That Lovin' Feelin',3:41,96.1,Slow,0.8918918918918919
+1964,40,Martha Reeves & The Vandellas,Dancing in the Street,2:37,127.5,Dance 1960s,1.1111111111111112
+1964,70,Dionne Warwick,Walk on By,2:44,99.3,Slow,-1.3333333333333333
+1964,82,The Kinks,You Really Got Me,2:13,138.0,Rock 1960s,0.8
+1965,1,Bob Dylan,Like a Rolling Stone,6:04,95.6,Rock 1960s,0.6666666666666666
+1965,110,Otis Redding,I've Been Loving You Too Long (To Stop Now),3:13,117.4,TBD,1.0571428571428572
+1965,134,Wilson Pickett,In the Midnight Hour,2:36,112.0,Dance 1960s,1.6666666666666667
+1965,156,Simon & Garfunkel,The Sounds of Silence,3:04,106.6,Slow,-0.35294117647058826
+1965,185,Bob Dylan,Desolation Row,11:20,110.4,TBD,0.10810810810810811
+1965,208,Van Morrison with Them,Gloria,2:36,131.1,Rock 1960s,1.3333333333333333
+1965,216,The Lovin' Spoonful,Do You Believe in Magic,2:07,138.7,TBD,1.0625
+1965,233,The Animals,We Gotta Get Out of This Place,3:10,124.7,Rock 1960s,0.045454545454545456
+1965,234,The Byrds,I'll Feel a Whole Lot Better,2:33,134.4,TBD,2.2
+1965,71,The Beach Boys,California Girls,2:37,115.9,Rock 1960s,1.1538461538461537
+1965,78,James Brown,I Got You,2:46,147.5,Rock 1960s,1.95
+1965,79,The Byrds,Mr. Tambourine Man,2:18,122.3,Rock 1960s,-0.7741935483870968
+1965,88,The Temptations,My Girl,2:42,105.1,Slow,0.6
+1966,11,The Who,My Generation,3:17,97.2,Rock 1960s,-0.5555555555555556
+1966,13,The Beatles,Yesterday,2:05,97.6,Rock 1960s,0
+1966,137,The Beatles,Eleanor Rigby,2:08,138.3,Rock 1960s,-1.380952380952381
+1966,150,The Byrds,Eight Miles High,3:36,122.0,TBD,-0.8333333333333334
+1966,153,The Beatles,A Hard Day's Night,2:34,138.8,Rock 1960s,0.19047619047619047
+1966,16,The Beatles,I Want to Hold Your Hand,2:26,131.1,Rock 1960s,1.1428571428571428
+1966,174,The Rolling Stones,Paint It Black,3:45,159.1,TBD,0.5625
+1966,175,The Bobby Fuller Four,I Fought the Law,2:18,148.3,Rock 1960s,2
+1966,184,The Beatles,Please Please Me,2:03,139.4,Rock 1960s,1.2592592592592593
+1966,206,Four Tops,Reach Out (I'll Be There),3:00,119.7,Rock 1960s,1.225
+1966,211,The Beach Boys,"Caroline, No",2:19,152.3,TBD,0.3
+1966,23,The Beatles,In My Life,2:27,103.7,Rock 1960s,1.4166666666666667
+1966,25,The Beach Boys,God Only Knows,2:52,116.6,TBD,1
+1966,29,The Beatles,Help!,2:20,95.2,Rock 1960s,1.5806451612903225
+1966,54,Percy Sledge,When a Man Loves a Woman,2:52,97.8,Slow,-0.13333333333333333
+1966,6,The Beach Boys,Good Vibrations,3:36,148.8,Rock 1960s,2.948717948717949
+1966,64,The Beatles,She Loves You,2:22,149.8,Rock 1960s,0.9827586206896551
+1966,83,The Beatles,Norwegian Wood (This Bird Has Flown),2:05,88.7,Rock 1960s,0.6
+1966,89,The Mamas & the Papas,California Dreamin',2:39,113.0,Rock 1960s,0.058823529411764705
+1967,106,Bob Dylan,Mr. Tambourine Man,5:28,177.5,TBD,-0.7741935483870968
+1967,109,Van Morrison,Brown Eyed Girl,3:03,151.1,Rock 1960s,0.8333333333333334
+1967,14,Bob Dylan,Blowin' in the Wind,2:46,93.8,TBD,0.08333333333333333
+1967,204,Otis Redding,Try a Little Tenderness,3:16,104.1,Slow,0.38095238095238093
+1967,220,The Left Banke,Walk Away Renee,2:43,118.3,TBD,-1.5
+1967,230,Bob Dylan,Just Like a Woman,4:52,116.3,TBD,0.8285714285714286
+1967,244,The Spencer Davis Group,Gimme Some Lovin',2:53,147.5,Rock 1960s,1.5454545454545454
+1967,246,Jackie Wilson,(Your Love Keeps Lifting Me) Higher And Higher,2:57,95.4,Rock 1960s,2.260869565217391
+1967,35,The Doors,Light My Fire,7:06,125.1,Rock 1960s,-1.3333333333333333
+1967,42,The Kinks,Waterloo Sunset,3:17,107.3,TBD,1
+1967,5,Aretha Franklin,Respect,2:23,114.5,Rock 1960s,0.23076923076923078
+1967,57,Procol Harum,A Whiter Shade of Pale,4:04,148.6,Slow,0.6666666666666666
+1967,59,Bob Dylan,The Times They Are A-Changin',3:11,86.1,Rock 1960s,-0.05555555555555555
+1967,63,Buffalo Springfield,"For What It's Worth (Stop, Hey What's That Sound)",2:38,99.4,Rock 1960s,-0.29411764705882354
+1968,124,The Rolling Stones,Jumpin' Jack Flash,3:40,137.5,Rock 1960s,-0.4444444444444444
+1968,129,Steppenwolf,Born to Be Wild,3:28,146.9,Rock 1960s,0.8095238095238095
+1968,152,Jimi Hendrix,Foxey Lady,3:16,99.3,Rock 1960s,0.10526315789473684
+1968,155,Creedence Clearwater Revival,Proud Mary,3:07,120.4,Rock 1960s,0.6923076923076923
+1968,17,Jimi Hendrix,Purple Haze,2:50,110.2,Rock 1960s,0.8421052631578947
+1968,192,Glen Campbell,Wichita Lineman,3:04,87.0,Country,0.8333333333333334
+1968,198,Jimi Hendrix,Hey Joe,3:27,84.3,Rock 1960s,0.3684210526315789
+1968,223,Sly & The Family Stone,Dance to the Music,2:58,128.1,Dance 1960s,1
+1968,249,Aretha Franklin,Chain of Fools,2:43,117.0,Dance 1960s,-0.55
+1968,28,Otis Redding,(Sittin' On) the Dock of the Bay,2:41,103.3,Slow,0.4
+1968,32,The Rolling Stones,Sympathy for the Devil,6:18,116.2,TBD,0.575
+1968,41,The Band,The Weight,4:31,144.2,Rock 1960s,-0.07142857142857142
+1968,48,Jimi Hendrix,All Along the Watchtower,4:01,114.3,Rock 1960s,1.1666666666666667
+1968,65,Cream,Sunshine of Your Love,4:11,115.0,Rock 1960s,1.9333333333333333
+1968,80,Marvin Gaye,I Heard It Through the Grapevine,5:03,118.1,Rock 1960s,1.0588235294117647
+1969,100,The Rolling Stones,You Can't Always Get What You Want,7:30,91.7,TBD,0.27586206896551724
+1969,105,Simon & Garfunkel,The Boxer,5:09,96.2,Rock 1970s,-1.1428571428571428
+1969,116,The Rolling Stones,Honky Tonk Woman,3:00,121.2,TBD,0.5
+1969,120,The Jackson 5,I Want You Back,3:00,98.1,Dance 1960s,0.9444444444444444
+1969,135,The Beatles,While My Guitar Gently Weeps,4:46,115.7,Rock 1960s,1.2
+1969,145,Sly & The Family Stone,Everyday People,2:19,114.5,Dance 1960s,0.5555555555555556
+1969,170,Joni Mitchell,Both Sides Now,5:46,111.3,TBD,0.9411764705882353
+1969,20,The Beatles,Let It Be,3:52,137.4,Rock 1960s,0.4
+1969,202,The Beatles,Come Together,4:18,82.8,Rock 1960s,0.631578947368421
+1969,240,Dusty Springfield,Son of a Preacher Man,2:27,90.9,Rock 1960s,1.105263157894737
+1969,245,The Band,The Night They Drove Old Dixie Down,3:32,125.6,TBD,0.9166666666666666
+1969,247,Sly & The Family Stone,Hot Fun in the Summertime,2:35,144.8,Dance 1960s,2.4210526315789473
+1969,250,Black Sabbath,Paranoid,2:45,82.1,Rock 1960s,0.9375
+1969,26,The Beatles,A Day in the Life,5:06,130.3,Rock 1960s,1
+1969,38,The Rolling Stones,Gimme Shelter,4:32,118.9,TBD,-0.5384615384615384
+1969,75,Led Zeppelin,Whole Lotta Love,5:33,92.1,Rock 1960s,2.310344827586207
+1969,76,The Beatles,Strawberry Fields Forever,4:08,99.2,Rock 1960s,-0.6363636363636364
+1969,8,The Beatles,Hey Jude,7:08,146.9,Rock 1960s,0.7241379310344828
+1969,91,Elvis Presley,Suspicious Minds,3:20,114.8,Rock 1960s,0.027777777777777776
+1969,99,Creedence Clearwater Revival,Fortunate Son,2:20,132.7,Rock 1970s,-0.06896551724137931
+1970,111,Hank Williams,I'm So Lonesome I Could Cry,2:49,111.9,TBD,-1.4285714285714286
+1970,136,Elton John,Your Song,4:00,117.9,Slow,1.75
+1970,188,Creedence Clearwater Revival,Who'll Stop the Rain,2:26,123.8,Slow,0.5
+1970,226,Van Morrison,Moondance,4:32,131.6,Rock 1970s,1.6923076923076923
+1970,227,James Taylor,Fire And Rain,3:22,151.7,Slow,-0.5833333333333334
+1970,47,Simon & Garfunkel,Bridge Over Troubled Water,4:51,87.2,Slow,0
+1970,73,Eddie Cochran,Summertime Blues,1:59,157.2,Rock 1970s,-0.1
+1971,130,Rod Stewart,Maggie May,4:58,128.8,Rock 1970s,-0.3684210526315789
+1971,133,The Who,Won't Get Fooled Again,3:38,134.9,Rock 1970s,0.6111111111111112
+1971,138,Sly & The Family Stone,Family Affair,3:02,108.6,Slow,0.3333333333333333
+1971,3,John Lennon,Imagine,3:02,152.6,Slow,-0.5789473684210527
+1971,31,Led Zeppelin,Stairway to Heaven,7:59,99.7,Slow,0.7692307692307693
+1971,4,Marvin Gaye,What's Going On,3:47,101.5,Dance 1970s,-0.4
+1971,60,Al Green,Let's Stay Together,3:17,102.2,Slow,0.7222222222222222
+1972,127,David Bowie,Changes,3:34,114.0,Rock 1970s,-0.25
+1972,168,The Temptations,Papa Was a Rollin' Stone,6:54,121.2,Rock 1970s,-1.4705882352941178
+1972,205,Bill Withers,Lean on Me,3:45,150.6,Slow,0.09090909090909091
+1972,27,Derek & The Dominos,Layla,7:04,115.2,Rock 1970s,0
+1972,74,Stevie Wonder,Superstition,4:25,101.3,Disco,-0.2777777777777778
+1972,98,Al Green,Love And Happiness,5:07,98.9,TBD,2.0714285714285716
+1973,104,Stevie Wonder,Living for the City,7:25,99.1,Rock 1980s,0.391304347826087
+1973,148,Janis Joplin,Me And Bobby McGee,4:34,93.3,Rock 1970s,1.7272727272727273
+1973,167,Marvin Gaye,Let's Get It On,3:59,83.5,Dance 1970s,0.8648648648648649
+1973,190,Bob Dylan,Knockin' on Heaven's Door,2:30,139.3,Slow,-1
+1973,221,Lou Reed,Walk on the Wild Side,4:12,106.1,Rock 1970s,-1.75
+1974,117,Al Green,Take Me to the River,3:45,118.0,TBD,1.368421052631579
+1974,217,Dolly Parton,Jolene,2:41,110.0,TBD,1.3333333333333333
+1974,242,Elton John,Rocket Man,4:42,137.0,Rock 1970s,-1.3181818181818181
+1974,37,Bob Marley & The Wailers,No Woman No Cry,7:07,157.7,Reggae,-0.7209302325581395
+1975,191,Lynyrd Skynyrd,Free Bird,9:01,149.0,Slow,0.6428571428571429
+1975,21,Bruce Springsteen,Born to Run,4:30,146.3,Rock 1970s,0.25806451612903225
+1975,86,Bruce Springsteen,Thunder Road,4:51,144.0,TBD,0.14285714285714285
+1976,163,Queen,Bohemian Rhapsody,5:53,108.0,Slow,-0.5897435897435898
+1976,172,Aerosmith,Dream On,4:25,154.8,Slow,1.3214285714285714
+1976,92,Ramones,Blitzkrieg Bop,2:12,88.4,Rock 1970s,-0.6
+1977,119,Fleetwood Mac,Go Your Own Way,3:39,135.6,Rock 1970s,-1.4285714285714286
+1977,147,Iggy Pop,Lust for Life,5:13,102.0,Rock 2000s,1
+1977,171,ABBA,Dancing Queen,3:52,100.4,Disco,1.375
+1977,173,Sex Pistols,God Save the Queen,3:18,148.5,Rock 1970s,0.14583333333333334
+1977,189,Bee Gees,Stayin' Alive,4:43,103.6,Disco,1.2142857142857142
+1977,49,The Eagles,Hotel California,6:29,147.9,Slow,1
+1977,53,Sex Pistols,Anarchy in the U.K.,3:32,134.3,Rock 1970s,-0.8
+1978,178,Big Star,September Gurls,2:49,113.9,TBD,-1.0714285714285714
+1978,199,Parliament,Flashlight,4:28,105.5,Dance 1970s,1.5714285714285714
+1979,103,Donna Summer,Hot Stuff,3:50,120.1,Disco,2.0434782608695654
+1979,146,The B-52's,Rock Lobster,6:50,91.1,Rock 1970s,0
+1979,15,The Clash,London Calling,3:18,134.3,Rock 1970s,-0.64
+1979,224,Chic,Good Times,3:44,110.2,Disco,1.7714285714285714
+1980,144,Ramones,I Wanna Be Sedated,2:28,162.5,Rock 1980s,-1.3333333333333333
+1980,179,Joy Division,Love Will Tear Us Apart,3:10,157.3,TBD,2.238095238095238
+1980,248,Sugarhill Gang,Rapper's Delight,6:32,111.8,Dance 1980s,0.6638655462184874
+1980,66,Bob Marley & The Wailers,Redemption Song,3:48,116.0,Reggae,0
+1981,187,AC/DC,Back in Black,4:16,93.6,Rock 1980s,0.75
+1981,51,Grandmaster Flash & Melle Mel,The Message,7:07,101.0,R&B 1980s,-0.3972602739726027
+1982,228,The Clash,Should I Stay or Should I Go?,3:07,113.3,Rock 1980s,0.3333333333333333
+1982,231,Marvin Gaye,Sexual Healing,3:59,93.9,Slow,1.6857142857142857
+1983,108,Prince,Little Red Corvette,4:56,123.2,Dance 1980s,0.8421052631578947
+1983,212,Prince,1999,3:37,119.2,Dance 1980s,-0.35294117647058826
+1983,58,Michael Jackson,Billie Jean,4:54,117.0,Dance 1980s,0.17391304347826086
+1983,84,The Police,Every Breath You Take,4:13,117.4,Slow,-0.6666666666666666
+1984,143,Prince,Purple Rain,6:32,113.7,Slow,0.3333333333333333
+1984,52,Prince,When Doves Cry,3:48,126.5,Dance 1980s,0.375
+1985,2,The Rolling Stones,Satisfaction,3:43,134.7,Rock 1980s,-0.9705882352941176
+1985,215,The Chords,Sh-Boom,2:27,137.5,TBD,1.68
+1985,237,Afrika Bambaataa & Soulsonic Force,Planet Rock,5:03,122.7,Rock 1980s,0.6944444444444444
+1987,131,U2,With or Without You,4:56,110.0,Slow,2
+1987,201,New Order,Bizarre Love Triangle,6:42,118.4,Rock 1980s,0.058823529411764705
+1987,93,U2,I Still Haven't Found What I'm Looking For,4:37,100.6,Rock 1980s,-0.25
+1988,165,Tracy Chapman,Fast Car,4:53,103.7,Rock 1980s,0.6071428571428571
+1988,196,Guns N' Roses,Sweet Child O' Mine,5:55,125.0,Rock 1980s,1.3333333333333333
+1989,177,Tom Petty and The Heartbreakers,Free Fallin',4:15,84.3,Slow,0.5428571428571428
+1989,243,The B-52's,Love Shack,5:22,133.6,Rock 1980s,2.639344262295082
+1990,140,Led Zeppelin,Kashmir,8:32,120.7,Rock 1970s,0.4827586206896552
+1990,162,Sinead O'Connor,Nothing Compares 2 U,5:08,120.0,Slow,-0.058823529411764705
+1991,123,James Brown,It's a Man's Man's Man's World,2:47,105.3,TBD,-0.25
+1991,142,James Brown,"Please, Please, Please",2:44,109.6,TBD,0.967741935483871
+1991,169,R.E.M.,Losing My Religion,4:27,125.4,Rock 1990s,-0.43478260869565216
+1991,33,Tina Turner,River Deep - Mountain High,3:40,102.9,Rock 1980s,1.5357142857142858
+1991,9,Nirvana,Smells Like Teen Spirit,5:01,117.5,Rock 1990s,-0.3333333333333333
+1992,114,The Crystals,Da Doo Ron Ron,2:18,147.6,TBD,1.25
+1992,36,U2,One,4:35,90.6,Slow,0.7727272727272727
+1993,101,Jimi Hendrix,Voodoo Child,5:13,118.6,TBD,1
+1994,200,Beck,Loser,3:55,85.4,Rock 1990s,-2.3448275862068964
+1994,235,Ray Charles,I've Got a Woman,2:55,99.4,TBD,1.6666666666666667
+1994,68,Bob Dylan,Tangled Up in Blue,5:43,99.2,TBD,0.47619047619047616
+1997,210,? & The Mysterians,96 Tears,3:01,123.6,TBD,-0.9393939393939394
+1998,183,B.B. King,The Thrill Is Gone,5:25,90.7,TBD,0.9333333333333333
+1998,46,David Bowie,Heroes,3:33,113.1,TBD,1.411764705882353
+1999,107,Buddy Holly,Not Fade Away,2:16,97.5,TBD,3
+2000,112,Elvis Presley,That's All Right,1:57,105.5,TBD,0
+2000,203,Bob Dylan,Positively 4th Street,3:55,110.0,TBD,0.20833333333333334
+2000,77,Elvis Presley,Mystery Train,2:27,121.0,TBD,-1
+2002,186,Aretha Franklin,I Never Loved a Man (The Way I Love You),2:49,127.6,TBD,0
+2002,241,Sly & The Family Stone,Stand,3:08,108.3,TBD,-0.3333333333333333
+2003,180,OutKast,Hey Ya! [Radio Mix],3:59,159.0,TBD,1
+2003,219,Howlin' Wolf,Spoonful,2:45,119.9,TBD,-0.5714285714285714
+2003,24,The Impressions,People Get Ready,2:38,120.4,TBD,0.15789473684210525
+2004,214,Neil Young,Rockin' in the Free World,4:44,131.9,TBD,0.6842105263157895
+2005,159,The Velvet Underground,I'm Waiting for the Man,4:40,125.4,TBD,0.7777777777777778
+2005,160,Public Enemy,Bring the Noise,3:47,110.2,TBD,-0.2692307692307692
+2005,166,Eminem,Lose Yourself,4:25,171.5,TBD,0.47692307692307695
+2006,69,Roy Orbison,Crying,2:47,97.1,TBD,-0.8461538461538461
