@@ -126,17 +126,7 @@ merged_songs <- songs_clean |>
     unnest_tokens(output = word, input = lyrics) |>
     anti_join(stop_words, by = "word") |>
     count(word, sort = TRUE)
-
-```
-
-```{r}
-#write_csv(merged_songs, "blog-salamanders/data/merged_songs.csv")
-write_csv(merged_songs, "data/merged_songs.csv")
-read_csv("data/merged_songs.csv")
-```
-
-```{r}
-
+ 
 afinn_lexicon = get_sentiments("afinn")
 
 words_by_year = merged_songs |>
@@ -144,10 +134,27 @@ words_by_year = merged_songs |>
 
 matched_words = inner_join(afinn_lexicon, words_by_year) |>
   mutate(year = as.numeric(year)) |>
-  group_by(year, ) |>
+  group_by(year, number, artist, title, time, bpm, genre) |>
   summarize(average_sentiment_yearly = mean(value, na.rm = TRUE)) |>
   arrange(year)
 
+```
+
+```{r}
+write_csv(merged_songs, "data/merged_songs.csv")
+read_csv("data/merged_songs.csv")
+
+write_csv(merged_songs_bigrams, "data/merged_songs_bigrams.csv")
+read_csv("data/merged_songs_bigrams.csv")
+
+write_csv(merged_songs_trigrams, "data/merged_songs_trigrams.csv")
+read_csv("data/merged_songs_trigrams.csv")
+
+write_csv(lyrics_word_freqs, "data/lyrics_word_freqs.csv")
+read_csv("data/lyrics_word_freqs.csv")
+
+write_csv(matched_words, "data/matched_words.csv")
+read_csv("data/matched_words.csv")
 ```
 
 ```{r}
