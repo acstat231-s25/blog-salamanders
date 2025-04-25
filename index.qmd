@@ -42,12 +42,31 @@ ggplot(sentiment_data, aes(x = year, y = average_sentiment_yearly)) +
   theme(axis.text.x = element_text(angle = 60, hjust = 1))
 
 ```
+
+::: {.panel-tabset}
+
+### Tab 1
+
+```{r}
+
+ggplot(sentiment_data, aes(x = average_sentiment_yearly, y = average_time_seconds)) +
+  geom_point() +
+  geom_smooth()
+```
+
+
+### Tab 2
+
 ```{r}
 
 ggplot(sentiment_data, aes(x = average_sentiment_yearly, y = average_bpm)) +
   geom_point() +
-  geom  _smooth()
+  geom_smooth()
 ```
+
+:::
+
+
 
 ## Website project structure
 
