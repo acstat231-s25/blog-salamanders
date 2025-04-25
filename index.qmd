@@ -46,7 +46,7 @@ ggplot(sentiment_data, aes(x = year, y = average_sentiment_yearly)) +
 
 ggplot(sentiment_data, aes(x = average_sentiment_yearly, y = average_bpm)) +
   geom_point() +
-  geom_smooth()
+  geom  _smooth()
 ```
 
 ## Website project structure
