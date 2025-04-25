@@ -28,12 +28,13 @@ This is an example of a Quarto website. All the [Quarto markdown features](https
 ```{r}
 #| label: plot 2
 
-sentiment_data = read_csv("data/matched_words.csv")
+sentiment_data = read_csv("data/sentiment_by_year.csv")
 
 ggplot(sentiment_data, aes(x = year, y = average_sentiment_yearly)) +
-  geom_point() +
-  geom_line(linewidth = 0.75, alpha = 0.6) +
+  geom_point(aes(color = average_time_seconds)) +
+  geom_line(color = "navy", linewidth = 0.75, alpha = 0.6) +
   scale_x_continuous(breaks = seq(min(matched_words$year), max(matched_words$year), by = 2)) +
+  labs(x = "Year (1953-2006)", y = "Average Sentiment of Lyrics") +
   theme(axis.text.x = element_text(angle = 60, hjust = 1))
 
   
