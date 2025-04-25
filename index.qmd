@@ -28,6 +28,7 @@ This is an example of a Quarto website. All the [Quarto markdown features](https
 ```{r}
 #| label: plot 2
 #| include: true
+#| fig-width: 8
 
 sentiment_data = read_csv("data/sentiment_by_year.csv")
 
@@ -40,9 +41,13 @@ ggplot(sentiment_data, aes(x = year, y = average_sentiment_yearly)) +
        color = "Average Time in Seconds") +
   theme(axis.text.x = element_text(angle = 60, hjust = 1))
 
-  
 ```
+```{r}
 
+ggplot(sentiment_data, aes(x = average_sentiment_yearly, y = average_bpm)) +
+  geom_point() +
+  geom_smooth()
+```
 
 ## Website project structure
 
