@@ -101,26 +101,59 @@ song_lyrics1 <- bind_cols(song_lyrics1, lyrics_df)
 # merge song_lyrics with songs_clean to add `url` and `lyrics` to songs_clean
 merged_songs <- songs_clean |>
   left_join(song_lyrics1 |> select(title, url, lyrics), by = "title")
+
 ```
 
 ```{r}
 #| label: creating additional, necessary datasets
 
-# create bigrams dataset for lyrics
+# combine all four Rock decades into one genre `Rock`
+# & all Dance decades into one genre `Dance`
+merged_songs_combined <- merged_songs |>
+  filter(number <= 250) |>
+  mutate(genre_combined = case_when(
+    str_detect(genre, "Rock") ~ "Rock",
+    str_detect(genre, "Dance") ~ "Dance",
+    TRUE ~ genre
+  )) |>
+  # create `decade` with just years for faceting
+ mutate(decade = str_extract(genre, "\\d{4}s")) |>
+  relocate(genre_combined, .after = genre) |>
+  relocate(decade, .after = genre_combined) 
+
+# create bigrams dataset for lyrics (might not need)
  merged_songs_bigrams <- merged_songs |>
   filter(number <= 250) |>
     unnest_tokens(output = bigram, input = lyrics, token = "ngrams", n = 2) |>
    select(number, artist, title, bigram)
  
- # create trigrams dataset for lyrics
+ # create trigrams dataset for lyrics (might not need)
  merged_songs_trigrams <- merged_songs |>
   filter(number <= 250) |>
    unnest_tokens(output = trigram, input = lyrics, token = "ngrams", n = 3) |>
    select(number, artist, title, trigram)
  
- # df for word frequencies for word clouds
- lyrics_word_freqs <- merged_songs |>
+ # df for `Rock` word frequencies for word clouds
+ Rock_lyrics_word_freqs <- merged_songs_combined |>
   filter(number <= 250) |>
+   filter(genre_combined == "Rock") |>
+   select(title, genre, decade, lyrics) |>
+    unnest_tokens(output = word, input = lyrics) |>
+    anti_join(stop_words, by = "word") |>
+    count(word, decade, sort = TRUE)
+ 
+# df for `TBD` word frequencies for word clouds
+ TBD_lyrics_word_freqs <- merged_songs_combined |>
+  filter(number <= 250) |>
+   filter(genre_combined == "TBD") |>
+    unnest_tokens(output = word, input = lyrics) |>
+    anti_join(stop_words, by = "word") |>
+    count(word, sort = TRUE)
+ 
+# df for `Slow` word frequencies for word clouds
+ Slow_lyrics_word_freqs <- merged_songs_combined |>
+  filter(number <= 250) |>
+   filter(genre_combined == "Slow") |>
     unnest_tokens(output = word, input = lyrics) |>
     anti_join(stop_words, by = "word") |>
     count(word, sort = TRUE)
@@ -134,6 +167,10 @@ merged_songs <- songs_clean |>
 write_csv(merged_songs, "data/merged_songs.csv")
 read_csv("data/merged_songs.csv")
 
+# merged_songs_combined
+write_csv(merged_songs_combined, "data/merged_songs_combined.csv")
+read_csv("data/merged_songs_combined.csv")
+
 # merged_songs_bigrams
 write_csv(merged_songs_bigrams, "data/merged_songs_bigrams.csv")
 read_csv("data/merged_songs_bigrams.csv")
@@ -145,6 +182,8 @@ read_csv("data/merged_songs_trigrams.csv")
 #lyrics_word_freqs
 write_csv(lyrics_word_freqs, "data/lyrics_word_freqs.csv")
 read_csv("data/lyrics_word_freqs.csv")
+
+# write and read csv for word freqs datasets
 
 ```
 
@@ -171,3 +210,140 @@ ggplot(matched_words, aes(x = year, y = average_sentiment_yearly)) +
   scale_x_continuous(breaks = seq(min(matched_words$year), max(matched_words$year), by = 2)) +
   theme(axis.text.x = element_text(angle = 60, hjust = 1))
 ```
+
+```{r}
+# jenna visualization workspace
+
+library(ggwordcloud)
+library(xfun)
+library(RColorBrewer)
+library(wordcloud)
+library(ggpubr)
+
+# Rock cumulative word cloud
+Rock_lyrics_word_freqs |>
+  filter(decade == "1970s") |>
+    with(wordcloud(words = word,
+                   freq = n,
+                  # min.freq = 20,
+                  max.words = 50,
+# Plot the words in a random order
+random.order = TRUE,
+# Specify the range of the size of the words
+scale = c(3, 0.3),
+# Specify proportion of words with 90 degree rotation
+rot.per = 0.15,
+# Color words from least to most frequent
+colors = brewer.pal(10, "Dark2"),
+# Change font family
+family = "sans"))
+
+# 1970s Rock decade
+Rock1 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1970s"), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",             
+    random.order = TRUE,           
+    max.words = 50,                
+    scale = c(3, 0.3),             # Size scale for words
+    rotate_ratio = 0.15,           # Percentage of words rotated
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE            
+  ) +
+  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  ggtitle("Rock Word Cloud - 1970s") +  
+  theme_minimal() +  
+  theme(legend.position = "none",  
+        plot.background = element_rect(fill = "white", color = "white")) 
+
+# 1980s Rock decade
+Rock2 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1980s"), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",             
+    random.order = TRUE,           
+    max.words = 50,               
+    scale = c(3, 0.3),             # Size scale for words
+    rotate_ratio = 0.15,           # Percentage of words rotated
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE           
+  ) +
+  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  ggtitle("Rock Word Cloud - 1980s") +  
+  theme_minimal() +  
+  theme(legend.position = "none",  
+        plot.background = element_rect(fill = "white", color = "white"))
+
+# 1990s Rock decade
+Rock3 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1990s"), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",               
+    random.order = TRUE,           
+    max.words = 50,              
+    scale = c(3, 0.3),             # Size scale for words
+    rotate_ratio = 0.15,           # Percentage of words rotated
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE            
+  ) +
+  scale_color_gradientn(colors = brewer.pal(9, "Set1")) +  
+  ggtitle("Rock Word Cloud - 1990s") +  
+  theme_minimal() + 
+  theme(legend.position = "none", 
+        plot.background = element_rect(fill = "white", color = "white"))
+
+# 2000s Rock decade
+Rock4 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "2000s"), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",           
+    random.order = TRUE,         
+    max.words = 50,             
+    scale = c(3, 0.3),             # Size scale for words
+    rotate_ratio = 0.15,           # Percentage of words rotated
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE           
+  ) +
+  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  ggtitle("Rock Word Cloud - 2000s") +
+  theme_minimal() + 
+  theme(legend.position = "none", 
+        plot.background = element_rect(fill = "white", color = "white"))
+
+#arrange four clouds for one tab
+ggarrange(Rock1, Rock2, Rock3, Rock4, ncol = 2, nrow = 2)
+
+
+# TBD word cloud
+TBD_lyrics_word_freqs |>
+    with(wordcloud(words = word,
+                   freq = n,
+                  # min.freq = 20,
+                  max.words = 50,
+random.order = TRUE,
+# Specify the range of the size of the words
+scale = c(3, 0.3),
+# Specify proportion of words with 90 degree rotation
+rot.per = 0.15,
+# Color words from least to most frequent
+colors = brewer.pal(10, "Dark2"),
+family = "sans"))
+
+
+# Slow word cloud
+Slow_lyrics_word_freqs |>
+    with(wordcloud(words = word,
+                   freq = n,
+                  # min.freq = 20,
+                  max.words = 50,
+random.order = TRUE,
+# Specify the range of the size of the words
+scale = c(3, 0.3),
+# Specify proportion of words with 90 degree rotation
+rot.per = 0.15,
+# Color words from least to most frequent
+colors = brewer.pal(10, "Dark2"),
+family = "sans"))
+
+```
+
