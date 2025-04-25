@@ -183,6 +183,15 @@ sentiment_by_year <- words_by_year |>
     num_songs = n_distinct(title)) |>
   arrange(year)
 
+sentiment_by_genre <- words_by_year |>
+  group_by(genre) |>
+  summarize(
+    average_sentiment_yearly = mean(value, na.rm = TRUE),
+    average_time_seconds = mean(time_seconds, na.rm = TRUE),
+    average_bpm = mean(bpm, na.rm = TRUE),
+    num_songs = n_distinct(title)) |>
+  arrange(genre)
+
 ```
 
 ```{r}
@@ -211,6 +220,10 @@ read_csv("data/lyrics_word_freqs.csv")
 # sentiment_by_year
 write_csv(sentiment_by_year, "data/sentiment_by_year.csv")
 read_csv("data/sentiment_by_year.csv")
+
+# sentiment_by_genre
+write_csv(sentiment_by_genre, "data/sentiment_by_genre.csv")
+read_csv("data/sentiment_by_genre.csv")
 
 # write and read csv for word freqs datasets
 
