@@ -128,6 +128,28 @@ merged_songs <- songs_clean |>
 ```
 
 ```{r}
+
+afinn_lexicon = get_sentiments("afinn")
+
+words_by_year = merged_songs |>
+  unnest_tokens(output = word, input = lyrics, token = "words") |>
+  inner_join(afinn_lexicon, by = "word") |>
+  separate(time, into = c("min", "sec"), sep = ":", convert = TRUE) |>
+  mutate(year = as.numeric(year),
+         time_seconds = min * 60 + sec,
+         bpm = as.numeric(bpm))
+
+sentiment_by_year = words_by_year |>
+  group_by(year) |>
+  summarize(average_sentiment_yearly = mean(value, na.rm = TRUE),
+            average_time_seconds = mean(time_seconds, na.rm = TRUE),
+            average_bpm = mean(bpm, na.rm = TRUE),
+            num_songs = n_distinct(title)) |>
+  arrange(year)
+
+```
+
+```{r}
 #| label: creating csv files
 
 # merged_songs
@@ -146,28 +168,8 @@ read_csv("data/merged_songs_trigrams.csv")
 write_csv(lyrics_word_freqs, "data/lyrics_word_freqs.csv")
 read_csv("data/lyrics_word_freqs.csv")
 
-```
-
-```{r}
-
-afinn_lexicon = get_sentiments("afinn")
-
-words_by_year = merged_songs |>
-  unnest_tokens(output = word, input = lyrics, token = "ngrams", n = 1)
-
-matched_words = inner_join(afinn_lexicon, words_by_year) |>
-  mutate(year = as.numeric(year)) |>
-  group_by(year, ) |>
-  summarize(average_sentiment_yearly = mean(value, na.rm = TRUE)) |>
-  arrange(year)
+write_csv(sentiment_by_year, "data/sentiment_by_year.csv")
+read_csv("data/sentiment_by_year.csv")
 
 ```
 
-```{r}
-
-ggplot(matched_words, aes(x = year, y = average_sentiment_yearly)) +
-  geom_point() +
-  geom_line(linewidth = 0.75, alpha = 0.6) +
-  scale_x_continuous(breaks = seq(min(matched_words$year), max(matched_words$year), by = 2)) +
-  theme(axis.text.x = element_text(angle = 60, hjust = 1))
-```

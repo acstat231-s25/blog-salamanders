@@ -25,6 +25,20 @@ library(kableExtra)
 
 This is an example of a Quarto website. All the [Quarto markdown features](https://quarto.org/docs/authoring/markdown-basics.html) we learned for formatting text, adding headings and subheadings, adding code and output, adding labels and captions and whatnot work as usual. 
 
+```{r}
+#| label: plot 2
+
+sentiment_data = read_csv("data/matched_words.csv")
+
+ggplot(sentiment_data, aes(x = year, y = average_sentiment_yearly)) +
+  geom_point() +
+  geom_line(linewidth = 0.75, alpha = 0.6) +
+  scale_x_continuous(breaks = seq(min(matched_words$year), max(matched_words$year), by = 2)) +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
+
+  
+```
+
 
 ## Website project structure
 
