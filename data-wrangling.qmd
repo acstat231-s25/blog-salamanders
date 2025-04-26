@@ -22,6 +22,7 @@ library(stringr)
 library(robotstxt)
 library(tidytext)
 library(dplyr)
+library(lubridate)
 ```
 
 ```{r}
@@ -40,12 +41,24 @@ songs <- songs_url |>
 ```{r}
 #| label: cleanup table
 
+songs$X1 <- as.numeric(songs$X1)
 songs_clean <- songs |> 
   select(-X2,-X10) |>
   rename(number = X1, artist = X3, title = X4, time = X5
          , bpm = X6, year = X7 , genre = X8, track = X9) |>
    filter(artist != "ARTIST") |>
-  mutate(track_gen = str_remove(track, "-.."))
+  mutate(track_gen = str_remove(track, "-..")
+         , block = case_when(
+           number < 101  ~ "t100"
+           , number > 100 & number < 201 ~ "t200"
+           , number > 200 & number < 301 ~ "t300"
+           , number > 300 & number < 401 ~ "t400"
+           , number > 400 & number < 501 ~ "t500"
+         ),
+         time = ms(time))
+songs_clean$bpm <- as.numeric(songs_clean$bpm)
+
+
 ```
 
 ```{r}
@@ -229,9 +242,6 @@ read_csv("data/sentiment_by_genre.csv")
 
 ```
 
-
-
-
 ```{r}
 # jenna visualization workspace
 
@@ -365,6 +375,53 @@ rot.per = 0.15,
 # Color words from least to most frequent
 colors = brewer.pal(10, "Dark2"),
 family = "sans"))
+
+```
+
+```{r}
+# Claire visualization workspace
+
+# bpm vis
+songs_clean |> 
+  # Create segmented histogram
+  ggplot(aes(x = bpm, fill = block)) +
+    geom_histogram(position = "stack", color = "black") +
+    labs(
+     title = " "
+     , subtitle = " "
+     , x = "BPM"
+     , y = "Count"
+     , tag = " "
+     , caption = " "
+     ) +
+    scale_fill_discrete(name = "Class") +
+    theme_linedraw() +
+    theme(legend.text = element_text(size = rel(0.75))) +
+    theme(title = element_text(size = rel(0.75))) +
+    theme(plot.caption = element_text(hjust = -0.5)) +
+    theme(axis.text.x = element_text(angle = 30, hjust = 1
+                                     , size = rel(0.75))) 
+
+# duration vis
+songs_clean |> 
+  # Create segmented histogram
+  ggplot(aes(x = time, fill = block)) +
+    geom_histogram(position = "stack", color = "black") +
+    labs(
+     title = " "
+     , subtitle = " "
+     , x = "Song Duration"
+     , y = "Count"
+     , tag = " "
+     , caption = " "
+     ) +
+    scale_fill_discrete(name = "Class") +
+    theme_linedraw() +
+    theme(legend.text = element_text(size = rel(0.75))) +
+    theme(title = element_text(size = rel(0.75))) +
+    theme(plot.caption = element_text(hjust = -0.5)) +
+    theme(axis.text.x = element_text(angle = 30, hjust = 1
+                                     , size = rel(0.75))) 
 
 ```
 
