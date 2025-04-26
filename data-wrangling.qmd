@@ -23,6 +23,7 @@ library(robotstxt)
 library(tidytext)
 library(dplyr)
 library(lubridate)
+library(scales)
 ```
 
 ```{r}
@@ -41,22 +42,24 @@ songs <- songs_url |>
 ```{r}
 #| label: cleanup table
 
-songs$X1 <- as.numeric(songs$X1)
+
 songs_clean <- songs |> 
   select(-X2,-X10) |>
   rename(number = X1, artist = X3, title = X4, time = X5
          , bpm = X6, year = X7 , genre = X8, track = X9) |>
    filter(artist != "ARTIST") |>
   mutate(track_gen = str_remove(track, "-..")
+         , number = as.numeric(number)
          , block = case_when(
            number < 101  ~ "t100"
            , number > 100 & number < 201 ~ "t200"
            , number > 200 & number < 301 ~ "t300"
            , number > 300 & number < 401 ~ "t400"
            , number > 400 & number < 501 ~ "t500"
-         ),
-         time = ms(time))
-songs_clean$bpm <- as.numeric(songs_clean$bpm)
+         )
+         , time = ms(time)
+         , bpm = as.numeric(bpm))
+
 
 
 ```
@@ -415,7 +418,7 @@ songs_clean |>
      , tag = " "
      , caption = " "
      ) +
-    scale_fill_discrete(name = "Class") +
+    scale_fill_discrete(name = "") +
     theme_linedraw() +
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
