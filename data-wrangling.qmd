@@ -424,8 +424,8 @@ songs_chart |>
   ggplot(aes(x = bpm, fill = block)) +
     geom_histogram(position = "stack", color = "black") +
     labs(
-     title = " "
-     , subtitle = " "
+     title = "BPM in the Rolling Stone Top 500"
+     , subtitle = "Broken Down By Rank"
      , x = "Beats per minute (bpm)"
      , y = "Count"
      , tag = " "
@@ -435,9 +435,9 @@ songs_chart |>
     theme_linedraw() +
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
-    theme(plot.caption = element_text(hjust = -0.5)) +
-    theme(axis.text.x = element_text(angle = 30, hjust = 1
-                                     , size = rel(0.75)))
+    theme(plot.caption = element_text(hjust = -0.5))  +
+    theme(axis.title.x = element_text(size = rel(1.5))) +
+    theme(axis.text.x = element_text(size = rel(1.25)))
 
 
 # duration vis
@@ -446,8 +446,8 @@ songs_chart |>
   ggplot(aes(x = time, fill = block)) +
     geom_histogram(position = "stack", color = "black") +
     labs(
-     title = " "
-     , subtitle = " "
+     title = "Song Durations of the Rolling Stone Top 500"
+     , subtitle = "Broken Down by Rank"
      , x = "Song duration"
      , y = "Count"
      , tag = " "
@@ -457,9 +457,9 @@ songs_chart |>
     theme_linedraw() +
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
-    theme(plot.caption = element_text(hjust = -0.5)) +
-    theme(axis.text.x = element_text(angle = 30, hjust = 1
-                                     , size = rel(0.75))) 
+    theme(plot.caption = element_text(hjust = -0.5))  +
+    theme(axis.title.x = element_text(size = rel(1.5))) +
+    theme(axis.text.x = element_text(size = rel(1.25)))
 
 # decade vis
 songs_chart |> 
@@ -467,8 +467,8 @@ songs_chart |>
   ggplot(aes(x = decade, fill = block)) +
     geom_bar(position = "stack", color = "black") +
     labs(
-     title = " "
-     , subtitle = " "
+     title = "Decades in the Rolling Stone Top 500"
+     , subtitle = "Broken Down By Rank"
      , x = "Decade of Release"
      , y = "Count"
      , tag = " "
@@ -479,8 +479,8 @@ songs_chart |>
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
     theme(plot.caption = element_text(hjust = -0.5)) +
-    theme(axis.text.x = element_text(angle = 30, hjust = 1
-                                     , size = rel(0.75))) 
+    theme(axis.title.x = element_text(size = rel(1.5))) +
+    theme(axis.text.x = element_text(size = rel(1.25)))
 
 
   # top artists vis
@@ -489,9 +489,9 @@ top_artists |>
   ggplot(aes(x = artist, fill = decade)) +
     geom_bar(position = "stack") +
     labs(
-     title = "BPM Rolling Stone Top 500"
-     , subtitle = "Broken Down By Rank"
-     , x = "Beats per minute (bpm)"
+     title = "The Top 3 Most Represented Artists in the Rolling Stone Top 500"
+     , subtitle = "Broken Down by the Decade Their Songs Were Released"
+     , x = "Artist"
      , y = "Count"
      , tag = " "
      , caption = " "
@@ -500,8 +500,7 @@ top_artists |>
     theme_linedraw() +
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
-    theme(plot.caption = element_text(hjust = -0.5)) +
-    theme(axis.text.x = element_text(hjust = 1) 
+    theme(axis.title.x = element_text(size = rel(1.25)))
 
 
  
