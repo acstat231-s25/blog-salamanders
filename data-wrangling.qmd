@@ -50,18 +50,9 @@ songs_clean <- songs |>
    filter(artist != "ARTIST") |>
   mutate(track_gen = str_remove(track, "-..")
          , number = as.numeric(number)
-         , block = case_when(
-           number < 101  ~ "t100"
-           , number > 100 & number < 201 ~ "t200"
-           , number > 200 & number < 301 ~ "t300"
-           , number > 300 & number < 401 ~ "t400"
-           , number > 400 & number < 501 ~ "t500"
-         )
          , time = ms(time)
-         , bpm = as.numeric(bpm))
-
-
-
+         , bpm = as.numeric(bpm)
+         , year = as.numeric(year) )
 ```
 
 ```{r}
@@ -380,24 +371,72 @@ colors = brewer.pal(10, "Dark2"),
 family = "sans"))
 
 ```
+```{r}
+songs_chart <- songs_clean |>
+  mutate(
+    block = case_when(
+      number > 400 & number < 501 ~ "500s"
+      , number > 300 & number < 401 ~ "400s"
+      , number > 200 & number < 301 ~ "300s"
+      , number > 100 & number < 201 ~ "200s"
+      , number < 101  ~ " Top 100"
+      )
+    , decade = case_when(
+      year > 1949 & year < 1960 ~ "50s"
+      , year > 1959 & year < 1970 ~ "60s"
+      , year > 1969 & year < 1980 ~ "70s"
+      , year > 1979 & year < 1990 ~ "80s"
+      , year > 1989 & year < 2000 ~ "90s"
+      , year > 1999 & year < 2010 ~ "2000s"
+    )
+    , evod = case_when(
+      year %% 2 == 1 ~ "odd"
+      , year %% 2 == 0 ~ "even"
+    )
+    )
+         
+```
 
 ```{r}
 # Claire visualization workspace
-
+library(RColorBrewer)
 # bpm vis
-songs_clean |> 
+songs_chart |> 
   # Create segmented histogram
   ggplot(aes(x = bpm, fill = block)) +
     geom_histogram(position = "stack", color = "black") +
     labs(
      title = " "
      , subtitle = " "
-     , x = "BPM"
+     , x = "Beats per minute (bpm)"
      , y = "Count"
      , tag = " "
      , caption = " "
      ) +
-    scale_fill_discrete(name = "Class") +
+    scale_fill_discrete(name = "Rank") +
+    theme_linedraw() +
+    theme(legend.text = element_text(size = rel(0.75))) +
+    theme(title = element_text(size = rel(0.75))) +
+    theme(plot.caption = element_text(hjust = -0.5)) +
+    theme(axis.text.x = element_text(angle = 30, hjust = 1
+                                     , size = rel(0.75))) +
+    scale_color_brewer(palette = "Paired") 
+
+
+# duration vis
+songs_chart |> 
+  # Create segmented histogram
+  ggplot(aes(x = time, fill = block)) +
+    geom_histogram(position = "stack", color = "black") +
+    labs(
+     title = " "
+     , subtitle = " "
+     , x = "Song duration"
+     , y = "Count"
+     , tag = " "
+     , caption = " "
+     ) +
+    scale_fill_discrete(name = "Rank") +
     theme_linedraw() +
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
@@ -405,26 +444,60 @@ songs_clean |>
     theme(axis.text.x = element_text(angle = 30, hjust = 1
                                      , size = rel(0.75))) 
 
-# duration vis
-songs_clean |> 
+# decade vis
+songs_chart |> 
   # Create segmented histogram
-  ggplot(aes(x = time, fill = block)) +
-    geom_histogram(position = "stack", color = "black") +
+  ggplot(aes(x = decade, fill = block)) +
+    geom_bar(position = "stack", color = "black") +
     labs(
      title = " "
      , subtitle = " "
-     , x = "Song Duration"
+     , x = "Decade of Release"
      , y = "Count"
      , tag = " "
      , caption = " "
      ) +
-    scale_fill_discrete(name = "") +
+    scale_fill_discrete(name = "Rank") +
     theme_linedraw() +
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
     theme(plot.caption = element_text(hjust = -0.5)) +
     theme(axis.text.x = element_text(angle = 30, hjust = 1
                                      , size = rel(0.75))) 
+
+
+  
+  sort(table(songs_chart$artist), decreasing = TRUE)[1:10]
+  
+  top_artists <- songs_chart |>
+    filter(artist == "The Beatles" | artist == "The Rolling Stones"
+           | artist == "Bob Dylan")
+
+            
+  
+  # bpm vis
+top_artists |> 
+  # Create segmented histogram
+  ggplot(aes(x = artist, fill = decade)) +
+    geom_bar(position = "stack") +
+    labs(
+     title = " "
+     , subtitle = " "
+     , x = "Beats per minute (bpm)"
+     , y = "Count"
+     , tag = " "
+     , caption = " "
+     ) +
+    scale_fill_discrete(name = "Decade") +
+    theme_linedraw() +
+    theme(legend.text = element_text(size = rel(0.75))) +
+    theme(title = element_text(size = rel(0.75))) +
+    theme(plot.caption = element_text(hjust = -0.5)) +
+    theme(axis.text.x = element_text(angle = 30, hjust = 1
+                                     , size = rel(0.75)))
+
+
+ 
 
 ```
 
