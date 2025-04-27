@@ -216,11 +216,11 @@ read_csv("data/merged_songs_combined.csv")
 write_csv(merged_songs_bigrams, "data/merged_songs_bigrams.csv")
 read_csv("data/merged_songs_bigrams.csv")
 
-#merged_songs_trigrams
+# merged_songs_trigrams
 write_csv(merged_songs_trigrams, "data/merged_songs_trigrams.csv")
 read_csv("data/merged_songs_trigrams.csv")
 
-#lyrics_word_freqs
+# lyrics_word_freqs
 write_csv(lyrics_word_freqs, "data/lyrics_word_freqs.csv")
 read_csv("data/lyrics_word_freqs.csv")
 
@@ -500,4 +500,3 @@ top_artists |>
  
 
 ```
-
