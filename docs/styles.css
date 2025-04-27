@@ -1,1 +1,14 @@
 /* css styles */
+     .navbar-custom {
+     background-color: #d92b1e;
+   }
+   
+   .navbar-custom .navbar-brand,
+   .navbar-custom .navbar-text {
+     color: white;
+   }
+     
+
+
+
+ 
