@@ -385,7 +385,7 @@ songs_chart <- songs_clean |>
       , number > 300 & number < 401 ~ "400s"
       , number > 200 & number < 301 ~ "300s"
       , number > 100 & number < 201 ~ "200s"
-      , number < 101  ~ " Top 100"
+      , number < 101  ~ "Top 100"
       )
     , decade = case_when(
       # create var for decade
@@ -400,7 +400,11 @@ songs_chart <- songs_clean |>
 # sort decades into logical order for legends
 songs_chart$decade = 
    factor(songs_chart$decade
-          , levels = c('50s', '60s', '70s', "80s", '90s', '2000s' ))  
+          , levels = c('50s', '60s', '70s', "80s", '90s', '2000s'))
+# sort rank blocks into order that best demonstrates top 100 distribution
+songs_chart$block =
+  factor(songs_chart$block
+         , levels = c('500s', '400s', '300s', '200s', 'Top 100'))
 # df for top 3 artists
 top_artists <- songs_chart |>
     filter(artist == "The Beatles" | artist == "The Rolling Stones"
@@ -433,8 +437,7 @@ songs_chart |>
     theme(title = element_text(size = rel(0.75))) +
     theme(plot.caption = element_text(hjust = -0.5)) +
     theme(axis.text.x = element_text(angle = 30, hjust = 1
-                                     , size = rel(0.75))) +
-    scale_color_brewer(palette = "Paired") 
+                                     , size = rel(0.75)))
 
 
 # duration vis
@@ -480,22 +483,14 @@ songs_chart |>
                                      , size = rel(0.75))) 
 
 
-  
-  sort(table(songs_chart$artist), decreasing = TRUE)[1:10]
-  
-
-
-            
-  
-  # bpm vis
+  # top artists vis
 top_artists |> 
   # Create segmented histogram
   ggplot(aes(x = artist, fill = decade)) +
     geom_bar(position = "stack") +
-    scale_color_brewer(palette = "Paired") +
     labs(
-     title = " "
-     , subtitle = " "
+     title = "BPM Rolling Stone Top 500"
+     , subtitle = "Broken Down By Rank"
      , x = "Beats per minute (bpm)"
      , y = "Count"
      , tag = " "
@@ -506,8 +501,7 @@ top_artists |>
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
     theme(plot.caption = element_text(hjust = -0.5)) +
-    theme(axis.text.x = element_text(angle = 30, hjust = 1
-                                     , size = rel(0.75))) 
+    theme(axis.text.x = element_text(hjust = 1) 
 
 
  
