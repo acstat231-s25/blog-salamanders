@@ -7,6 +7,12 @@
    .navbar-custom .navbar-text {
      color: white;
    }
+   .nav-item .nav-link {
+     color: #d92b1e;
+   }
+   .nav-link .active{
+     color: #d92b1e;
+   }
      
 
 
