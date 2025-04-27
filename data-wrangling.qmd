@@ -174,17 +174,15 @@ afinn_lexicon = get_sentiments("afinn")
 words_by_year = merged_songs |>
   unnest_tokens(output = word, input = lyrics, token = "words") |>
   inner_join(afinn_lexicon, by = "word") |>
-  separate(time, into = c("min", "sec"), sep = ":", convert = TRUE) |>
   mutate(
     year = as.numeric(year),
-    time_seconds = min * 60 + sec,
-    bpm = as.numeric(bpm)
-  )
+    time_seconds = minute(time) * 60 + second(time),
+    bpm = as.numeric(bpm))
 
 sentiment_by_year <- words_by_year |>
   group_by(year) |>
   summarize(
-    average_sentiment_yearly = mean(value, na.rm = TRUE),
+    average_sentiment = mean(value, na.rm = TRUE),
     average_time_seconds = mean(time_seconds, na.rm = TRUE),
     average_bpm = mean(bpm, na.rm = TRUE),
     num_songs = n_distinct(title)) |>
@@ -193,7 +191,7 @@ sentiment_by_year <- words_by_year |>
 sentiment_by_genre <- words_by_year |>
   group_by(genre) |>
   summarize(
-    average_sentiment_yearly = mean(value, na.rm = TRUE),
+    average_sentiment = mean(value, na.rm = TRUE),
     average_time_seconds = mean(time_seconds, na.rm = TRUE),
     average_bpm = mean(bpm, na.rm = TRUE),
     num_songs = n_distinct(title)) |>

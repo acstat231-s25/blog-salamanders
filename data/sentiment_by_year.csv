@@ -1,4 +1,4 @@
-year,average_sentiment_yearly,average_time_seconds,average_bpm,num_songs
+year,average_sentiment,average_time_seconds,average_bpm,num_songs
 1953,-0.3,162,128.5,1
 1954,0.7777777777777778,180,153,1
 1955,1.3333333333333333,158.42105263157896,105.44736842105263,3

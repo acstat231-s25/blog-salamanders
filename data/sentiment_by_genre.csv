@@ -1,4 +1,4 @@
-genre,average_sentiment_yearly,average_time_seconds,average_bpm,num_songs
+genre,average_sentiment,average_time_seconds,average_bpm,num_songs
 Country,-0.30526315789473685,163.3578947368421,107.85894736842106,7
 Dance 1960s,1.03125,162.3046875,116.9359375,8
 Dance 1970s,0.96,248.22666666666666,94.11333333333333,3
