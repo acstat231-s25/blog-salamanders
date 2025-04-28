@@ -45,9 +45,9 @@ sentiment_by_year = ggplot(sentiment_data_yearly, aes(x = year, y = average_sent
   geom_line(color = "skyblue4", linewidth = 0.75, alpha = 0.55) +
   scale_x_continuous(breaks = seq(min(sentiment_data_yearly$year), 
                                   max(sentiment_data_yearly$year), by = 2)) +
-  labs(x = "Year (1953-2006)", y = "Average Sentiment of Lyrics",
-       color = "Average Time in Seconds") +
-  theme(axis.text.x = element_text(angle = 60, hjust = 1))
+  labs(title = "Average Sentiment of Top 500 Rolling Stone's Songs by Year",
+       x = "Year (1953-2006)", y = "Average Sentiment of Lyrics") +
+  theme(axis.text.x = element_text(angle = 55, hjust = 1))
 
 ggplotly(sentiment_by_year, tooltip = "text")
 
@@ -62,8 +62,9 @@ sentiment_by_genre = ggplot(sentiment_data_genre, aes(x = genre, y = average_sen
                              "Average Time (sec): ", average_time_seconds, "<br>",
                              "Average BPM (beats per minute): ", average_bpm, "<br>",
                              "Number of Songs: ", num_songs))) +
-  labs(x = "Genre", y = "Average Sentiment of Lyrics") +
-  theme(axis.text.x = element_text(angle = 60, hjust = 1))
+  labs(title = "Average Sentiment of Top 500 Rolling Stone's Songs by Genre",
+       x = "Genre", y = "Average Sentiment of Lyrics") +
+  theme(axis.text.x = element_text(angle = 55, hjust = 1))
 
 ggplotly(sentiment_by_genre, tooltip = "text")
 
