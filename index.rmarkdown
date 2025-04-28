@@ -27,6 +27,9 @@ library(plotly)
 include_graphics("images/cover_image.jpg")
 ```
 
+
+
+
 # Getting started
 
 This is an example of a Quarto website. All the [Quarto markdown features](https://quarto.org/docs/authoring/markdown-basics.html) we learned for formatting text, adding headings and subheadings, adding code and output, adding labels and captions and whatnot work as usual. 
@@ -35,11 +38,14 @@ This is an example of a Quarto website. All the [Quarto markdown features](https
 
 # Data Collection
 
-We collected data from an [online music database](https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html) created by Dave Tompkins, a professor at the University of Waterloo in Canada. The data 
+We collected data from a website created by Dave Tompkins, a professor at the University of Waterloo in Canada.  
 
 # Data Wrangling
 
 # Visualizations
+
+
+
 
 ```{r}
 #| label: sentiment by year and genre
@@ -87,9 +93,15 @@ ggplotly(sentiment_by_genre, tooltip = "text")
 
 ```
 
+
+
+
 ::: {.panel-tabset}
 
 ### Tab 1
+
+
+
 
 ```{r}
 
@@ -99,7 +111,13 @@ ggplot(sentiment_data_yearly, aes(x = average_sentiment, y = average_time_second
 ```
 
 
+
+
+
 ### Tab 2
+
+
+
 
 ```{r}
 
@@ -107,6 +125,9 @@ ggplot(sentiment_data_yearly, aes(x = average_sentiment, y = average_bpm)) +
   geom_point() +
   geom_smooth()
 ```
+
+
+
 
 :::
 
@@ -223,6 +244,9 @@ Focus on completing the blog content first! You can play with features and custo
 
 I would strongly recommend  using **knitr**'s `include_graphics()` functions within code chunks to include images or gifs within your blog. This makes it easier to modify figures, add captions and links, and visually find the code for figures quickly if you need to modify something about the output. There is also [markdown syntax to display or embed images](https://quarto.org/docs/authoring/figures.html), but I would typically not recommend it.
 
+
+
+
 ```{r}
 #| fig-cap: "Image courtesy of giphy.com"
 #| fig-align: center
@@ -231,6 +255,9 @@ I would strongly recommend  using **knitr**'s `include_graphics()` functions wit
 
 include_graphics("https://i.giphy.com/3og0IT6sIWd1eh7bJm.webp")
 ```
+
+
+
 
 Either approach will take either a filepath to a stored file or a URL to an image or gif. Width can be specified as a percentage of the width of the page (0% to 100%; my preferred approach) or as a fixed number of units (e.g. 400px, 3in, 10cm). 
 
@@ -294,6 +321,9 @@ The same syntax shown across the linked examples can be used to create subtables
 
 Two examples in @tbl-layout and @fig-layout below are borrowed and slightly modified from the linked sections. 
 
+
+
+
 ```{r}
 #| label: tbl-layout
 #| tbl-cap: "Two tables side-by-side"
@@ -310,7 +340,6 @@ pressure |>
   slice(1:3) |> 
   kable()
 ```
-
 
 ```{r}
 #| label: fig-layout
