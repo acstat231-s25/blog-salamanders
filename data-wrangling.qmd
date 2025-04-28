@@ -47,7 +47,7 @@ songs_clean <- songs |>
   select(-X2,-X10) |>
   rename(number = X1, artist = X3, title = X4, time = X5
          , bpm = X6, year = X7 , genre = X8, track = X9) |>
-   filter(artist != "ARTIST") |>
+  filter(artist != "ARTIST") |>
   mutate(track_gen = str_remove(track, "-..")
          , number = as.numeric(number)
          , time = ms(time)
@@ -218,11 +218,10 @@ afinn_lexicon = get_sentiments("afinn")
 words_by_year = merged_songs |>
   unnest_tokens(output = word, input = lyrics, token = "words") |>
   inner_join(afinn_lexicon, by = "word") |>
-  mutate(
-    year = as.numeric(year),
-    # calculate total length (in seconds) of each song
-    time_seconds = minute(time) * 60 + second(time),
-    bpm = as.numeric(bpm))
+  mutate(year = as.numeric(year),
+         # calculate total length (in seconds) of each song
+         time_seconds = minute(time) * 60 + second(time),
+         bpm = as.numeric(bpm))
 
 # obtain average sentiment score, time, and bpm for lyrics of all songs in each year
 sentiment_by_year <- words_by_year |>
