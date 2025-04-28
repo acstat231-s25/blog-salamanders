@@ -182,18 +182,18 @@ words_by_year = merged_songs |>
 sentiment_by_year <- words_by_year |>
   group_by(year) |>
   summarize(
-    average_sentiment = mean(value, na.rm = TRUE),
-    average_time_seconds = mean(time_seconds, na.rm = TRUE),
-    average_bpm = mean(bpm, na.rm = TRUE),
+    average_sentiment = round(mean(value, na.rm = TRUE), 2),
+    average_time_seconds = round(mean(time_seconds, na.rm = TRUE), 2),
+    average_bpm = round(mean(bpm, na.rm = TRUE), 2),
     num_songs = n_distinct(title)) |>
   arrange(year)
 
 sentiment_by_genre <- words_by_year |>
   group_by(genre) |>
   summarize(
-    average_sentiment = mean(value, na.rm = TRUE),
-    average_time_seconds = mean(time_seconds, na.rm = TRUE),
-    average_bpm = mean(bpm, na.rm = TRUE),
+    average_sentiment = round(mean(value, na.rm = TRUE), 2),
+    average_time_seconds = round(mean(time_seconds, na.rm = TRUE), 2),
+    average_bpm = round(mean(bpm, na.rm = TRUE), 2),
     num_songs = n_distinct(title)) |>
   arrange(genre)
 
@@ -219,8 +219,8 @@ write_csv(merged_songs_trigrams, "data/merged_songs_trigrams.csv")
 read_csv("data/merged_songs_trigrams.csv")
 
 # lyrics_word_freqs
-write_csv(lyrics_word_freqs, "data/lyrics_word_freqs.csv")
-read_csv("data/lyrics_word_freqs.csv")
+#write_csv(lyrics_word_freqs, "data/lyrics_word_freqs.csv")
+#read_csv("data/lyrics_word_freqs.csv")
 
 # sentiment_by_year
 write_csv(sentiment_by_year, "data/sentiment_by_year.csv")
