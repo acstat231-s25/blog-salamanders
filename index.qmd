@@ -30,6 +30,8 @@ This is an example of a Quarto website. All the [Quarto markdown features](https
 ```{r}
 #| label: plot 2
 #| include: true
+#| message: false
+#| warning: false
 #| fig-width: 8
 
 sentiment_data_yearly = read_csv("data/sentiment_by_year.csv")
