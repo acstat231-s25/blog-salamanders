@@ -1,11 +1,11 @@
 ---
-title: "Title"
+title: "Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Songs of All Time"
 subtitle: "Optional subtitle"
 author: 
 - "Jenna Holmes"
 - "Claire Albus"
 - "Albert Hu"
-abstract: "A brief abstract summarizing your project is required here. This abstract, along with the first image or figure in your blog, will be used as a preview to your blog on the course's landing page for all the blogs."
+abstract: "Music is a major source of entertainment that has strongly influenced peoples' lives. This project seeks to investigate different trends in music lyrics through the use of text and sentiment analysis, using data of songs included in the Rolling Stone's Top 500 Greatest Songs of All Time."
 ---
 
 ```{r}
@@ -23,9 +23,15 @@ library(ggplot2)
 library(plotly)
 ```
 
+```{r}
+include_graphics("images/cover_image.jpg")
+```
+
 # Getting started
 
 This is an example of a Quarto website. All the [Quarto markdown features](https://quarto.org/docs/authoring/markdown-basics.html) we learned for formatting text, adding headings and subheadings, adding code and output, adding labels and captions and whatnot work as usual. 
+
+# Introduction
 
 ```{r}
 #| label: plot 2
