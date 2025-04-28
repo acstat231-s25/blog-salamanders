@@ -35,20 +35,37 @@ This is an example of a Quarto website. All the [Quarto markdown features](https
 sentiment_data_yearly = read_csv("data/sentiment_by_year.csv")
 
 sentiment_by_year = ggplot(sentiment_data_yearly, aes(x = year, y = average_sentiment)) +
-  geom_point(aes(color = average_time_seconds)) +
-  geom_line(color = "skyblue4", linewidth = 0.75, alpha = 0.6) +
-  scale_x_continuous(breaks = seq(min(sentiment_data$year), 
-                                  max(sentiment_data$year), by = 2)) +
+  geom_point(color = "skyblue4", aes
+             (text = paste0("Year: ", year, "<br>",
+                            "Average Sentiment: ", average_sentiment, "<br>",
+                            "Average Time (sec): ", average_time_seconds, "<br>",
+                            "Average BPM (beats per minute): ", average_bpm, "<br>",
+                            "Number of Songs: ", num_songs))) +
+  geom_smooth() +
+  geom_line(color = "skyblue4", linewidth = 0.75, alpha = 0.55) +
+  scale_x_continuous(breaks = seq(min(sentiment_data_yearly$year), 
+                                  max(sentiment_data_yearly$year), by = 2)) +
   labs(x = "Year (1953-2006)", y = "Average Sentiment of Lyrics",
        color = "Average Time in Seconds") +
   theme(axis.text.x = element_text(angle = 60, hjust = 1))
 
-ggplotly(sentiment_by_year)
+ggplotly(sentiment_by_year, tooltip = "text")
+
+
 
 sentiment_data_genre = read_csv("data/sentiment_by_genre.csv")
 
-ggplot(sentiment_data_genre, aes(x = average_bpm, y = average_sentiment)) +
-  geom_point(aes(color = genre))
+sentiment_by_genre = ggplot(sentiment_data_genre, aes(x = genre, y = average_sentiment)) +
+  geom_col(fill = "skyblue4", color = "black",
+           aes(text = paste0("Genre: ", genre, "<br>",
+                             "Average Sentiment: ", average_sentiment, "<br>",
+                             "Average Time (sec): ", average_time_seconds, "<br>",
+                             "Average BPM (beats per minute): ", average_bpm, "<br>",
+                             "Number of Songs: ", num_songs))) +
+  labs(x = "Genre", y = "Average Sentiment of Lyrics") +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
+
+ggplotly(sentiment_by_genre, tooltip = "text")
 
 ```
 
@@ -58,7 +75,7 @@ ggplot(sentiment_data_genre, aes(x = average_bpm, y = average_sentiment)) +
 
 ```{r}
 
-ggplot(sentiment_data, aes(x = average_sentiment_yearly, y = average_time_seconds)) +
+ggplot(sentiment_data_yearly, aes(x = average_sentiment, y = average_time_seconds)) +
   geom_point() +
   geom_smooth()
 ```
@@ -68,7 +85,7 @@ ggplot(sentiment_data, aes(x = average_sentiment_yearly, y = average_time_second
 
 ```{r}
 
-ggplot(sentiment_data, aes(x = average_sentiment_yearly, y = average_bpm)) +
+ggplot(sentiment_data_yearly, aes(x = average_sentiment, y = average_bpm)) +
   geom_point() +
   geom_smooth()
 ```

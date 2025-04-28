@@ -70,7 +70,7 @@ head(urls2)
 ```{r}
 
 # Identify number of iterations (start with 1!)
-n_iter <- 250
+n_iter <- 500
 # Pre-allocate space
 song_lyrics1 <- tibble(title = titles, url = urls2) |>
   # Limit to only the rows we are trying to work with
@@ -91,6 +91,10 @@ for (i in 1:n_iter) {
   # extract cell of table with lyrics
   #lyrics_df$lyrics[i] <- tables[[3, 1]] |>
   #  str_replace_all("[\r\n]+", " ")
+  
+  if (i == 260) {
+    next
+  }
   
   lyrics_df$lyrics[i] <- song_lyrics1$url[i] |>
   read_html() |>
@@ -117,7 +121,7 @@ merged_songs <- songs_clean |>
 # combine all four Rock decades into one genre `Rock`
 # & all Dance decades into one genre `Dance`
 merged_songs_combined <- merged_songs |>
-  filter(number <= 250) |>
+  filter(number <= 500) |>
   mutate(genre_combined = case_when(
     str_detect(genre, "Rock") ~ "Rock",
     str_detect(genre, "Dance") ~ "Dance",
