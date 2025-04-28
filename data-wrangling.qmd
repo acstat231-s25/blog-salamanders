@@ -168,6 +168,44 @@ merged_songs_combined <- merged_songs |>
     unnest_tokens(output = word, input = lyrics) |>
     anti_join(stop_words, by = "word") |>
     count(word, sort = TRUE)
+ 
+ # df for rankings 
+songs_chart <- songs_clean |>
+  mutate(
+    block = case_when(
+      # create var for general rank
+      number > 400 & number < 501 ~ "500s"
+      , number > 300 & number < 401 ~ "400s"
+      , number > 200 & number < 301 ~ "300s"
+      , number > 100 & number < 201 ~ "200s"
+      , number < 101  ~ "Top 100"
+      )
+    , decade = case_when(
+      # create var for decade
+      year > 1949 & year < 1960 ~ "50s"
+      , year > 1959 & year < 1970 ~ "60s"
+      , year > 1969 & year < 1980 ~ "70s"
+      , year > 1979 & year < 1990 ~ "80s"
+      , year > 1989 & year < 2000 ~ "90s"
+      , year > 1999 & year < 2010 ~ "2000s"
+      )
+    )
+# sort decades into logical order for legends
+songs_chart$decade = 
+   factor(songs_chart$decade
+          , levels = c('50s', '60s', '70s', "80s", '90s', '2000s'))
+# sort rank blocks into order that best demonstrates top 100 distribution
+songs_chart$block =
+  factor(songs_chart$block
+         , levels = c('500s', '400s', '300s', '200s', 'Top 100'))
+# df for top 3 artists
+top_artists <- songs_chart |>
+    filter(artist == "The Beatles" | artist == "The Rolling Stones"
+           | artist == "Bob Dylan")
+# sort decades into logical order for legends
+top_artists$decade = 
+   factor(top_artists$decade
+          , levels = c('2000s', '90s', '80s', '70s', '60s', '50s'))  
 
 ```
 
@@ -375,47 +413,6 @@ family = "sans"))
 ```
 
 
-
-
-```{r}
-# df for plots
-songs_chart <- songs_clean |>
-  mutate(
-    block = case_when(
-      # create var for general rank
-      number > 400 & number < 501 ~ "500s"
-      , number > 300 & number < 401 ~ "400s"
-      , number > 200 & number < 301 ~ "300s"
-      , number > 100 & number < 201 ~ "200s"
-      , number < 101  ~ "Top 100"
-      )
-    , decade = case_when(
-      # create var for decade
-      year > 1949 & year < 1960 ~ "50s"
-      , year > 1959 & year < 1970 ~ "60s"
-      , year > 1969 & year < 1980 ~ "70s"
-      , year > 1979 & year < 1990 ~ "80s"
-      , year > 1989 & year < 2000 ~ "90s"
-      , year > 1999 & year < 2010 ~ "2000s"
-      )
-    )
-# sort decades into logical order for legends
-songs_chart$decade = 
-   factor(songs_chart$decade
-          , levels = c('50s', '60s', '70s', "80s", '90s', '2000s'))
-# sort rank blocks into order that best demonstrates top 100 distribution
-songs_chart$block =
-  factor(songs_chart$block
-         , levels = c('500s', '400s', '300s', '200s', 'Top 100'))
-# df for top 3 artists
-top_artists <- songs_chart |>
-    filter(artist == "The Beatles" | artist == "The Rolling Stones"
-           | artist == "Bob Dylan")
-# sort decades into logical order for legends
-top_artists$decade = 
-   factor(top_artists$decade
-          , levels = c('2000s', '90s', '80s', '70s', '60s', '50s'))         
-```
 
 ```{r}
 # Claire visualization workspace
