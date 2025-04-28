@@ -309,9 +309,11 @@ Rock1 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1970s"),
   geom_text_wordcloud(
     family = "sans",             
     random.order = TRUE,           
-    max.words = 50,                
-    scale = c(3, 0.3),             # Size scale for words
-    rotate_ratio = 0.15,           # Percentage of words rotated
+    max.words = 50, 
+    # Size scale for words
+    scale = c(3, 0.3),    
+    # Percentage of words rotated
+    rotate_ratio = 0.15,          
     # Use `color` for word color, depending on frequency
     show.legend = FALSE            
   ) +
@@ -327,9 +329,11 @@ Rock2 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1980s"),
   geom_text_wordcloud(
     family = "sans",             
     random.order = TRUE,           
-    max.words = 50,               
-    scale = c(3, 0.3),             # Size scale for words
-    rotate_ratio = 0.15,           # Percentage of words rotated
+    max.words = 50,    
+    # Size scale for words
+    scale = c(3, 0.3),    
+    # Percentage of words rotated
+    rotate_ratio = 0.15,           
     # Use `color` for word color, depending on frequency
     show.legend = FALSE           
   ) +
@@ -345,9 +349,11 @@ Rock3 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1990s"),
   geom_text_wordcloud(
     family = "sans",               
     random.order = TRUE,           
-    max.words = 50,              
-    scale = c(3, 0.3),             # Size scale for words
-    rotate_ratio = 0.15,           # Percentage of words rotated
+    max.words = 50,  
+    # Size scale for words
+    scale = c(3, 0.3),
+    # Percentage of words rotated
+    rotate_ratio = 0.15, 
     # Use `color` for word color, depending on frequency
     show.legend = FALSE            
   ) +
@@ -363,9 +369,11 @@ Rock4 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "2000s"),
   geom_text_wordcloud(
     family = "sans",           
     random.order = TRUE,         
-    max.words = 50,             
-    scale = c(3, 0.3),             # Size scale for words
-    rotate_ratio = 0.15,           # Percentage of words rotated
+    max.words = 50,   
+    # Size scale for words
+    scale = c(3, 0.3),     
+    # Percentage of words rotated
+    rotate_ratio = 0.15,           
     # Use `color` for word color, depending on frequency
     show.legend = FALSE           
   ) +
