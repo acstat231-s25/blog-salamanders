@@ -1,21 +1,24 @@
 /* css styles */
-     .navbar-custom {
-       /* navbar color */
+/*     .navbar-custom {
+        navbar color 
      background-color: #d92b1e;
-   }
-   .navbar-custom .navbar-brand,
-   .navbar-custom .navbar-text {
-     /* navbar font color */
-     color: white;
-   }
-   .nav-item .nav-link {
-     /* 1-2-tab color */
-     color: #d92b1e;
-   }
-   .nav-link .active{
-     /* navigation panel highlight color */
-     color: #d92b1e !important;
-   }
+  }
+  .navbar-custom .navbar-brand,
+ .navbar-custom .navbar-text {
+      navbar font color
+    color: white;
+    }
+    .navbar-toggler-icon {
+      order: 1;
+    }
+    .nav-item .nav-link {
+      1-2-tab color 
+      color: #d92b1e;
+    }
+    .nav-link .active{
+      navigation panel highlight color 
+      color: #d92b1e !important;
+    } */
      
 
 
