@@ -543,17 +543,14 @@ family = "sans"))
 # https://meghan.rbind.io/blog/2022-10-11-creating-custom-color-palettes-with-ggplot2/ 
 
 new_palette <- colorRampPalette(colors = c("#6b34eb"
-                        , "#F3AB4D"
-                        ,  "#eb6309"
-                        ,   "#d92b1e"
-                        ,   "#540340"
-                        ,   "#C6C2B8" ))(6)
-new_palette2 <- colorRampPalette(colors = c("#6b34eb"
-                        , "blue"
-                        ,  "#CD7F32"
-                        ,   "#C0C0C0"
-                        ,   "#f5c507"
-                        ,   "#C6C2B8" ))(6)
+                                           , "#F3AB4D"
+                                           , "#eb6309"
+                                           , "#d92b1e"
+                                           , "#540340"
+                                           , "#C6C2B8" ))(6)
+new_palette2 <- colorRampPalette(colors = c("#540340"
+                                            , "#eb6309"
+                                            , "#d92b1e"))(3)
 scales::show_col(new_palette)
 ```
 
@@ -562,6 +559,8 @@ scales::show_col(new_palette)
 # Claire visualization workspace
 # library(RColorBrewer)
 # decade vis
+#| fig-width: 4
+#| fig-height: 6
 songs_chart |> 
   # Create segmented histogram
   ggplot(aes(x = decade, fill = block)) +
@@ -577,12 +576,9 @@ songs_chart |>
      , caption = " "
      ) +
     theme_linedraw() +
-    theme(legend.text = element_text(size = rel(0.75))) +
-    theme(title = element_text(size = rel(0.75))) +
-    theme(plot.caption = element_text(hjust = -0.5)) +
-    theme(axis.title.x = element_text(size = rel(1.5))) +
-    theme(axis.text.x = element_text(size = rel(1.25)))
-
+    theme(plot.caption = element_text(hjust = -0.5)
+          , axis.title.x = element_text(vjust = -0.3)
+          , axis.text.x = element_text(size = rel(1.25))) 
 
 top_artists |> 
   # Create segmented histogram
@@ -599,10 +595,7 @@ top_artists |>
      , caption = " "
      ) +
     theme_linedraw() +
-    coord_flip() +
-    theme(legend.text = element_text(size = rel(0.75))
-          , title = element_text(size = rel(0.75))
-          , axis.title.x = element_text(size = rel(1.25))
+    theme(axis.title.x = element_text(size = rel(1.25), vjust = -0.25)
           # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
           ) 
 
@@ -610,7 +603,18 @@ prop.table(table(songs_chart$decade))
 
 
 sentiment_by_artist |>
-  ggplot(aes(x = artist, y = mean)) +
-  geom_col() 
+  ggplot(aes(x = artist, y = mean, fill = artist)) +
+  scale_fill_manual(values = new_palette2) +
+  labs(
+    y = "Average Sentiment"
+    , x = "Artist"
+  ) +
+  geom_col(stat = "identity") +
+  theme_linedraw() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  guides(fill = FALSE) +
+  theme(axis.title.x = element_text(vjust = -0.3)
+       # , axis.title.y = element_text(vjust = -0.3)
+        )
 
 ```

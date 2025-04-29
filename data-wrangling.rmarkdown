@@ -305,7 +305,10 @@ write_csv(songs_chart, "data/songs_chart.csv")
 read_csv("data/songs_chart.csv")
 
 # top artists
+write_csv(top_artists, "data/top_artists.csv")
 
+# top artist average sentiment
+write_csv(sentiment_by_artist, "data/sentiment_by_artists")
 ```
 
 ```{r}
@@ -558,17 +561,19 @@ scales::show_col(new_palette)
 # Claire visualization workspace
 # library(RColorBrewer)
 # decade vis
+#| fig-width: 4
+#| fig-height: 6
 songs_chart |> 
   # Create segmented histogram
   ggplot(aes(x = decade, fill = block)) +
     geom_bar(position = "stack", color = "black") +
-    scale_fill_discrete(name = "Rank") +
-    scale_fill_manual(values = new_palette) +
+    
+    scale_fill_manual(values = new_palette, name = "Rank") +
     labs(
      title = "Decades in the Rolling Stone Top 500"
      , subtitle = "Broken Down By Rank"
      , x = "Decade of Release"
-     , y = "Count"
+     , y = "Number of Songs"
      , tag = " "
      , caption = " "
      ) +
@@ -584,18 +589,17 @@ top_artists |>
   # Create segmented histogram
   ggplot(aes(x = artist, fill = decade)) +
     geom_bar(color = "black") +
-    scale_fill_discrete(name = "Decade") +
-    scale_fill_manual(values = new_palette) +
+    
+    scale_fill_manual(values = new_palette, name = "Decade") +
     labs(
      title = "The Top 3 Most Represented Artists in the Rolling Stone Top 500"
      , subtitle = "Broken Down by the Decade Their Songs Were Released"
      , x = "Artist"
-     , y = "Song Count"
+     , y = "Number of Songs"
      , tag = " "
      , caption = " "
      ) +
     theme_linedraw() +
-    coord_flip() +
     theme(legend.text = element_text(size = rel(0.75))
           , title = element_text(size = rel(0.75))
           , axis.title.x = element_text(size = rel(1.25))
