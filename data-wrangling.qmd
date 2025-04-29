@@ -582,11 +582,6 @@ top_artists |>
           , axis.title.x = element_text(size = rel(1.25))
           # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
           ) 
-  
-  
-  #  theme(axis.text.y.left = #  theme(axis.title.y = element_blank()
-        #  , axis.text.y = element_blank()
-        #  , axis.ticks.y = element_blank())
 
 prop.table(table(songs_chart$decade))
 
