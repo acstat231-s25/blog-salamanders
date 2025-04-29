@@ -40,6 +40,12 @@ This is an example of a Quarto website. All the [Quarto markdown features](https
 
 Music is a major source of entertainment that strongly influences the lives of many individuals. This project seeks to investigate different trends in music lyrics through the use of text and sentiment analysis, using data of songs included in the Rolling Stone's Top 500 Greatest Songs of All Time.
 
+We are interested in exploring the following 3 main research questions:
+
+1. How do the frequencies of certain words and phrases (bigrams, trigrams, etc.) differ across genres of music?
+2. How do the sentiments for different lyrics change across genres and time periods?
+3. Do certain BPMs, song durations, years, and artists appear more frequently in Rolling Stone’s 500 Greatest Songs of All Time Ranking?
+
 # Data Collection
 
 We collected data from an [online music database](https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html) created by Dave Tompkins, a professor at the University of Waterloo in Canada. The initial dataset we scraped contains 7 variables:
@@ -56,6 +62,7 @@ The lyrics for each song were contained in another webpage linked to the origina
 
 # Data Wrangling
 
+In order to explore 
 
 
 # Visualizations
