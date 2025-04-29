@@ -247,6 +247,13 @@ sentiment_by_genre <- words_with_sentiment |>
 sentiment_by_song <- words_with_sentiment |>
   group_by(title, artist, year, genre, time_seconds, bpm) |>
   summarize(average_sentiment = round(mean(value, na.rm = TRUE), 2)) |>
+  mutate(genre_grouped = case_when(genre %in% c("Rock 1950s", "Rock 1960s",
+                                                "Rock 1970s", "Rock 1980s",
+                                                "Rock 1990s", "Rock 2000s") ~ "Rock",
+                                   genre %in% c("Dance 1960s", "Dance 1970s",
+                                                "Dance 1980s") ~ "Dance",
+                                   genre %in% c("R&B 1980s", "R&B 1990s") ~ "R&B",
+                                   TRUE ~ genre)) |>
   arrange(title)
   
 

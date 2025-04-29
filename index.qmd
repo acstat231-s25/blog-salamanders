@@ -47,7 +47,7 @@ We collected data from an [online music database](https://cs.uwaterloo.ca/~dtomp
 `year`: the year the song was released
 `genre`: the genre the song belongs to
 
-The lyrics for each song were contained in another webpage linked to the original, so we iterated through and scraped the song lyrics for 483 songs (13 of the songs did not have lyrics available). Next, we combined the lyrics dataset with the initial dataset. Thus, we ended up with 8 variables (the original 7 plus `lyrics').
+The lyrics for each song were contained in another webpage linked to the original, so we iterated through and scraped the song lyrics for 483 songs (13 of the songs did not have lyrics available). Next, we combined the lyrics dataset with the initial dataset. Thus, we ended up with 8 variables (the original 7 plus `lyrics`).
 
 # Data Wrangling
 
@@ -108,19 +108,26 @@ ggplotly(sentiment_by_genre, tooltip = "text")
 ### Tab 1
 
 ```{r}
+#| label: average sentiment of each song versus time
+#| include: true
+#| message: false
+#| warning: false
 
 sentiment_data_song = read_csv("data/sentiment_by_song.csv")
 
-sentiment_time_by_song = ggplot(sentiment_data_song, aes(x = time_seconds, y = average_sentiment)) +
-  geom_point(color = "skyblue4", size = 0.75,
-             aes(text = paste0("Title: ", title, "<br>",
+sentiment_time_by_song = ggplot(sentiment_data_song, 
+                                aes(x = time_seconds, y = average_sentiment)) +
+  geom_point(size = 0.75,
+             aes(color = genre_grouped,
+                 text = paste0("Title: ", title, "<br>",
                                "Artist: ", artist, "<br>",
                                "Average Sentiment: ", average_sentiment, "<br>",
                                "Time (sec): ", time_seconds, "<br>",
                                "BPM (beats per minute): ", bpm, "<br>"))) +
   geom_smooth() +
-  labs(title = "Average Sentiment versus Time (secs) of 483 Songs on the Top 500 Rolling Stone's Best Songs",
-       x = "Time (seconds)", y = "Average Sentiment")
+  labs(title = "Average Sentiment versus Time (sec) of 483 Songs on the Top 500 Rolling Stone's Best Songs",
+       x = "Time (sec)", y = "Average Sentiment",
+       color = "Genre")
 
 ggplotly(sentiment_time_by_song, tooltip = "text")
 ```
@@ -129,17 +136,24 @@ ggplotly(sentiment_time_by_song, tooltip = "text")
 ### Tab 2
 
 ```{r}
+#| label: average sentiment of each song versus bpm
+#| include: true
+#| message: false
+#| warning: false
 
-sentiment_bpm_by_song = ggplot(sentiment_data_song, aes(x = bpm, y = average_sentiment)) +
-  geom_point(color = "skyblue4", size = 0.75,
-             aes(text = paste0("Title: ", title, "<br>",
+sentiment_bpm_by_song = ggplot(sentiment_data_song, 
+                               aes(x = bpm, y = average_sentiment)) +
+  geom_point(size = 0.75,
+             aes(color = genre_grouped,
+                 text = paste0("Title: ", title, "<br>",
                                "Artist: ", artist, "<br>",
                                "Average Sentiment: ", average_sentiment, "<br>",
                                "Time (sec): ", time_seconds, "<br>",
                                "BPM (beats per minute): ", bpm, "<br>"))) +
   geom_smooth() +
   labs(title = "Average Sentiment versus Beats Per Minute of 483 Songs on the Top 500 Rolling Stone's Best Songs",
-       x = "Beats Per Minute", y = "Average Sentiment")
+       x = "Beats Per Minute", y = "Average Sentiment",
+       color = "Genre")
 
 ggplotly(sentiment_bpm_by_song, tooltip = "text")
 
