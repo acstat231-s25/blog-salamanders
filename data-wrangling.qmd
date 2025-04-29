@@ -527,48 +527,10 @@ family = "sans"))
 ```{r}
 # Claire visualization workspace
 library(RColorBrewer)
-# bpm vis
-songs_chart |> 
-  # Create segmented histogram
-  ggplot(aes(x = bpm, fill = decade)) +
-    geom_histogram(position = "stack", color = "black") +
-    labs(
-     title = "BPM in the Rolling Stone Top 500"
-     , subtitle = "Broken Down By Rank"
-     , x = "Beats per minute (bpm)"
-     , y = "Count"
-     , tag = " "
-     , caption = " "
-     ) +
-    scale_fill_discrete(name = "Rank") +
-    theme_linedraw() +
-    theme(legend.text = element_text(size = rel(0.75))) +
-    theme(title = element_text(size = rel(0.75))) +
-    theme(plot.caption = element_text(hjust = -0.5))  +
-    theme(axis.title.x = element_text(size = rel(1.5))) +
-    theme(axis.text.x = element_text(size = rel(1.25)))
 
+top_art <- top_artists |>
+  
 
-# duration vis
-songs_chart |> 
-  # Create segmented histogram
-  ggplot(aes(x = time, fill = decade)) +
-    geom_histogram(position = "stack", color = "black") +
-    labs(
-     title = "Song Durations of the Rolling Stone Top 500"
-     , subtitle = "Broken Down by Rank"
-     , x = "Song duration"
-     , y = "Count"
-     , tag = " "
-     , caption = " "
-     ) +
-    scale_fill_discrete(name = "Rank") +
-    theme_linedraw() +
-    theme(legend.text = element_text(size = rel(0.75))) +
-    theme(title = element_text(size = rel(0.75))) +
-    theme(plot.caption = element_text(hjust = -0.5))  +
-    theme(axis.title.x = element_text(size = rel(1.5))) +
-    theme(axis.text.x = element_text(size = rel(1.25)))
 
 # decade vis
 songs_chart |> 
@@ -601,31 +563,38 @@ top_artists |>
      title = "The Top 3 Most Represented Artists in the Rolling Stone Top 500"
      , subtitle = "Broken Down by the Decade Their Songs Were Released"
      , x = "Artist"
-     , y = "Count"
+     , y = "Song Count"
      , tag = " "
      , caption = " "
      ) +
     scale_fill_discrete(name = "Decade") +
     theme_linedraw() +
     coord_flip() +
-    theme(legend.text = element_text(size = rel(0.75))) +
-    theme(title = element_text(size = rel(0.75))) +
-    theme(axis.title.x = element_text(size = rel(1.25))) +
-    theme(axis.title.y = element_blank()
-          , axis.text.y = element_blank()
-          , axis.ticks.y = element_blank())
+    theme(legend.text = element_text(size = rel(0.75))
+          , title = element_text(size = rel(0.75))
+          , axis.title.x = element_text(size = rel(1.25))
+          # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
+          ) 
+  
+  
+  #  theme(axis.text.y.left = #  theme(axis.title.y = element_blank()
+        #  , axis.text.y = element_blank()
+        #  , axis.ticks.y = element_blank())
 
 prop.table(table(songs_chart$decade))
 
-ggplot(songs_chart, aes(x = decade, y = number)) +
-  geom_boxplot() +
-  scale_y_reverse()
+sentiment_by_artist <- words_with_sentiment |>
+  group_by(title, artist, year, genre, time_seconds, bpm) |>
+  summarize(average_sentiment = round(mean(value, na.rm = TRUE), 2)) |>
+  arrange(title) |>
+  filter(artist == "The Beatles" | artist == "The Rolling Stones" 
+         | artist == "Bob Dylan") |>
+  group_by(artist) |>
+  summarize(mean = mean(average_sentiment))
+  
 
+sentiment_by_artist |>
+  ggplot(aes(x = artist, y = mean)) +
+  geom_col() 
 
-
-# Plot
-plot <- ggplot(df, aes(x=stack, y=val, fill=cat)) +
-  geom_bar(stat="identity", position="stack") +
-  geom_text(aes(y=pos, label=labels), vjust=0)
-plot
 ```
