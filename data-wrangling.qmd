@@ -433,7 +433,7 @@ library(RColorBrewer)
 # bpm vis
 songs_chart |> 
   # Create segmented histogram
-  ggplot(aes(x = bpm, fill = block)) +
+  ggplot(aes(x = bpm, fill = decade)) +
     geom_histogram(position = "stack", color = "black") +
     labs(
      title = "BPM in the Rolling Stone Top 500"
@@ -455,7 +455,7 @@ songs_chart |>
 # duration vis
 songs_chart |> 
   # Create segmented histogram
-  ggplot(aes(x = time, fill = block)) +
+  ggplot(aes(x = time, fill = decade)) +
     geom_histogram(position = "stack", color = "black") +
     labs(
      title = "Song Durations of the Rolling Stone Top 500"
@@ -495,11 +495,11 @@ songs_chart |>
     theme(axis.text.x = element_text(size = rel(1.25)))
 
 
-  # top artists vis
 top_artists |> 
   # Create segmented histogram
   ggplot(aes(x = artist, fill = decade)) +
     geom_bar(position = "stack") +
+    
     labs(
      title = "The Top 3 Most Represented Artists in the Rolling Stone Top 500"
      , subtitle = "Broken Down by the Decade Their Songs Were Released"
@@ -510,11 +510,25 @@ top_artists |>
      ) +
     scale_fill_discrete(name = "Decade") +
     theme_linedraw() +
+    coord_flip() +
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
-    theme(axis.title.x = element_text(size = rel(1.25)))
+    theme(axis.title.x = element_text(size = rel(1.25))) +
+    theme(axis.title.y = element_blank()
+          , axis.text.y = element_blank()
+          , axis.ticks.y = element_blank())
+
+prop.table(table(songs_chart$decade))
+
+ggplot(songs_chart, aes(x = decade, y = number)) +
+  geom_boxplot() +
+  scale_y_reverse()
 
 
- 
 
+# Plot
+plot <- ggplot(df, aes(x=stack, y=val, fill=cat)) +
+  geom_bar(stat="identity", position="stack") +
+  geom_text(aes(y=pos, label=labels), vjust=0)
+plot
 ```
