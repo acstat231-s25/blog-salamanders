@@ -455,7 +455,8 @@ top_artists |>
 #| message: FALSE
 #| warning: FALSE
 
-sentiment_by_artist <- read_csv("data/sentiment_by_artist.csv")
+songs_chart <- read_csv("data/songs_chart.csv")
+sentiment_by_artist <- read_csv("data/sentiment_by_artists.csv")
 
 # palette for plot
 new_palette2 <- colorRampPalette(colors = c("#540340"
