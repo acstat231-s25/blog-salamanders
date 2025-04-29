@@ -305,7 +305,10 @@ write_csv(songs_chart, "data/songs_chart.csv")
 read_csv("data/songs_chart.csv")
 
 # top artists
+write_csv(top_artists, "data/top_artists.csv")
 
+# top artist average sentiment
+write_csv(sentiment_by_artist, "data/sentiment_by_artists")
 ```
 
 ```{r}
