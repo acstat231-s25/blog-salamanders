@@ -277,7 +277,17 @@ read_csv("data/sentiment_by_year.csv")
 write_csv(sentiment_by_genre, "data/sentiment_by_genre.csv")
 read_csv("data/sentiment_by_genre.csv")
 
-# write and read csv for word freqs datasets
+# Rock_lyrics_word_freqs
+write_csv(Rock_lyrics_word_freqs, "data/Rock_lyrics_word_freqs.csv")
+read_csv("data/Rock_lyrics_word_freqs.csv")
+
+# Rock_lyrics_word_freqs
+write_csv(Dance_lyrics_word_freqs, "data/Dance_lyrics_word_freqs.csv")
+read_csv("data/Dance_lyrics_word_freqs.csv")
+
+# Rock_lyrics_word_freqs
+write_csv(Dance_lyrics_word_freqs, "data/Slow_lyrics_word_freqs.csv")
+read_csv("data/Slow_lyrics_word_freqs.csv")
 
 ```
 
@@ -399,8 +409,8 @@ ggarrange(Rock1, Rock2, Rock3, Rock4, ncol = 2, nrow = 2)
 # jenna visualization workspace
 
 # if max.words is removed, use this df
-Dance_top_words <- Dance_lyrics_word_freqs |>
-  slice_max(n, n = 50)
+#Dance_top_words <- Dance_lyrics_word_freqs |>
+  #slice_max(n, n = 50)
 
 # Dance cumulative word cloud
 Dance_lyrics_word_freqs |>
@@ -482,7 +492,7 @@ Dance3 <- ggplot(Dance_lyrics_word_freqs |> filter(decade == "1980s"),
   theme(legend.position = "none", 
         plot.background = element_rect(fill = "white", color = "white"))
 
-#arrange four clouds for one tab
+#arrange three clouds for one tab
 ggarrange(Dance1, Dance2, Dance3, ncol = 2, nrow = 2)
 
 
