@@ -1,6 +1,10 @@
 /* css styles */
 
--- 
+
+a {
+  /*change default link color*/
+  color:  #d92b1e;
+}
 
  .margin-sidebar .nav-link-active {
    color:  #d92b1e;
