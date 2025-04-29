@@ -153,13 +153,14 @@ merged_songs_combined <- merged_songs |>
     anti_join(stop_words, by = "word") |>
     count(word, decade, sort = TRUE)
  
-# df for `TBD` word frequencies for word clouds
- TBD_lyrics_word_freqs <- merged_songs_combined |>
+# df for `Dance` word frequencies for word clouds
+ Dance_lyrics_word_freqs <- merged_songs_combined |>
   filter(number <= 250) |>
-   filter(genre_combined == "TBD") |>
+   filter(genre_combined == "Dance") |>
+   select(title, genre, decade, lyrics) |>
     unnest_tokens(output = word, input = lyrics) |>
     anti_join(stop_words, by = "word") |>
-    count(word, sort = TRUE)
+    count(word, decade, sort = TRUE)
  
 # df for `Slow` word frequencies for word clouds
  Slow_lyrics_word_freqs <- merged_songs_combined |>
@@ -301,7 +302,6 @@ library(ggpubr)
 
 # Rock cumulative word cloud
 Rock_lyrics_word_freqs |>
-  filter(decade == "1970s") |>
     with(wordcloud(words = word,
                    freq = n,
                   # min.freq = 20,
@@ -323,13 +323,14 @@ Rock1 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1970s"),
   geom_text_wordcloud(
     family = "sans",             
     random.order = TRUE,           
-    max.words = 50, 
+    max.words = 25, 
     # Size scale for words
-    scale = c(3, 0.3),    
+    scale = c(2, 0.3),    
     # Percentage of words rotated
     rotate_ratio = 0.15,          
     # Use `color` for word color, depending on frequency
-    show.legend = FALSE            
+    show.legend = FALSE,
+    rm_outside = TRUE           
   ) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
   ggtitle("Rock Word Cloud - 1970s") +  
@@ -343,13 +344,14 @@ Rock2 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1980s"),
   geom_text_wordcloud(
     family = "sans",             
     random.order = TRUE,           
-    max.words = 50,    
+    max.words = 25,    
     # Size scale for words
-    scale = c(3, 0.3),    
+    scale = c(2, 0.3),    
     # Percentage of words rotated
     rotate_ratio = 0.15,           
     # Use `color` for word color, depending on frequency
-    show.legend = FALSE           
+    show.legend = FALSE,
+    rm_outside = TRUE         
   ) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
   ggtitle("Rock Word Cloud - 1980s") +  
@@ -363,13 +365,14 @@ Rock3 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1990s"),
   geom_text_wordcloud(
     family = "sans",               
     random.order = TRUE,           
-    max.words = 50,  
+    max.words = 25,  
     # Size scale for words
-    scale = c(3, 0.3),
+    scale = c(2, 0.3),
     # Percentage of words rotated
     rotate_ratio = 0.15, 
     # Use `color` for word color, depending on frequency
-    show.legend = FALSE            
+    show.legend = FALSE,
+    rm_outside = TRUE             
   ) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) +  
   ggtitle("Rock Word Cloud - 1990s") +  
@@ -383,13 +386,14 @@ Rock4 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "2000s"),
   geom_text_wordcloud(
     family = "sans",           
     random.order = TRUE,         
-    max.words = 50,   
+    max.words = 25,   
     # Size scale for words
-    scale = c(3, 0.3),     
+    scale = c(2, 0.3),     
     # Percentage of words rotated
     rotate_ratio = 0.15,           
     # Use `color` for word color, depending on frequency
-    show.legend = FALSE           
+    show.legend = FALSE,
+    rm_outside = TRUE 
   ) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
   ggtitle("Rock Word Cloud - 2000s") +
@@ -399,14 +403,22 @@ Rock4 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "2000s"),
 
 #arrange four clouds for one tab
 ggarrange(Rock1, Rock2, Rock3, Rock4, ncol = 2, nrow = 2)
+```
 
+```{r}
+# jenna visualization workspace
 
-# TBD word cloud
-TBD_lyrics_word_freqs |>
+# if max.words is removed, use this df
+Dance_top_words <- Dance_lyrics_word_freqs |>
+  slice_max(n, n = 50)
+
+# Dance cumulative word cloud
+Dance_lyrics_word_freqs |>
     with(wordcloud(words = word,
                    freq = n,
                   # min.freq = 20,
                   max.words = 50,
+# Plot the words in a random order
 random.order = TRUE,
 # Specify the range of the size of the words
 scale = c(3, 0.3),
@@ -414,8 +426,80 @@ scale = c(3, 0.3),
 rot.per = 0.15,
 # Color words from least to most frequent
 colors = brewer.pal(10, "Dark2"),
+# Change font family
 family = "sans"))
 
+# 1960s Dance decade
+Dance1 <- ggplot(Dance_lyrics_word_freqs |> filter(decade == "1960s"), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",             
+    random.order = TRUE,           
+    max.words = 25, 
+    # Size scale for words
+    scale = c(2, 0.3),    
+    # Percentage of words rotated
+    rotate_ratio = 0.15,          
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE,
+    rm_outside = TRUE          
+  ) +
+  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  ggtitle("Dance Word Cloud - 1960s") +  
+  theme_minimal() +  
+  theme(legend.position = "none",  
+        plot.background = element_rect(fill = "white", color = "white")) 
+
+# 1970s Dance decade
+Dance2 <- ggplot(Dance_lyrics_word_freqs |> filter(decade == "1970s"), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",             
+    random.order = TRUE,           
+    max.words = 25,    
+    # Size scale for words
+    scale = c(2, 0.3),    
+    # Percentage of words rotated
+    rotate_ratio = 0.15,           
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE ,
+    rm_outside = TRUE           
+  ) +
+  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  ggtitle("Dance Word Cloud - 1970s") +  
+  theme_minimal() +  
+  theme(legend.position = "none",  
+        plot.background = element_rect(fill = "white", color = "white"))
+
+# 1980s Dance decade
+Dance3 <- ggplot(Dance_lyrics_word_freqs |> filter(decade == "1980s"), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",               
+    random.order = TRUE,           
+    max.words = 25,  
+    # Size scale for words
+    scale = c(2, 0.3),
+    # Percentage of words rotated
+    rotate_ratio = 0.15, 
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE,
+    rm_outside = TRUE             
+  ) +
+  scale_color_gradientn(colors = brewer.pal(9, "Set1")) +  
+  ggtitle("Dance Word Cloud - 1980s") +  
+  theme_minimal() + 
+  theme(legend.position = "none", 
+        plot.background = element_rect(fill = "white", color = "white"))
+
+#arrange four clouds for one tab
+ggarrange(Dance1, Dance2, Dance3, ncol = 2, nrow = 2)
+
+
+```
+
+```{r}
+# jenna visualization workspace
 
 # Slow word cloud
 Slow_lyrics_word_freqs |>
@@ -442,7 +526,7 @@ library(RColorBrewer)
 # bpm vis
 songs_chart |> 
   # Create segmented histogram
-  ggplot(aes(x = bpm, fill = block)) +
+  ggplot(aes(x = bpm, fill = decade)) +
     geom_histogram(position = "stack", color = "black") +
     labs(
      title = "BPM in the Rolling Stone Top 500"
@@ -464,7 +548,7 @@ songs_chart |>
 # duration vis
 songs_chart |> 
   # Create segmented histogram
-  ggplot(aes(x = time, fill = block)) +
+  ggplot(aes(x = time, fill = decade)) +
     geom_histogram(position = "stack", color = "black") +
     labs(
      title = "Song Durations of the Rolling Stone Top 500"
@@ -504,11 +588,11 @@ songs_chart |>
     theme(axis.text.x = element_text(size = rel(1.25)))
 
 
-  # top artists vis
 top_artists |> 
   # Create segmented histogram
   ggplot(aes(x = artist, fill = decade)) +
     geom_bar(position = "stack") +
+    
     labs(
      title = "The Top 3 Most Represented Artists in the Rolling Stone Top 500"
      , subtitle = "Broken Down by the Decade Their Songs Were Released"
@@ -519,11 +603,25 @@ top_artists |>
      ) +
     scale_fill_discrete(name = "Decade") +
     theme_linedraw() +
+    coord_flip() +
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
-    theme(axis.title.x = element_text(size = rel(1.25)))
+    theme(axis.title.x = element_text(size = rel(1.25))) +
+    theme(axis.title.y = element_blank()
+          , axis.text.y = element_blank()
+          , axis.ticks.y = element_blank())
+
+prop.table(table(songs_chart$decade))
+
+ggplot(songs_chart, aes(x = decade, y = number)) +
+  geom_boxplot() +
+  scale_y_reverse()
 
 
- 
 
+# Plot
+plot <- ggplot(df, aes(x=stack, y=val, fill=cat)) +
+  geom_bar(stat="identity", position="stack") +
+  geom_text(aes(y=pos, label=labels), vjust=0)
+plot
 ```
