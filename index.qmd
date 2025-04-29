@@ -141,7 +141,7 @@ sentiment_bpm_by_song = ggplot(sentiment_data_song, aes(x = bpm, y = average_sen
   labs(title = "Average Sentiment versus Beats Per Minute of 483 Songs on the Top 500 Rolling Stone's Best Songs",
        x = "Beats Per Minute", y = "Average Sentiment")
 
-ggplotly(sentiment_bpm_by_song)
+ggplotly(sentiment_bpm_by_song, tooltip = "text")
 
 ```
 :::
