@@ -261,7 +261,7 @@ I would strongly recommend  using **knitr**'s `include_graphics()` functions wit
 
 ```{r}
 #| fig-cap: "Image courtesy of giphy.com"
-#| fig-align: center
+#| fig-align: center 
 #| out-width: 100%
 #| fig-link: "https://giphy.com/gifs/insecurehbo-3og0IT6sIWd1eh7bJm"
 
