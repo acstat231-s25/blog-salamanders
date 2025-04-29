@@ -310,6 +310,22 @@ write_csv(top_artists, "data/top_artists.csv")
 write_csv(sentiment_by_artist, "data/sentiment_by_artists")
 ```
 
+
+```{r}
+#create custom color palette for plots
+
+new_palette <- colorRampPalette(colors = c("#6b34eb"
+                                           , "#F3AB4D"
+                                           , "#eb6309"
+                                           , "#d92b1e"
+                                           , "#540340"
+                                           , "#C6C2B8" ))(6)
+new_palette2 <- colorRampPalette(colors = c("#540340"
+                                            , "#eb6309"
+                                            , "#d92b1e"))(3)
+```
+
+
 ```{r}
 # jenna visualization workspace
 
@@ -537,21 +553,6 @@ family = "sans"))
 
 ```
 
-```{r}
-
-# https://meghan.rbind.io/blog/2022-10-11-creating-custom-color-palettes-with-ggplot2/ 
-
-new_palette <- colorRampPalette(colors = c("#6b34eb"
-                                           , "#F3AB4D"
-                                           , "#eb6309"
-                                           , "#d92b1e"
-                                           , "#540340"
-                                           , "#C6C2B8" ))(6)
-new_palette2 <- colorRampPalette(colors = c("#540340"
-                                            , "#eb6309"
-                                            , "#d92b1e"))(3)
-scales::show_col(new_palette)
-```
 
 
 ```{r}
