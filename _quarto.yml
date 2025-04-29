@@ -5,7 +5,7 @@ project:
 # Can customize this section with options from the following page:
 # https://quarto.org/docs/websites/website-navigation.html
 website:
-  title: "Website title"
+  title: "The 500 Top Songs Of All Time"
   navbar:
     left:
       - href: index.qmd # Must be included as index.qmd
@@ -37,7 +37,7 @@ format:
     highlight-style: arrow
     # See https://quarto.org/docs/output-formats/html-themes.html
     theme: 
-      curulean
+      default
       #light: minty
       #dark: superhero
     fontsize: 13pt

@@ -535,21 +535,36 @@ family = "sans"))
 
 ```
 
+```{r}
+
+# https://meghan.rbind.io/blog/2022-10-11-creating-custom-color-palettes-with-ggplot2/ 
+
+new_palette <- colorRampPalette(colors = c("#6b34eb"
+                        , "#F3AB4D"
+                        ,  "#eb6309"
+                        ,   "#d92b1e"
+                        ,   "#540340"
+                        ,   "#C6C2B8" ))(6)
+new_palette2 <- colorRampPalette(colors = c("#6b34eb"
+                        , "blue"
+                        ,  "#CD7F32"
+                        ,   "#C0C0C0"
+                        ,   "#f5c507"
+                        ,   "#C6C2B8" ))(6)
+scales::show_col(new_palette)
+```
 
 
 ```{r}
 # Claire visualization workspace
-library(RColorBrewer)
-
-top_art <- top_artists |>
-  
-
-
+# library(RColorBrewer)
 # decade vis
 songs_chart |> 
   # Create segmented histogram
   ggplot(aes(x = decade, fill = block)) +
     geom_bar(position = "stack", color = "black") +
+    scale_fill_discrete(name = "Rank") +
+    scale_fill_manual(values = new_palette) +
     labs(
      title = "Decades in the Rolling Stone Top 500"
      , subtitle = "Broken Down By Rank"
@@ -558,7 +573,6 @@ songs_chart |>
      , tag = " "
      , caption = " "
      ) +
-    scale_fill_discrete(name = "Rank") +
     theme_linedraw() +
     theme(legend.text = element_text(size = rel(0.75))) +
     theme(title = element_text(size = rel(0.75))) +
@@ -570,8 +584,9 @@ songs_chart |>
 top_artists |> 
   # Create segmented histogram
   ggplot(aes(x = artist, fill = decade)) +
-    geom_bar(position = "stack") +
-    
+    geom_bar(color = "black") +
+    scale_fill_discrete(name = "Decade") +
+    scale_fill_manual(values = new_palette) +
     labs(
      title = "The Top 3 Most Represented Artists in the Rolling Stone Top 500"
      , subtitle = "Broken Down by the Decade Their Songs Were Released"
@@ -580,7 +595,6 @@ top_artists |>
      , tag = " "
      , caption = " "
      ) +
-    scale_fill_discrete(name = "Decade") +
     theme_linedraw() +
     coord_flip() +
     theme(legend.text = element_text(size = rel(0.75))
