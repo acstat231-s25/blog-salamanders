@@ -591,7 +591,6 @@ top_artists |>
 
 prop.table(table(songs_chart$decade))
 
-  
 
 sentiment_by_artist |>
   ggplot(aes(x = artist, y = mean)) +
