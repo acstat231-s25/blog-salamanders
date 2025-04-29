@@ -22,7 +22,6 @@ library(stringr)
 library(robotstxt)
 library(tidytext)
 library(dplyr)
-library(lubridate)
 library(scales)
 ```
 
@@ -557,7 +556,7 @@ scales::show_col(new_palette)
 
 ```{r}
 # Claire visualization workspace
-# library(RColorBrewer)
+library(RColorBrewer)
 # decade vis
 #| fig-width: 4
 #| fig-height: 6
