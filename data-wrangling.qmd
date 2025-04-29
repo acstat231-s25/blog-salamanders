@@ -566,13 +566,13 @@ songs_chart |>
   # Create segmented histogram
   ggplot(aes(x = decade, fill = block)) +
     geom_bar(position = "stack", color = "black") +
-    scale_fill_discrete(name = "Rank") +
-    scale_fill_manual(values = new_palette) +
+    
+    scale_fill_manual(values = new_palette, name = "Rank") +
     labs(
      title = "Decades in the Rolling Stone Top 500"
      , subtitle = "Broken Down By Rank"
      , x = "Decade of Release"
-     , y = "Count"
+     , y = "Number of Songs"
      , tag = " "
      , caption = " "
      ) +
@@ -588,13 +588,13 @@ top_artists |>
   # Create segmented histogram
   ggplot(aes(x = artist, fill = decade)) +
     geom_bar(color = "black") +
-    scale_fill_discrete(name = "Decade") +
-    scale_fill_manual(values = new_palette) +
+    
+    scale_fill_manual(values = new_palette, name = "Decade") +
     labs(
      title = "The Top 3 Most Represented Artists in the Rolling Stone Top 500"
      , subtitle = "Broken Down by the Decade Their Songs Were Released"
      , x = "Artist"
-     , y = "Song Count"
+     , y = "Number of Songs"
      , tag = " "
      , caption = " "
      ) +
