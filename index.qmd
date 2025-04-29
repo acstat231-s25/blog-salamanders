@@ -409,17 +409,17 @@ ggplotly(sentiment_bpm_by_song, tooltip = "text")
 
 ::: {.panel-tabset}
 
-### Tab 1
+### Tab 3
+
 ```{r}
 #| label: decades of top artists' songs
-#| include: TRUE
-#| message: FALSE
-#| warning: FALSE
+#| include: true
+#| message: false
+#| warning: false
 
-library(RColorBrewer)
-top_artists <- read_csv("data/top_artists.csv")
+top_artists = read_csv("data/top_artists.csv")
 
-top_artists$decade <- paste0(top_artists$decade, "s")
+top_artists$decade = paste0(top_artists$decade, "s")
 
 top_artists$decade = 
    factor(top_artists$decade
@@ -432,9 +432,7 @@ new_palette <- colorRampPalette(colors = c("#6b34eb"
                                            , "#d92b1e"
                                            , "#540340"
                                            , "#C6C2B8" ))(6)
-scales::show_col(new_palette)
-
-top_artists |> 
+top = top_artists |> 
   # Create segmented histogram
   ggplot(aes(x = artist, fill = decade)) +
     geom_bar(color = "black") +
@@ -451,24 +449,26 @@ top_artists |>
     theme(axis.title.x = element_text(size = rel(1.25), vjust = -0.25)
           # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
           ) 
+
+ggplotly(top, tooltip = "text")
 ```
 
-### Tab 2
+### Tab 4
 
 ```{r}
 #| label: sentiment of top artists' songs
-#| include: TRUE
-#| message: FALSE
-#| warning: FALSE
+#| include: true
+#| message: false
+#| warning: false
 
-songs_chart <- read_csv("data/songs_chart.csv")
-sentiment_by_artist <- read_csv("data/sentiment_by_artists.csv")
+songs_chart = read_csv("data/songs_chart.csv")
+sentiment_by_artist = read_csv("data/sentiment_by_artists.csv")
 
 # palette for plot
-new_palette2 <- colorRampPalette(colors = c("#540340"
+new_palette2 = colorRampPalette(colors = c("#540340"
                                             , "#eb6309"
                                             , "#d92b1e"))(3)
-sentiment_by_artist |>
+art = sentiment_by_artist |>
   ggplot(aes(x = artist, y = mean, fill = artist)) +
   scale_fill_manual(values = new_palette2) +
   labs(
@@ -482,9 +482,11 @@ sentiment_by_artist |>
   theme(axis.title.x = element_text(vjust = -0.3)
        # , axis.title.y = element_text(vjust = -0.3)
         )
+ggplotly(art, tooltip ="text")
 ```
 
 :::
+
 ## Website project structure
 
 
