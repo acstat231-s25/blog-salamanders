@@ -23,6 +23,7 @@ library(robotstxt)
 library(tidytext)
 library(dplyr)
 library(scales)
+library(lubridate)
 ```
 
 ```{r}
@@ -600,7 +601,6 @@ top_artists |>
     theme(axis.title.x = element_text(size = rel(1.25), vjust = -0.25)
           # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
           ) 
-
 prop.table(table(songs_chart$decade))
 
 

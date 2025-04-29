@@ -419,6 +419,12 @@ ggplotly(sentiment_bpm_by_song, tooltip = "text")
 library(RColorBrewer)
 top_artists <- read_csv("data/top_artists.csv")
 
+top_artists$decade <- paste0(top_artists$decade, "s")
+
+top_artists$decade = 
+   factor(top_artists$decade
+          , levels = c('2000s', '90s', '80s', '70s', '60s', '50s'))  
+
 # palette for plot
 new_palette <- colorRampPalette(colors = c("#6b34eb"
                                            , "#F3AB4D"
