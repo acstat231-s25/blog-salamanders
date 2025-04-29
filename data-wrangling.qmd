@@ -215,7 +215,7 @@ afinn_lexicon = get_sentiments("afinn")
 
 # create dataset with all matched words from song lyrics and AFINN lexicon
 # with their respective sentiment scores
-words_by_year = merged_songs |>
+words_with_sentiment = merged_songs |>
   unnest_tokens(output = word, input = lyrics, token = "words") |>
   inner_join(afinn_lexicon, by = "word") |>
   mutate(year = as.numeric(year),
@@ -224,7 +224,7 @@ words_by_year = merged_songs |>
          bpm = as.numeric(bpm))
 
 # obtain average sentiment score, time, and bpm for lyrics of all songs in each year
-sentiment_by_year <- words_by_year |>
+sentiment_by_year <- words_with_sentiment |>
   group_by(year) |>
   summarize(
     average_sentiment = round(mean(value, na.rm = TRUE), 2),
@@ -234,7 +234,7 @@ sentiment_by_year <- words_by_year |>
   arrange(year)
 
 # obtain average sentiment score, time, and bpm for lyrics of all songs in each genre
-sentiment_by_genre <- words_by_year |>
+sentiment_by_genre <- words_with_sentiment |>
   group_by(genre) |>
   summarize(
     average_sentiment = round(mean(value, na.rm = TRUE), 2),
@@ -242,6 +242,12 @@ sentiment_by_genre <- words_by_year |>
     average_bpm = round(mean(bpm, na.rm = TRUE), 2),
     num_songs = n_distinct(title)) |>
   arrange(genre)
+
+sentiment_by_song <- words_with_sentiment |>
+  group_by(title, year, genre, time_seconds, bpm) |>
+  summarize(average_sentiment = round(mean(value, na.rm = TRUE), 2)) |>
+  arrange(title)
+  
 
 ```
 
@@ -275,6 +281,10 @@ read_csv("data/sentiment_by_year.csv")
 # sentiment_by_genre
 write_csv(sentiment_by_genre, "data/sentiment_by_genre.csv")
 read_csv("data/sentiment_by_genre.csv")
+
+# sentiment_by_song
+write_csv(sentiment_by_song, "data/sentiment_by_song.csv")
+read_csv("data/sentiment_by_song.csv")
 
 # write and read csv for word freqs datasets
 
