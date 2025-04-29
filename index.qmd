@@ -79,7 +79,7 @@ Rock_word_freqs = read_csv("data/Rock_lyrics_word_freqs.csv")
 # 1970s Rock decade
 Rock1 <- ggplot(Rock_word_freqs |> 
                   filter(decade == "1970") |>
-                   slice_max(n, n = 45), 
+                   slice_max(n, n = 44), 
                 aes(label = word, size = n, color = n)) +  
   geom_text_wordcloud(
     family = "sans",             
@@ -89,9 +89,10 @@ Rock1 <- ggplot(Rock_word_freqs |>
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
+    #word sizes proportionate to cloud area
     area_corr = TRUE
   ) +
-  # Size scale for words
+  # Size scale for cloud
   scale_size_area(max_size = 15) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
   ggtitle("Rock Word Cloud - 1970s") +  
@@ -102,22 +103,21 @@ Rock1 <- ggplot(Rock_word_freqs |>
 # 1980s Rock decade
 Rock2 <- ggplot(Rock_word_freqs |> 
                   filter(decade == "1980") |>
-                   slice_max(n, n = 45), 
+                   slice_max(n, n = 44), 
                 aes(label = word, size = n, color = n)) +  
   geom_text_wordcloud(
     family = "sans",             
-    random.order = TRUE,    
-    # Size scale for words
-    scale = c(4, 1),    
+    random.order = TRUE,  
     # Percentage of words rotated
     rotate_ratio = 0.15,           
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
+    #word sizes proportionate to cloud area
     area_corr = TRUE
   ) +
-  # Size scale for words
-  scale_size_area(max_size = 15) +
+  # Size scale for cloud
+  scale_size_area(max_size = 18) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
   ggtitle("Rock Word Cloud - 1980s") +  
   theme_minimal() +  
@@ -131,17 +131,16 @@ Rock3 <- ggplot(Rock_word_freqs |>
                 aes(label = word, size = n, color = n)) +  
   geom_text_wordcloud(
     family = "sans",               
-    random.order = TRUE,  
-    # Size scale for words
-    scale = c(4, 1),
+    random.order = TRUE,
     # Percentage of words rotated
     rotate_ratio = 0.15, 
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
+    #word sizes proportionate to cloud area
     area_corr = TRUE
   ) +
-  # Size scale for words
+  # Size scale for cloud
   scale_size_area(max_size = 15) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) +  
   ggtitle("Rock Word Cloud - 1990s") +  
@@ -152,22 +151,21 @@ Rock3 <- ggplot(Rock_word_freqs |>
 # 2000s Rock decade
 Rock4 <- ggplot(Rock_word_freqs |> 
                   filter(decade == "2000") |>
-                   slice_max(n, n = 45), 
+                   slice_max(n, n = 44), 
                 aes(label = word, size = n, color = n)) +  
   geom_text_wordcloud(
     family = "sans",           
-    random.order = TRUE,   
-    # Size scale for words
-    scale = c(4, 1),     
+    random.order = TRUE,     
     # Percentage of words rotated
     rotate_ratio = 0.15,           
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
+    #word sizes proportionate to cloud area
     area_corr = TRUE
   ) +
-  # Size scale for words
-  scale_size_area(max_size = 15) +
+  # Size scale for cloud
+  scale_size_area(max_size = 20) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
   ggtitle("Rock Word Cloud - 2000s") +
   theme_minimal() + 
@@ -197,17 +195,17 @@ Dance1 <- ggplot(Dance_word_freqs |>
                 aes(label = word, size = n, color = n)) +  
   geom_text_wordcloud(
     family = "sans",             
-    random.order = TRUE, 
-    # Size scale for words
+    random.order = TRUE,
     # Percentage of words rotated
     rotate_ratio = 0.15,          
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
+    #word sizes proportionate to cloud area
     area_corr = TRUE
   ) +
-  # Size scale for words
-  scale_size_area(max_size = 15) +
+  # Size scale for cloud
+  scale_size_area(max_size = 20) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
   ggtitle("Dance Word Cloud - 1960s") +  
   theme_minimal() +  
@@ -221,18 +219,17 @@ Dance2 <- ggplot(Dance_word_freqs |>
                 aes(label = word, size = n, color = n)) +  
   geom_text_wordcloud(
     family = "sans",             
-    random.order = TRUE,    
-    # Size scale for words
-    scale = c(4, 0.6),    
+    random.order = TRUE,
     # Percentage of words rotated
     rotate_ratio = 0.15,           
     # Use `color` for word color, depending on frequency
     show.legend = FALSE ,
     rm_outside = TRUE,
+    #word sizes proportionate to cloud area
     area_corr = TRUE
   ) +
-  # Size scale for words
-  scale_size_area(max_size = 15) +
+  # Size scale for cloud
+  scale_size_area(max_size = 20) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
   ggtitle("Dance Word Cloud - 1970s") +  
   theme_minimal() +  
@@ -246,18 +243,17 @@ Dance3 <- ggplot(Dance_word_freqs |>
                 aes(label = word, size = n, color = n)) +  
   geom_text_wordcloud(
     family = "sans",               
-    random.order = TRUE,  
-    # Size scale for words
-    scale = c(4, 0.6),
+    random.order = TRUE,
     # Percentage of words rotated
     rotate_ratio = 0.15, 
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
+    #word sizes proportionate to cloud area
     area_corr = TRUE
   ) +
-  # Size scale for words
-  scale_size_area(max_size = 15) +
+  # Size scale for cloud
+  scale_size_area(max_size = 17) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) +  
   ggtitle("Dance Word Cloud - 1980s") +  
   theme_minimal() + 
@@ -284,7 +280,6 @@ Slow_word_freqs = read_csv("data/Slow_lyrics_word_freqs.csv")
 Slow_word_freqs |>
     with(wordcloud(words = word,
                    freq = n,
-                  # min.freq = 20,
                   max.words = 50,
 random.order = TRUE,
 # Specify the range of the size of the words
