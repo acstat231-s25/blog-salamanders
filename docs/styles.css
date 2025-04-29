@@ -1,5 +1,8 @@
 /* css styles */
 
+body {
+  font-family: Garamond ;
+}
 
 a {
   /*change default link color*/
@@ -19,6 +22,7 @@ a {
  .navbar-expand-lg .bi-house{
      /* navbar font color */
     color: white;
+    font-family: Garamond;
     }
     
     .nav-item .nav-link {
