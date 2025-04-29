@@ -409,7 +409,7 @@ ggplotly(sentiment_bpm_by_song, tooltip = "text")
 
 ::: {.panel-tabset}
 
-### Tab 3
+### Top Artists
 
 ```{r}
 #| label: decades of top artists' songs
@@ -453,7 +453,7 @@ top = top_artists |>
 ggplotly(top, tooltip = "text")
 ```
 
-### Tab 4
+### tabby
 
 ```{r}
 #| label: sentiment of top artists' songs
