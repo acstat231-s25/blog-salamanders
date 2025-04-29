@@ -26,10 +26,12 @@ library(xfun)
 library(RColorBrewer)
 library(wordcloud)
 library(ggpubr)
+
 ```
 
 ```{r}
-include_graphics("images/cover_image.jpg")
+include_graphics("images/record.jpg")
+# https://pixabay.com/photos/plate-vinyl-record-records-vinyl-4725349/
 ```
 
 # Getting started
