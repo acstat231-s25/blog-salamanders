@@ -287,7 +287,11 @@ read_csv("data/sentiment_by_genre.csv")
 write_csv(sentiment_by_song, "data/sentiment_by_song.csv")
 read_csv("data/sentiment_by_song.csv")
 
-# write and read csv for word freqs datasets
+# rankings
+write_csv(songs_chart, "data/songs_chart.csv")
+read_csv("data/songs_chart.csv")
+
+# top artists
 
 ```
 
