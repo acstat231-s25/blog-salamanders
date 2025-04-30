@@ -256,12 +256,15 @@ sentiment_by_song <- words_with_sentiment |>
   arrange(title)
   
 # calculate average sentiment by artist
+
+
 sentiment_by_artist <- sentiment_by_song |> 
   filter(artist == "The Beatles" 
          | artist == "The Rolling Stones" 
          | artist == "Bob Dylan") |>
   group_by(artist) |>
-  summarize(mean = mean(average_sentiment))
+  summarize(mean = mean(average_sentiment)) |>
+  mutate(mean = signif(mean, digits = 2))
 
 ```
 
