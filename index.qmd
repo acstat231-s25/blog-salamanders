@@ -517,9 +517,8 @@ top_artists |>
     theme(axis.title.x = element_text(size = rel(1.25), vjust = -0.25)
           # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
           ) 
-
-
 ```
+The Beatles take the lead among the top 3
 
 ### Top Sentiments
 
@@ -557,7 +556,7 @@ sentiment_by_artist |>
 ```
 :::
 
-For music lovers and Rolling Stone Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone's Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. 
+For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone's Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. The Top Artists chart demonstrates the margin by which The Beatles' songs outnumber the other two. The Beatles have a stunning 23 songs on the list---24 if you include John Lennon's <i> Imagine </i>. The top ranking song from the supergroup is <i>Hey Jude</i> which ranks at 8 on the list. The Rolling Stones follow The Beatles with 14 songs, their first on the list, <i>Satisfaction</i>, at slot 2. Finally, Bob Dylan's first feature, the number 1 slot on the list, is <i>Like a Rolling Stone</i>. 
 
 ## Website project structure
 
