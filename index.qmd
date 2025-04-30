@@ -65,7 +65,7 @@ The lyrics for each song were contained in another webpage linked to the origina
 
 # Data Wrangling
 
-In order to explore 
+In order to answer our research questions, we needed to wrangle our scraped data. To investigate how sentiments for song lyrics changed across different genres, we created
 
 
 # Visualizations
