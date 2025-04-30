@@ -476,7 +476,7 @@ songs_chart |>
 
 The graphic above shows the distribution of the decades represented in Rolling Stone Magazine's Top 500 Songs of all time. In this, we can see that the 1960s are the clear leader in terms of representation on the list. In fact, roughly 35% of the songs on the list are from the 60s. The 70s follow at around 25%, and the 50s, 80s, and 90s are all around 10-13% of the list. There is a clear trend downward from the 60s to the 2000s, with the 2000s being the least represented decade. 
 
-Taking a closer look at where the songs fall in the ranking categories, i.e., Top 100, 200s, and so on, we can see that the 1960s have the most songs in the top 100 among all decades, but this follows from 60s songs' representation in the list. 
+Taking a closer look at where the songs fall in the ranking categories, i.e., Top 100, 200s, and so on, we can see that the 1960s have the most songs in the top 100 among all decades, but this follows from 60s songs' representation in the list. Interestingly, even though the 70s have many more songs on the list than the 50s, the 50s have slightly more songs in the Top 100.
 
 
 ### Rolling Stone's Top Three Artists
@@ -506,8 +506,8 @@ top_artists |>
     geom_bar(color = "black") +
     scale_fill_manual(values = new_palette, name = "Decade") +
     labs(
-     title = "The Top 3 Most Represented Artists in the Rolling Stone Top 500"
-     , subtitle = "Broken Down by the Decade Their Songs Were Released"
+     title = "The Top 3 Most Represented Artists"
+     , subtitle = "By the Decade Their Songs Were Released"
      , x = "Artist"
      , y = "Number of Songs"
      , tag = " "
@@ -536,14 +536,16 @@ sentiment_by_artist = read_csv("data/sentiment_by_artists.csv")
 new_palette2 = colorRampPalette(colors = c("#540340"
                                             , "#eb6309"
                                             , "#d92b1e"))(3)
+
 sentiment_by_artist |>
   ggplot(aes(x = artist, y = mean, fill = artist)) +
   scale_fill_manual(values = new_palette2) +
+  geom_col(stat = "identity") +
   labs(
     y = "Average Sentiment"
     , x = "Artist"
   ) +
-  geom_col(stat = "identity") +
+  geom_text(aes(label = mean), vjust = -0.2) +
   theme_linedraw() +
   geom_hline(yintercept = 0, linetype = "dashed") +
   guides(fill = FALSE) +
