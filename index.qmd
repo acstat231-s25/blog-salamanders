@@ -450,6 +450,10 @@ songs_chart$decade = paste0(songs_chart$decade, "s")
 songs_chart$decade = 
    factor(songs_chart$decade
           , levels = c('50s', '60s', '70s', '80s', '90s', '2000s')) 
+# sort rank blocks into order that best demonstrates top 100 distribution
+songs_chart$block =
+  factor(songs_chart$block
+         , levels = c('500s', '400s', '300s', '200s', 'Top 100'))
 # build plot
 songs_chart |> 
   # Create segmented histogram
@@ -471,6 +475,8 @@ songs_chart |>
 
 
 The graphic above shows the distribution of the decades represented in Rolling Stone Magazine's Top 500 Songs of all time. In this, we can see that the 1960s are the clear leader in terms of representation on the list. In fact, roughly 35% of the songs on the list are from the 60s. The 70s follow at around 25%, and the 50s, 80s, and 90s are all around 10-13% of the list. There is a clear trend downward from the 60s to the 2000s, with the 2000s being the least represented decade. 
+
+Taking a closer look at where the songs fall in the ranking categories, i.e., Top 100, 200s, and so on, we can see that the 1960s have the most songs in the top 100 among all decades, but this follows from 60s songs' representation in the list. 
 
 
 ### Rolling Stone's Top Three Artists
@@ -494,7 +500,7 @@ top_artists$decade =
    factor(top_artists$decade
           , levels = c('2000s', '90s', '80s', '70s', '60s', '50s'))  
 
-top = top_artists |> 
+top_artists |> 
   # Create segmented histogram
   ggplot(aes(x = artist, fill = decade)) +
     geom_bar(color = "black") +
@@ -512,7 +518,7 @@ top = top_artists |>
           # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
           ) 
 
-ggplotly(top, tooltip = "text")
+
 ```
 
 ### Top Sentiments
@@ -530,7 +536,7 @@ sentiment_by_artist = read_csv("data/sentiment_by_artists.csv")
 new_palette2 = colorRampPalette(colors = c("#540340"
                                             , "#eb6309"
                                             , "#d92b1e"))(3)
-art = sentiment_by_artist |>
+sentiment_by_artist |>
   ggplot(aes(x = artist, y = mean, fill = artist)) +
   scale_fill_manual(values = new_palette2) +
   labs(
@@ -544,7 +550,7 @@ art = sentiment_by_artist |>
   theme(axis.title.x = element_text(vjust = -0.3)
        # , axis.title.y = element_text(vjust = -0.3)
         )
-ggplotly(art, tooltip ="text")
+
 ```
 :::
 
