@@ -270,19 +270,15 @@ sentiment_by_artist <- sentiment_by_song |>
 
 # merged_songs
 write_csv(merged_songs, "data/merged_songs.csv")
-read_csv("data/merged_songs.csv")
 
 # merged_songs_combined
 write_csv(merged_songs_combined, "data/merged_songs_combined.csv")
-read_csv("data/merged_songs_combined.csv")
 
 # merged_songs_bigrams
 write_csv(merged_songs_bigrams, "data/merged_songs_bigrams.csv")
-read_csv("data/merged_songs_bigrams.csv")
 
 # merged_songs_trigrams
 write_csv(merged_songs_trigrams, "data/merged_songs_trigrams.csv")
-read_csv("data/merged_songs_trigrams.csv")
 
 # lyrics_word_freqs
 #write_csv(lyrics_word_freqs, "data/lyrics_word_freqs.csv")
@@ -290,16 +286,12 @@ read_csv("data/merged_songs_trigrams.csv")
 
 # sentiment_by_year
 write_csv(sentiment_by_year, "data/sentiment_by_year.csv")
-read_csv("data/sentiment_by_year.csv")
 
 # sentiment_by_genre
 write_csv(sentiment_by_genre, "data/sentiment_by_genre.csv")
-read_csv("data/sentiment_by_genre.csv")
 
 # sentiment_by_song
 write_csv(sentiment_by_song, "data/sentiment_by_song.csv")
-read_csv("data/sentiment_by_song.csv")
-
 
 # top artists
 write_csv(top_artists, "data/top_artists.csv")
@@ -309,7 +301,7 @@ write_csv(sentiment_by_artist, "data/sentiment_by_artists.csv")
 
 # rankings
 write_csv(songs_chart, "data/songs_chart.csv")
-read_csv("data/songs_chart.csv")
+
 ```
 
 
