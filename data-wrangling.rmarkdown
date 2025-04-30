@@ -22,8 +22,8 @@ library(stringr)
 library(robotstxt)
 library(tidytext)
 library(dplyr)
-library(scales)
 library(lubridate)
+library(scales)
 ```
 
 ```{r}
@@ -270,15 +270,19 @@ sentiment_by_artist <- sentiment_by_song |>
 
 # merged_songs
 write_csv(merged_songs, "data/merged_songs.csv")
+read_csv("data/merged_songs.csv")
 
 # merged_songs_combined
 write_csv(merged_songs_combined, "data/merged_songs_combined.csv")
+read_csv("data/merged_songs_combined.csv")
 
 # merged_songs_bigrams
 write_csv(merged_songs_bigrams, "data/merged_songs_bigrams.csv")
+read_csv("data/merged_songs_bigrams.csv")
 
 # merged_songs_trigrams
 write_csv(merged_songs_trigrams, "data/merged_songs_trigrams.csv")
+read_csv("data/merged_songs_trigrams.csv")
 
 # lyrics_word_freqs
 #write_csv(lyrics_word_freqs, "data/lyrics_word_freqs.csv")
@@ -286,40 +290,26 @@ write_csv(merged_songs_trigrams, "data/merged_songs_trigrams.csv")
 
 # sentiment_by_year
 write_csv(sentiment_by_year, "data/sentiment_by_year.csv")
+read_csv("data/sentiment_by_year.csv")
 
 # sentiment_by_genre
 write_csv(sentiment_by_genre, "data/sentiment_by_genre.csv")
+read_csv("data/sentiment_by_genre.csv")
 
 # sentiment_by_song
 write_csv(sentiment_by_song, "data/sentiment_by_song.csv")
+read_csv("data/sentiment_by_song.csv")
+
+# rankings
+write_csv(songs_chart, "data/songs_chart.csv")
+read_csv("data/songs_chart.csv")
 
 # top artists
 write_csv(top_artists, "data/top_artists.csv")
 
 # top artist average sentiment
-write_csv(sentiment_by_artist, "data/sentiment_by_artists.csv")
-
-# rankings
-write_csv(songs_chart, "data/songs_chart.csv")
-
+write_csv(sentiment_by_artist, "data/sentiment_by_artists")
 ```
-
-
-```{r}
-#create custom color palette for plots
-
-new_palette <- colorRampPalette(colors = c("#6b34eb"
-                                           , "#F3AB4D"
-                                           , "#eb6309"
-                                           , "#d92b1e"
-                                           , "#540340"
-                                           , "#C6C2B8" ))(6)
-
-new_palette2 <- colorRampPalette(colors = c("#540340"
-                                            , "#eb6309"
-                                            , "#d92b1e"))(3)
-```
-
 
 ```{r}
 # jenna visualization workspace
@@ -548,11 +538,28 @@ family = "sans"))
 
 ```
 
+```{r}
 
+# https://meghan.rbind.io/blog/2022-10-11-creating-custom-color-palettes-with-ggplot2/ 
+
+new_palette <- colorRampPalette(colors = c("#6b34eb"
+                        , "#F3AB4D"
+                        ,  "#eb6309"
+                        ,   "#d92b1e"
+                        ,   "#540340"
+                        ,   "#C6C2B8" ))(6)
+new_palette2 <- colorRampPalette(colors = c("#6b34eb"
+                        , "blue"
+                        ,  "#CD7F32"
+                        ,   "#C0C0C0"
+                        ,   "#f5c507"
+                        ,   "#C6C2B8" ))(6)
+scales::show_col(new_palette)
+```
 
 ```{r}
 # Claire visualization workspace
-
+# library(RColorBrewer)
 # decade vis
 #| fig-width: 4
 #| fig-height: 6
@@ -567,16 +574,19 @@ songs_chart |>
      , subtitle = "Broken Down By Rank"
      , x = "Decade of Release"
      , y = "Number of Songs"
+     , tag = " "
+     , caption = " "
      ) +
     theme_linedraw() +
-    theme(plot.caption = element_text(hjust = -0.5)
-          , axis.title.x = element_text(vjust = -0.3)
-          , axis.text.x = element_text(size = rel(1.25)))
-
+    theme(legend.text = element_text(size = rel(0.75))) +
+    theme(title = element_text(size = rel(0.75))) +
+    theme(plot.caption = element_text(hjust = -0.5)) +
+    theme(axis.title.x = element_text(size = rel(1.5))) +
+    theme(axis.text.x = element_text(size = rel(1.25)))
 
 
 top_artists |> 
-  # Create segmented bar chart
+  # Create segmented histogram
   ggplot(aes(x = artist, fill = decade)) +
     geom_bar(color = "black") +
     
@@ -590,27 +600,18 @@ top_artists |>
      , caption = " "
      ) +
     theme_linedraw() +
-    theme(axis.title.x = element_text(size = rel(1.25), vjust = -0.25)
+    theme(legend.text = element_text(size = rel(0.75))
+          , title = element_text(size = rel(0.75))
+          , axis.title.x = element_text(size = rel(1.25))
           # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
           ) 
+
 prop.table(table(songs_chart$decade))
 
 
 sentiment_by_artist |>
-  ggplot(aes(x = artist, y = mean, fill = artist)) +
-  scale_fill_manual(values = new_palette2) +
-  labs(
-    y = "Average Sentiment"
-    , x = "Artist"
-  ) +
-  geom_col(stat = "identity") +
-  theme_linedraw() +
-  geom_hline(yintercept = 0, linetype = "dashed") +
-  guides(fill = FALSE) +
-  theme(axis.title.x = element_text(vjust = -0.3)
-       # , axis.title.y = element_text(vjust = -0.3)
-        )
-top_artists
-
+  ggplot(aes(x = artist, y = mean)) +
+  geom_col() 
 
 ```
+

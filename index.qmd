@@ -26,10 +26,13 @@ library(xfun)
 library(RColorBrewer)
 library(wordcloud)
 library(ggpubr)
+library(scales)
+
 ```
 
 ```{r}
-include_graphics("images/cover_image.jpg")
+include_graphics("images/record.jpg")
+# https://pixabay.com/photos/plate-vinyl-record-records-vinyl-4725349/
 ```
 
 # Getting started
@@ -51,12 +54,12 @@ We are interested in exploring the following 3 main research questions:
 We collected data from an [online music database](https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html) created by Dave Tompkins, a professor at the University of Waterloo in Canada. The initial dataset we scraped contains 7 variables:
 
 `number`: the number of the track
-`artist`: the artist who created the song
-`title`: the name of the song
-`time`: the length of the song
-`bpm`: the beats per minute of the song
-`year`: the year the song was released
-`genre`: the genre the song belongs to
+<br>`artist`: the artist who created the song 
+<br>`title`: the name of the song
+<br>`time`: the length of the song
+<br>`bpm`: the beats per minute of the song
+<br>`year`: the year the song was released
+<br>`genre`: the genre the song belongs to
 
 The lyrics for each song were contained in another webpage linked to the original, so we iterated through and scraped the song lyrics for 483 songs (13 of the songs did not have lyrics available). Next, we combined the lyrics dataset with the initial dataset. Thus, we ended up with 8 variables (the original 7 plus `lyrics`).
 
@@ -403,9 +406,86 @@ sentiment_bpm_by_song = ggplot(sentiment_data_song,
 ggplotly(sentiment_bpm_by_song, tooltip = "text")
 
 ```
+
+::: {.panel-tabset}
+
+### Top Artists
+
+```{r}
+#| label: decades of top artists' songs
+#| include: true
+#| message: false
+#| warning: false
+
+top_artists = read_csv("data/top_artists.csv")
+
+top_artists$decade = paste0(top_artists$decade, "s")
+
+top_artists$decade = 
+   factor(top_artists$decade
+          , levels = c('2000s', '90s', '80s', '70s', '60s', '50s'))  
+
+# palette for plot
+new_palette <- colorRampPalette(colors = c("#6b34eb"
+                                           , "#F3AB4D"
+                                           , "#eb6309"
+                                           , "#d92b1e"
+                                           , "#540340"
+                                           , "#C6C2B8" ))(6)
+top = top_artists |> 
+  # Create segmented histogram
+  ggplot(aes(x = artist, fill = decade)) +
+    geom_bar(color = "black") +
+    scale_fill_manual(values = new_palette, name = "Decade") +
+    labs(
+     title = "The Top 3 Most Represented Artists in the Rolling Stone Top 500"
+     , subtitle = "Broken Down by the Decade Their Songs Were Released"
+     , x = "Artist"
+     , y = "Number of Songs"
+     , tag = " "
+     , caption = " "
+     ) +
+    theme_linedraw() +
+    theme(axis.title.x = element_text(size = rel(1.25), vjust = -0.25)
+          # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
+          ) 
+
+ggplotly(top, tooltip = "text")
+```
+
+### tabby
+
+```{r}
+#| label: sentiment of top artists' songs
+#| include: true
+#| message: false
+#| warning: false
+
+songs_chart = read_csv("data/songs_chart.csv")
+sentiment_by_artist = read_csv("data/sentiment_by_artists.csv")
+
+# palette for plot
+new_palette2 = colorRampPalette(colors = c("#540340"
+                                            , "#eb6309"
+                                            , "#d92b1e"))(3)
+art = sentiment_by_artist |>
+  ggplot(aes(x = artist, y = mean, fill = artist)) +
+  scale_fill_manual(values = new_palette2) +
+  labs(
+    y = "Average Sentiment"
+    , x = "Artist"
+  ) +
+  geom_col(stat = "identity") +
+  theme_linedraw() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  guides(fill = FALSE) +
+  theme(axis.title.x = element_text(vjust = -0.3)
+       # , axis.title.y = element_text(vjust = -0.3)
+        )
+ggplotly(art, tooltip ="text")
+```
+
 :::
-
-
 
 ## Website project structure
 
