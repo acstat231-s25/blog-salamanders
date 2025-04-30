@@ -63,7 +63,7 @@ We collected data from an [online music database](https://cs.uwaterloo.ca/~dtomp
 
 The lyrics for each song were contained in another webpage linked to the original, so we iterated through and scraped the song lyrics for 483 songs (13 of the songs did not have lyrics available). Next, we combined the lyrics dataset with the initial dataset. Thus, we ended up with 8 variables (the original 7 plus `lyrics`).
 
-# Data Wrangling
+# Data Wrangling & Methods
 
 In order to explore 
 
@@ -486,6 +486,15 @@ ggplotly(art, tooltip ="text")
 ```
 
 :::
+
+# Conclusions
+
+# Limitations
+
+# References
+
+
+
 
 ## Website project structure
 
