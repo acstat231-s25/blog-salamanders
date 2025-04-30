@@ -45,7 +45,7 @@ Music is a major source of entertainment that strongly influences the lives of m
 
 We are interested in exploring the following 3 main research questions:
 
-1. How do the frequencies of certain words and phrases (bigrams, trigrams, etc.) differ across genres of music?
+1. How do the frequencies of certain words differ across lyrics from the following three music genres: Rock (1970's - 2000's), Dance (1960's - 1980's), and Slow?
 2. How do the sentiments for different lyrics change across genres and time periods?
 3. Do certain BPMs, song durations, years, and artists appear more frequently in Rolling Stone’s 500 Greatest Songs of All Time Ranking?
 
