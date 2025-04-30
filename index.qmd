@@ -542,10 +542,11 @@ sentiment_by_artist |>
   scale_fill_manual(values = new_palette2) +
   geom_col(stat = "identity") +
   labs(
-    y = "Average Sentiment"
+    title = "Sentiments of The Top 3"
+    , y = "Average Sentiment"
     , x = "Artist"
   ) +
-  geom_text(aes(label = mean), vjust = -0.2) +
+  geom_text(aes(label = mean), vjust = -0.125) +
   theme_linedraw() +
   geom_hline(yintercept = 0, linetype = "dashed") +
   guides(fill = FALSE) +
@@ -555,6 +556,8 @@ sentiment_by_artist |>
 
 ```
 :::
+
+For music lovers and Rolling Stone Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone's Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. 
 
 ## Website project structure
 
