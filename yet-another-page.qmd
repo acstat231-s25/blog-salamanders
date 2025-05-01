@@ -4,4 +4,129 @@ This is *yet* another page that can be linked! You are not required to include m
 ## A note {#sec-note} 
 
 Notice that you can also modify the YAML headings at the top of each page as I did in the [first subpage](another-page.qmd) or completely delete them, as I did here.
+## Through the Decades 
 
+```{r}
+ #| label: decade favorability
+ #| include: true
+ #| warning: false
+ #| message: false
+ 
+ 
+ # necessary data wrangling since r reads the decades as integers instead 
+ # of levels in the csv 
+ songs_chart = read_csv("data/songs_chart.csv")
+ # add back the s to the decades
+ songs_chart$decade = paste0(songs_chart$decade, "s")
+ # decade integers to factors in a logical order
+ songs_chart$decade = 
+    factor(songs_chart$decade
+           , levels = c('50s', '60s', '70s', '80s', '90s', '2000s')) 
+ # sort rank blocks into order that best demonstrates top 100 distribution
+ songs_chart$block =
+   factor(songs_chart$block
+          , levels = c('500s', '400s', '300s', '200s', 'Top 100'))
+ # build plot
+ songs_chart |> 
+   # Create segmented histogram
+   ggplot(aes(x = decade, fill = block)) +
+     geom_bar(position = "stack", color = "black") +
+     
+     scale_fill_manual(values = new_palette, name = "Rank") +
+     labs(
+      title = "Decades in the Rolling Stone Top 500"
+      , subtitle = "Broken Down By Rank"
+      , x = "Decade of Release"
+      , y = "Number of Songs"
+      ) +
+     theme_linedraw() +
+     theme(plot.caption = element_text(hjust = -0.5)
+           , axis.title.x = element_text(vjust = -0.3)
+           , axis.text.x = element_text(size = rel(1.25)))
+```
+ 
+The graphic above shows the distribution of the decades represented in <i>Rolling Stone</i> Magazine's Top 500 Songs of All Time. In this, we can see that the 1960s are the clear leader in terms of representation on the list. In fact, roughly 35% of the songs on the list are from the 60s. The 70s follow at around 25%, and the 50s, 80s, and 90s each represent around 10-13% of the list. There is a clear trend downward from the 60s to the 2000s, with the 2000s being the least represented decade. 
+ 
+ Taking a closer look at where the songs fall in the ranking categories, i.e., Top 100, 200s, and so on, we can see that the 1960s have the most songs in the top 100 among all decades, but this follows from 60s songs' representation in the list. Interestingly, even though the 70s have many more songs on the list than the 50s, the 50s have slightly more songs in the Top 100.
+ 
+ 
+### Rolling Stone's Top Three Artists
+::: {.panel-tabset}
+ 
+### Top Artists
+
+```{r}
+#| label: decades of top artists' songs
+#| include: true
+#| message: false
+#| warning: false
+
+
+ # necessary data wrangling since r reads the decades as integers instead 
+ # of levels in the csv 
+ top_artists = read_csv("data/top_artists.csv")
+ # add the s back to the decades
+ top_artists$decade = paste0(top_artists$decade, "s")
+ # decade integers to factors in a logical order
+ top_artists$decade = 
+    factor(top_artists$decade
+           , levels = c('2000s', '90s', '80s', '70s', '60s', '50s'))  
+ 
+ top_artists |> 
+   # Create segmented histogram
+   ggplot(aes(x = artist, fill = decade)) +
+     geom_bar(color = "black") +
+     scale_fill_manual(values = new_palette, name = "Decade") +
+     labs(
+      title = "The Top 3 Most Represented Artists"
+      , subtitle = "By the Decade Their Songs Were Released"
+      , x = "Artist"
+      , y = "Number of Songs"
+      , tag = " "
+      , caption = " "
+      ) +
+     theme_linedraw() +
+     theme(axis.title.x = element_text(size = rel(1.25), vjust = -0.25)
+           # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
+           ) 
+ 
+```
+
+
+
+### Top Sentiments
+
+```{r}
+#| label: sentiment of top artists' songs
+#| include: true
+#| message: false
+#| warning: false
+
+songs_chart = read_csv("data/songs_chart.csv")
+sentiment_by_artist = read_csv("data/sentiment_by_artists.csv")
+
+# palette for plot
+new_palette2 = colorRampPalette(colors = c("#540340"
+                                            , "#eb6309"
+                                            , "#d92b1e"))(3)
+sentiment_by_artist |>
+   ggplot(aes(x = artist, y = mean, fill = artist)) +
+   scale_fill_manual(values = new_palette2) +
+   geom_col(stat = "identity") +
+   labs(
+     title = "Sentiments of The Top 3"
+     , y = "Average Sentiment"
+     , x = "Artist"
+   ) +
+   geom_text(aes(label = mean), vjust = -0.125) +
+   theme_linedraw() +
+   geom_hline(yintercept = 0, linetype = "dashed") +
+   guides(fill = FALSE) +
+   theme(axis.title.x = element_text(vjust = -0.3)
+        # , axis.title.y = element_text(vjust = -0.3)
+         )
+```
+
+:::
+
+For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone's Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. The Top Artists chart demonstrates the margin by which The Beatles' songs outnumber the other two. The Beatles have a stunning 23 songs on the list---24 if you include John Lennon's <i>Imagine</i>. The top ranking song from the supergroup is <i>Hey Jude</i> which ranks at 8 on the list. The Rolling Stones follow The Beatles with 14 songs, their first on the list, <i>Satisfaction</i>, at slot 2. Finally, Bob Dylan's first feature, the number 1 slot on the list, is <i>Like a Rolling Stone</i>. 
