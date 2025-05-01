@@ -1,5 +1,5 @@
 ---
-title: "Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Songs of All Time"
+title: "Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Greatest Songs of All Time"
 subtitle: ""
 author: 
 - "Jenna Holmes"
