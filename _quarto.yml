@@ -15,7 +15,7 @@ website:
       - another-page.qmd
       - href: yet-another-page.qmd
         text: "Top Artists"
-        icon: arrow-through-heart-fill
+        
         
 format:
   html:
