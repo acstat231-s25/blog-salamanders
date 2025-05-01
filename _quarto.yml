@@ -18,6 +18,8 @@ website:
       - text: "Word Frequencies"
       - href: yet-another-page.qmd
         text: "Top Artists"
+      - href: thirdpage.qmd
+      - text: "Word Frequencies"
         
         
 format:
