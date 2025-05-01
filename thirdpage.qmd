@@ -24,7 +24,7 @@ library(ggpubr)
 library(scales)
 ```
 
-### Word Clouds for Lyrics' Word Frequencies by Genre
+### Word Clouds for Word Frequencies in Lyrics by Genre
 
 ::: {.panel-tabset}
 
