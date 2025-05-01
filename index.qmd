@@ -323,12 +323,6 @@ Similarly, the Dance tab portrays word frequencies within the genre via three wo
 
 Lastly, the Slow tab conveys word frequencies from the cumulative Slow music genre and displays "chain," "beat," "boogie," and "baby" as the terms with higher frequencies, supported by the alignment of these terms with the emotional themes of Slow music. "Chain" is a term often used in slower songs to represent emotional bondage and attachment. The term "beat" can be used to convey slower rhythms, and "boogie" is used in a nostalgic sense. "Baby" is often used in lyrics of love, which commonly occur in slower songs.
 
-<<<<<<< HEAD
-Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion.
-
-
-
-=======
 Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion. Furthermore, the isolation of various decades within the Rock and Dance genres highlights the relationship between the societal and musical movements that occurred and the words of highest frequency in song lyrics written during those years. Despite any commonly embodied themes across the three genres, each genre still exhibited unique concepts. The Rock genre as a whole conveys key concepts of love and expression. The Dance genre cumulatively represents energy and rhythm, and lastly the Slow genre conveys emotion and steady paces.
 
 ```{r}
@@ -445,7 +439,6 @@ ggplotly(sentiment_bpm_by_song, tooltip = "text")
 
 ::: 
 
->>>>>>> 1af56f80ec500dd5cd000e7b19e4e76fdb73db1c
 ## Through the Decades 
 
 ```{r}
