@@ -382,7 +382,7 @@ The bar chart for the average sentiment of song lyrics of 483 out of the top 500
 
 ::: {.panel-tabset}
 
-### Tab 1
+### Sentiment versus Song Time
 
 ```{r}
 #| label: average sentiment of each song versus time
@@ -410,7 +410,7 @@ sentiment_time_by_song = ggplot(sentiment_data_song,
 ggplotly(sentiment_time_by_song, tooltip = "text")
 ```
 
-### Tab 2
+### Sentiment versus BPM
 
 ```{r}
 #| label: average sentiment of each song versus bpm
@@ -438,6 +438,13 @@ ggplotly(sentiment_bpm_by_song, tooltip = "text")
 ```
 
 ::: 
+
+The two scatterplots above demonstrate the relationship between sentiment and two variables: song time and beats per minute (bpm). Just like the previous plots, hovering over a data point or bar provides a dropdown with more information about the song, such as its title and artist.
+
+The plot for average sentiment versus song time reveals that there is not a well-defined relationship between the two variables. The trend line is generally slightly negatively sloped, which could be an indicator that average sentiment decreases as song time increases. However, this is a very weak relationship that is likely skewed by the few songs (over 600 seconds) that have relatively low average sentiments. Thus, it doesn't seem like song time is a good predictor of average sentiment. 
+
+The second scatterplot also reveals that there is not a strong relationship between average sentiment and bpm. Although the trend line is generally slightly positively sloped, the points are scattered pretty randomly throughout the plot, indicating no clear linear relationship between the two variables. We can conclude that bpm is not a very good predictor of average sentiment amongst 483 songs out the top 500 Rolling Stones best songs list.
+
 
 ## Through the Decades 
 
