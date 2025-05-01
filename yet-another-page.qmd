@@ -6,6 +6,44 @@ This is *yet* another page that can be linked! You are not required to include m
 Notice that you can also modify the YAML headings at the top of each page as I did in the [first subpage](another-page.qmd) or completely delete them, as I did here.
 ## Through the Decades 
 
+---
+title: "Top Artists of the Top Songs"
+author: 
+- "Claire Albus"
+abstract: ""
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Improve digit display and NA display for kable tables
+options(scipen = 1, knitr.kable.NA = "")
+
+# Load necessary packages
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(plotly)
+library(ggwordcloud)
+library(xfun)
+library(RColorBrewer)
+library(wordcloud)
+library(ggpubr)
+library(scales)
+
+# set up color palette for the next few plots
+ new_palette <- colorRampPalette(colors = c("#6b34eb"
+                                            , "#F3AB4D"
+                                            , "#eb6309"
+                                            , "#d92b1e"
+                                            , "#540340"
+                                            , "#C6C2B8" ))(6)
+
+```
+
+
 ```{r}
  #| label: decade favorability
  #| include: true
