@@ -43,10 +43,6 @@ include_graphics("images/record.jpg")
 # https://pixabay.com/photos/plate-vinyl-record-records-vinyl-4725349/
 ```
 
-# Getting started
-
-This is an example of a Quarto website. All the [Quarto markdown features](https://quarto.org/docs/authoring/markdown-basics.html) we learned for formatting text, adding headings and subheadings, adding code and output, adding labels and captions and whatnot work as usual. 
-
 # Introduction
 
 Music is a major source of entertainment that strongly influences the lives of many individuals. This project seeks to investigate different trends in music lyrics through the use of text and sentiment analysis, using data of songs included in the Rolling Stone's Top 500 Greatest Songs of All Time.
@@ -400,7 +396,7 @@ sentiment_time_by_song = ggplot(sentiment_data_song,
                                "BPM (beats per minute): ", bpm, "<br>"))) +
   geom_smooth() +
   labs(title = "Average Sentiment versus Time (sec)",
-       subtitle = "483 Songs on the Top 500 Rolling Stone's Best Songs List"
+       subtitle = "483 Songs on the Top 500 Rolling Stone's Best Songs List",
        x = "Time (sec)", y = "Average Sentiment",
        color = "Genre")
 
@@ -562,6 +558,7 @@ sentiment_by_artist |>
 :::
 
 For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone's Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. The Top Artists chart demonstrates the margin by which The Beatles' songs outnumber the other two. The Beatles have a stunning 23 songs on the list---24 if you include John Lennon's <i>Imagine</i>. The top ranking song from the supergroup is <i>Hey Jude</i> which ranks at 8 on the list. The Rolling Stones follow The Beatles with 14 songs, their first on the list, <i>Satisfaction</i>, at slot 2. Finally, Bob Dylan's first feature, the number 1 slot on the list, is <i>Like a Rolling Stone</i>. 
+
 
 
 
