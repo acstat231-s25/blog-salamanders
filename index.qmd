@@ -1,5 +1,6 @@
 ---
 title: "Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Songs of All Time"
+subtitle: "Optional subtitle"
 author: 
 - "Jenna Holmes"
 - "Claire Albus"
@@ -53,7 +54,7 @@ Music is a major source of entertainment that strongly influences the lives of m
 We are interested in exploring the following 3 main research questions:
 
 1. How do the frequencies of certain words differ across lyrics from the following three music genres: Rock (1970's - 2000's), Dance (1960's - 1980's), and Slow?
-2. How do the sentiments for different lyrics change across genres and time periods, and how do song time and beats per minute affect sentiment scores?
+2. How do the sentiments for different lyrics change across genres and time periods?
 3. Do certain BPMs, song durations, years, and artists appear more frequently in Rolling Stone’s 500 Greatest Songs of All Time Ranking?
 
 # Data Collection
@@ -74,7 +75,8 @@ The lyrics for each song were contained in another webpage linked to the origina
 
 In order to answer our research questions, we needed to wrangle our scraped data. 
 
-To investigate how sentiments for song lyrics changed across different genres, we created multiple datasets that included the average sentiment of lyrics of all songs released in each year and each genre. We used the AFINN lexicon, which contains 2477 words and their corresponding sentiment scores, to identify matching words from the song lyrics and assign each of these words a sentiment score. The scores range from 5 to -5, with 5 being the most positive, -5 being the most negative, and 0 being neutral.
+To investigate how sentiments for song lyrics changed across different genres, we created multiple datasets that included the average sentiment of lyrics of all songs released in each year and each genre.
+
 
 # Visualizations
 
@@ -311,13 +313,15 @@ family = "sans"))
 
 :::
 
-The Rock tab displays word frequencies within the genre in the form of four word clouds, one each from the 1970's, 1980's, 1990's, and 2000's. The 70's Rock word cloud conveys "time," "future," and "lord" as three of the most common words in this decade for the Rock genre, representing people's faith and desires for future change. Numerous anti-war protests, women's liberation acts, civil rights movements, etc. occurred during this decade, alluding to the aforementioned terms having higher frequencies in song lyrics. The terms "love" and "baby" are emphasized in the 80's Rock word cloud, supporting the fact that this decade produced countless unforgettable love songs, including "Should I Stay or Should I Go" by The Clash, "With or Without You" by U2, "Love Shack" by The B-52's. The 90's word cloud highlights words such as "perdedor," "kill," "denial," and "loser." Nirvana became incredibly popular during the early 90's, which contributed significantly to the rebellious spirit of the decade, as seen in these most common words from the cloud. The 2000's word cloud displays "life" and "lust" as having the highest word frequencies in Rock songs from this decade, which is sensible given that Indie rock was born in the early 2000's, bringing with it themes of independence and authenticity. Referencing the four word clouds, the Rock genre overall conveys strong ideas of love and a representation of the societal and musical changes as well as movements that occurred during each decade.
+The above three tabs portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970's through the 2000's. Likewise, the Dance genre is divided into three decades, specifically the 1960's through the 1980's. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner.
+
+Referencing the Rock tab, the 70's Rock word cloud conveys "time," "future," and "lord" as three of the most common words in this decade for the genre, representing people's faith and desires for future change. Numerous anti-war protests, women's liberation acts, civil rights movements, etc. occurred during this decade, alluding to the aforementioned terms having higher frequencies in song lyrics. The terms "love" and "baby" are emphasized in the 80's Rock word cloud, supporting the fact that this decade produced countless unforgettable love songs, including "Should I Stay or Should I Go" by The Clash, "With or Without You" by U2, "Love Shack" by The B-52's. The 90's word cloud highlights words such as "perdedor," "kill," "denial," and "loser." Nirvana became incredibly popular during the early 90's, which contributed significantly to the rebellious spirit of the decade, as seen in these most common words from the cloud. The 2000's word cloud displays "life" and "lust" as having the highest word frequencies in Rock songs from this decade, which is sensible given that Indie rock was born in the early 2000's, bringing with it themes of independence and authenticity. The Rock genre overall conveys strong ideas of love as well as a representation of the societal/musical changes and movements that occurred during each decade.
 
 Similarly, the Dance tab portrays word frequencies within the genre via three word clouds, one each from the 1960's, 1970's, and 1980's. The 60's word cloud shows "baby," "love," and "chain" as the words with higher frequencies in the Dance genre during this decade, which is supported by the fact that love was one of the more popular themes in 1960's music. According to the 70's cloud, "funk" and "light" had high word frequencies is the Dance music genre, given that funk and rhythm were popular in the 1970's. The 80's cloud demonstrates "boogie," "beat," "bang," and "party" as words of higher frequencies is this decade of Dance music, which aligns with the fact that the boogie sound was defined in the early 80's. Love, attachment, and funk are words of high frequency in the cumulative Dance genre (all three decades combined), and each decade had words of higher frequencies that were associated with popular themes during each of those years, such as the boogie and funk.
 
 Lastly, the Slow tab conveys word frequencies from the cumulative Slow music genre and displays "chain," "beat," "boogie," and "baby" as the terms with higher frequencies, supported by the alignment of these terms with the emotional themes of Slow music. "Chain" is a term often used in slower songs to represent emotional bondage and attachment. The term "beat" can be used to convey slower rhythms, and "boogie" is used in a nostalgic sense. "Baby" is often used in lyrics of love, which commonly occur in slower songs.
 
-Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion. 
+Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion. Furthermore, the isolation of various decades within the Rock and Dance genres highlights the relationship between the societal and musical movements that occurred and the words of highest frequency in song lyrics written during those years. The Rock genre as a whole conveys key concepts of love and expression. The Dance genre cumulatively represents energy and rhythm, and similarly the Slow genre conveys emotion and steady paces.
 
 ```{r}
 #| label: sentiment by year and genre
@@ -561,8 +565,6 @@ sentiment_by_artist |>
 For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone's Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. The Top Artists chart demonstrates the margin by which The Beatles' songs outnumber the other two. The Beatles have a stunning 23 songs on the list---24 if you include John Lennon's <i>Imagine</i>. The top ranking song from the supergroup is <i>Hey Jude</i> which ranks at 8 on the list. The Rolling Stones follow The Beatles with 14 songs, their first on the list, <i>Satisfaction</i>, at slot 2. Finally, Bob Dylan's first feature, the number 1 slot on the list, is <i>Like a Rolling Stone</i>. 
 
 
-# Conclusions
-
 # Limitations
 
 # References
@@ -625,7 +627,7 @@ These are not required for this project but are good practice.
 
 You can create subpages by simply creating new qmd files. Any subpage you want to include on the website should be added to the website navigation list in the `_quarto.yml` file. 
 
-You can [link to another page on the website](another-page.qmd) by using just the filepath to the corresponding qmd file. You can also [link directly to a section of a subpage](yet-another-page.qmd#sec-note). 
+You can [link to another page on the website](another-page.qmd) by using just the filepath to the corresponding qmd file. You can also   [link directly to a section of a subpage](yet-another-page.qmd#sec-note).
 
 
 ## Creating the bibliography
