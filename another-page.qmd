@@ -1,4 +1,6 @@
 
+## Sentiment Analysis
+
 ```{r}
 #| label: setup
 #| include: false
@@ -21,7 +23,6 @@ library(scales)
 
 ```
 
-## Sentiment Analysis
 
 ### Sentiment by Year and by Genre
 
