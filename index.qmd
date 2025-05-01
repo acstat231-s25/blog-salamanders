@@ -479,9 +479,10 @@ The graphic above shows the distribution of the decades represented in <i>Rollin
  Taking a closer look at where the songs fall in the ranking categories, i.e., Top 100, 200s, and so on, we can see that the 1960s have the most songs in the top 100 among all decades, but this follows from 60s songs' representation in the list. Interestingly, even though the 70s have many more songs on the list than the 50s, the 50s have slightly more songs in the Top 100.
  
  
+### Rolling Stone's Top Three Artists
 ::: {.panel-tabset}
  
- ### Rolling Stone's Top Three Artists
+### Top Artists
 
 ```{r}
 #| label: decades of top artists' songs
@@ -519,6 +520,8 @@ The graphic above shows the distribution of the decades represented in <i>Rollin
            ) 
  
 ```
+
+
 
 ### Top Sentiments
 
