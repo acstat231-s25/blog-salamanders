@@ -2,13 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-11-08">
+<meta name="author" content="Claire Albus">
+<meta name="dcterms.date" content="2025-04-30">
 
-<title>Website title</title>
+<title>The ’60s were a Great Decade for Music – Salamanders</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,11 +83,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Website title</span>
+    <span class="navbar-title">Salamanders</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -103,11 +104,11 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link active" href="./yet-another-page.html" aria-current="page"> <i class="bi bi-arrow-through-heart-fill" role="img">
 </i> 
-<span class="menu-text">Yet another page with a custom label and icon</span></a>
+<span class="menu-text">Top Artists</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -122,7 +123,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sec-note" id="toc-sec-note" class="nav-link active" data-scroll-target="#sec-note">A note</a></li>
+  <li><a href="#through-the-decades" id="toc-through-the-decades" class="nav-link active" data-scroll-target="#through-the-decades">Through the Decades</a>
+  <ul class="collapse">
+  <li><a href="#rolling-stones-top-three-artists" id="toc-rolling-stones-top-three-artists" class="nav-link" data-scroll-target="#rolling-stones-top-three-artists">Rolling Stone’s Top Three Artists</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -131,17 +135,24 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<h1 class="title">The ’60s were a Great Decade for Music</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Claire Albus </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Last updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 8, 2024</p>
+      <p class="date">April 30, 2025</p>
     </div>
   </div>
   
@@ -153,12 +164,62 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is <em>yet</em> another page that can be linked! You are not required to include more than just <em>index.qmd</em>, but you are welcome to make content on different pages, if desired. This may help with managing GitHub commits, as well.</p>
-<section id="sec-note" class="level2">
-<h2 class="anchored" data-anchor-id="sec-note">A note</h2>
-<p>Notice that you can also modify the YAML headings at the top of each page as I did in the <a href="./another-page.html">first subpage</a> or completely delete them, as I did here.</p>
+<section id="through-the-decades" class="level2">
+<h2 class="anchored" data-anchor-id="through-the-decades">Through the Decades</h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 500 Columns: 11
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): artist, title, time, genre, track, track_gen, block
+dbl (4): number, bpm, year, decade
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="yet-another-page_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The graphic above shows the distribution of the decades represented in <i>Rolling Stone</i> Magazine’s Top 500 Songs of All Time. In this, we can see that the 1960s are the clear leader in terms of representation on the list. In fact, roughly 35% of the songs on the list are from the 60s. The 70s follow at around 25%, and the 50s, 80s, and 90s each represent around 10-13% of the list. There is a clear trend downward from the 60s to the 2000s, with the 2000s being the least represented decade.</p>
+<p>Taking a closer look at where the songs fall in the ranking categories, i.e., Top 100, 200s, and so on, we can see that the 1960s have the most songs in the top 100 among all decades, but this follows from 60s songs’ representation in the list. Interestingly, even though the 70s have many more songs on the list than the 50s, the 50s have slightly more songs in the Top 100.</p>
+<section id="rolling-stones-top-three-artists" class="level3">
+<h3 class="anchored" data-anchor-id="rolling-stones-top-three-artists">Rolling Stone’s Top Three Artists</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Top Artists</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Top Sentiments</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="yet-another-page_files/figure-html/decades of top artists' songs-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="yet-another-page_files/figure-html/sentiment of top artists' songs-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone’s Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. The Top Artists chart demonstrates the margin by which The Beatles’ songs outnumber the other two. The Beatles have a stunning 23 songs on the list—24 if you include John Lennon’s <i>Imagine</i>. The top ranking song from the supergroup is <i>Hey Jude</i> which ranks at 8 on the list. The Rolling Stones follow The Beatles with 14 songs, their first on the list, <i>Satisfaction</i>, at slot 2. Finally, Bob Dylan’s first feature, the number 1 slot on the list, is <i>Like a Rolling Stone</i>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -341,18 +402,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -384,7 +434,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -419,7 +509,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
       let selectedAnnoteEl;

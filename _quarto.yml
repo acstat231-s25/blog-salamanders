@@ -5,7 +5,7 @@ project:
 # Can customize this section with options from the following page:
 # https://quarto.org/docs/websites/website-navigation.html
 website:
-  title: "The 500 Top Songs Of All Time"
+  title: "Salamanders"
   navbar:
     left:
       - href: index.qmd # Must be included as index.qmd
@@ -14,8 +14,8 @@ website:
       # Add or remove additional pages below in desired order of appearance
       - another-page.qmd
       - href: yet-another-page.qmd
-        text: "Yet another page with a custom label and icon"
-        icon: arrow-through-heart-fill
+        text: "Top Artists"
+        
         
 format:
   html:
