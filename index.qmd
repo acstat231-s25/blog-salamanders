@@ -389,7 +389,8 @@ sentiment_time_by_song = ggplot(sentiment_data_song,
                                "Time (sec): ", time_seconds, "<br>",
                                "BPM (beats per minute): ", bpm, "<br>"))) +
   geom_smooth() +
-  labs(title = "Average Sentiment versus Time (sec) of 483 Songs on the Top 500 Rolling Stone's Best Songs",
+  labs(title = "Average Sentiment versus Time (sec)",
+       subtitle = "483 Songs on the Top 500 Rolling Stone's Best Songs List"
        x = "Time (sec)", y = "Average Sentiment",
        color = "Genre")
 
@@ -415,7 +416,8 @@ sentiment_bpm_by_song = ggplot(sentiment_data_song,
                                "Time (sec): ", time_seconds, "<br>",
                                "BPM (beats per minute): ", bpm, "<br>"))) +
   geom_smooth() +
-  labs(title = "Average Sentiment versus Beats Per Minute of 483 Songs on the Top 500 Rolling Stone's Best Songs",
+  labs(title = "Average Sentiment versus Beats Per Minute",
+       subtitle = "483 Songs on the Top 500 Rolling Stone's Best Songs List",
        x = "Beats Per Minute", y = "Average Sentiment",
        color = "Genre")
 
