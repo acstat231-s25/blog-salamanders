@@ -77,6 +77,8 @@ In order to answer our research questions, we needed to wrangle our scraped data
 
 To investigate how sentiments for song lyrics changed across different genres, we created multiple datasets that included the average sentiment of lyrics of all songs released in each year and each genre.
 
+In order to create word clouds to express word frequencies in lyrics, we combined each of the Rock decades to be one `Rock` category, rather than each individual decade. The same process was conducted for each of the Dance decades. Additional datasets were then created for each of the three genres to store word frequencies and their corresponding decades. 
+
 
 # Visualizations
 
