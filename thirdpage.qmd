@@ -1,5 +1,5 @@
 ---
-title: "Word Clouds for Lyrics' Word Frequencies by Genre"
+title: "Word Frequencies"
 author: Jenna Holmes
 ---
 
@@ -24,6 +24,7 @@ library(ggpubr)
 library(scales)
 ```
 
+### Word Clouds for Lyrics' Word Frequencies by Genre
 
 ::: {.panel-tabset}
 
