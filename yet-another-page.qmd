@@ -45,6 +45,7 @@ library(scales)
  #| include: true
  #| warning: false
  #| message: false
+ #| show_col_types: false
  
  
  # necessary data wrangling since r reads the decades as integers instead 
@@ -68,8 +69,7 @@ library(scales)
      
      scale_fill_manual(values = new_palette, name = "Rank") +
      labs(
-      title = "Decades in the Rolling Stone Top 500"
-      , subtitle = "Broken Down By Rank"
+      title = "Decades Represented: By Rank"
       , x = "Decade of Release"
       , y = "Number of Songs"
       ) +
