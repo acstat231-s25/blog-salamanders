@@ -1,6 +1,5 @@
 ---
 title: "Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Songs of All Time"
-subtitle: "Optional subtitle"
 author: 
 - "Jenna Holmes"
 - "Claire Albus"
