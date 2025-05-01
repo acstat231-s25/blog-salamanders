@@ -3,6 +3,27 @@ title: "Word Clouds for Lyrics' Word Frequencies by Genre"
 author: Jenna Holmes
 ---
 
+```{r}
+#| label: setup
+#| include: false
+
+# Improve digit display and NA display for kable tables
+options(scipen = 1, knitr.kable.NA = "")
+
+# Load necessary packages
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(plotly)
+library(ggwordcloud)
+library(xfun)
+library(RColorBrewer)
+library(wordcloud)
+library(ggpubr)
+library(scales)
+```
+
 
 ::: {.panel-tabset}
 
