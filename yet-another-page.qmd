@@ -40,7 +40,7 @@ library(scales)
 
 ## Through the Decades 
 
-```{r}
+```{r, message=FALSE}
  #| label: decade favorability
  #| include: true
  #| warning: false
@@ -61,12 +61,12 @@ library(scales)
  songs_chart$block =
    factor(songs_chart$block
           , levels = c('500s', '400s', '300s', '200s', 'Top 100'))
+ 
  # build plot
  songs_chart |> 
    # Create segmented histogram
    ggplot(aes(x = decade, fill = block)) +
      geom_bar(position = "stack", color = "black") +
-     
      scale_fill_manual(values = new_palette, name = "Rank") +
      labs(
       title = "Decades Represented: By Rank"
@@ -76,7 +76,7 @@ library(scales)
      theme_linedraw() +
      theme(plot.caption = element_text(hjust = -0.5)
            , axis.title.x = element_text(vjust = -0.3)
-           , axis.text.x = element_text(size = rel(1.25)))
+           , axis.text.x = element_text(size = rel(1.25))) 
 ```
  
 The graphic above shows the distribution of the decades represented in <i>Rolling Stone</i> Magazine's Top 500 Songs of All Time. In this, we can see that the 1960s are the clear leader in terms of representation on the list. In fact, roughly 35% of the songs on the list are from the 60s. The 70s follow at around 25%, and the 50s, 80s, and 90s each represent around 10-13% of the list. There is a clear trend downward from the 60s to the 2000s, with the 2000s being the least represented decade. 
