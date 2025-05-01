@@ -43,9 +43,6 @@ include_graphics("images/record.jpg")
 # https://pixabay.com/photos/plate-vinyl-record-records-vinyl-4725349/
 ```
 
-# Getting started
-
-This is an example of a Quarto website. All the [Quarto markdown features](https://quarto.org/docs/authoring/markdown-basics.html) we learned for formatting text, adding headings and subheadings, adding code and output, adding labels and captions and whatnot work as usual. 
 
 # Introduction
 
@@ -87,6 +84,12 @@ This dataset was then used to create additional datasets that contained the nece
 To investigate how sentiments for song lyrics changed across different genres, we created multiple datasets that included the average sentiment of lyrics of all songs released in each year and each genre.
 
 In order to create word clouds to express word frequencies in lyrics, we combined each of the Rock decades to be one "Rock" category, rather than each individual decade. The same process was conducted for each of the Dance decades. Additional datasets were then created for each of the three genres to store word frequencies and their corresponding decades. 
+
+# Limitations
+
+# References
+
+
 
 
 
