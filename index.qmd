@@ -54,7 +54,7 @@ Music is a major source of entertainment that strongly influences the lives of m
 We are interested in exploring the following 3 main research questions:
 
 1. How do the frequencies of certain words differ across lyrics from the following three music genres: Rock (1970's - 2000's), Dance (1960's - 1980's), and Slow?
-2. How do the sentiments for different lyrics change across genres and time periods?
+2. How do the sentiments for different lyrics change across genres and time periods, and how do song time and beats per minute affect sentiment scores?
 3. Do certain BPMs, song durations, years, and artists appear more frequently in Rolling Stone’s 500 Greatest Songs of All Time Ranking?
 
 # Data Collection
@@ -75,8 +75,7 @@ The lyrics for each song were contained in another webpage linked to the origina
 
 In order to answer our research questions, we needed to wrangle our scraped data. 
 
-To investigate how sentiments for song lyrics changed across different genres, we created multiple datasets that included the average sentiment of lyrics of all songs released in each year and each genre.
-
+To investigate how sentiments for song lyrics changed across different genres, we created multiple datasets that included the average sentiment of lyrics of all songs released in each year and each genre. We used the AFINN lexicon, which contains 2477 words and their corresponding sentiment scores, to identify matching words from the song lyrics and assign each of these words a sentiment score. The scores range from 5 to -5, with 5 being the most positive, -5 being the most negative, and 0 being neutral.
 
 # Visualizations
 
@@ -398,7 +397,7 @@ sentiment_time_by_song = ggplot(sentiment_data_song,
                                "BPM (beats per minute): ", bpm, "<br>"))) +
   geom_smooth() +
   labs(title = "Average Sentiment versus Time (sec)",
-       subtitle = "483 Songs on the Top 500 Rolling Stone's Best Songs List"
+       subtitle = "483 Songs on the Top 500 Rolling Stone's Best Songs List",
        x = "Time (sec)", y = "Average Sentiment",
        color = "Genre")
 
