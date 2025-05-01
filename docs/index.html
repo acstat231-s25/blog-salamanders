@@ -9,9 +9,9 @@
 <meta name="author" content="Jenna Holmes">
 <meta name="author" content="Claire Albus">
 <meta name="author" content="Albert Hu">
-<meta name="dcterms.date" content="2025-04-30">
+<meta name="dcterms.date" content="2025-05-01">
 
-<title>Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Songs of All Time – Salamanders</title>
+<title>Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Greatest Songs of All Time – Salamanders</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -138,10 +138,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
   <li><a href="#data-wrangling-methods" id="toc-data-wrangling-methods" class="nav-link" data-scroll-target="#data-wrangling-methods">Data Wrangling &amp; Methods</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -150,8 +151,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Songs of All Time</h1>
-<p class="subtitle lead">Optional subtitle</p>
+<h1 class="title">Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Greatest Songs of All Time</h1>
 </div>
 
 
@@ -170,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Last updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 30, 2025</p>
+      <p class="date">May 1, 2025</p>
     </div>
   </div>
   
@@ -191,10 +191,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
-<p>This is an example of a Quarto website. All the <a href="https://quarto.org/docs/authoring/markdown-basics.html">Quarto markdown features</a> we learned for formatting text, adding headings and subheadings, adding code and output, adding labels and captions and whatnot work as usual.</p>
-</section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Music is a major source of entertainment that strongly influences the lives of many individuals. This project seeks to investigate different trends in music lyrics through the use of text and sentiment analysis, using data of songs included in the Rolling Stone’s Top 500 Greatest Songs of All Time.</p>
@@ -209,13 +205,22 @@ ul.task-list li input[type="checkbox"] {
 <h1>Data Collection</h1>
 <p>We collected data from an <a href="https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html">online music database</a> created by Dave Tompkins, a professor at the University of Waterloo in Canada. The initial dataset we scraped contains 7 variables:</p>
 <p><code>number</code>: the number of the track <br><code>artist</code>: the artist who created the song <br><code>title</code>: the name of the song <br><code>time</code>: the length of the song <br><code>bpm</code>: the beats per minute of the song <br><code>year</code>: the year the song was released <br><code>genre</code>: the genre the song belongs to</p>
-<p>The lyrics for each song were contained in another webpage linked to the original, so we iterated through and scraped the song lyrics for 483 songs (13 of the songs did not have lyrics available). Next, we combined the lyrics dataset with the initial dataset. Thus, we ended up with 8 variables (the original 7 plus <code>lyrics</code>). It is also worth noting that a good portion (144) of the songs we are analyzing do not have a specific genre because they were labeled as “TBD” (to be determined) in the database.</p>
+<p>The lyrics for each song were contained in another webpage linked to the original, so we iterated through and scraped the song lyrics for 483 songs (13 of the songs did not have lyrics available). It is also worth noting that a good portion (144) of the songs we are analyzing do not have a specific genre because they were labeled as “TBD” (to be determined) in the database.</p>
 </section>
 <section id="data-wrangling-methods" class="level1">
 <h1>Data Wrangling &amp; Methods</h1>
 <p>In order to answer our research questions, we needed to wrangle our scraped data.</p>
+<p>We combined the lyrics dataset with the initial dataset, resulting in a merged dataset with 11 variables, which includes the following 4 variables in addition to the 7 aforementioned variables:</p>
+<p><code>track</code>: identification for each song in the database (necessary for url) <br><code>track_gen</code>: alternate version of <code>track</code> (also necessary for url) <br><code>url</code>: the link to the song in the online music database <br><code>lyrics</code>: the lyrics corresponding to the song</p>
+<p>This dataset was then used to create additional datasets that contained the necessary variables for creating specific plots.</p>
 <p>To investigate how sentiments for song lyrics changed across different genres, we created multiple datasets that included the average sentiment of lyrics of all songs released in each year and each genre.</p>
 <p>In order to create word clouds to express word frequencies in lyrics, we combined each of the Rock decades to be one “Rock” category, rather than each individual decade. The same process was conducted for each of the Dance decades. Additional datasets were then created for each of the three genres to store word frequencies and their corresponding decades.</p>
+</section>
+<section id="limitations" class="level1">
+<h1>Limitations</h1>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
 
 
 </section>
