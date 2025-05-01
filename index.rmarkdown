@@ -43,6 +43,8 @@ include_graphics("images/record.jpg")
 # https://pixabay.com/photos/plate-vinyl-record-records-vinyl-4725349/
 ```
 
+
+
 # Getting started
 
 This is an example of a Quarto website. All the [Quarto markdown features](https://quarto.org/docs/authoring/markdown-basics.html) we learned for formatting text, adding headings and subheadings, adding code and output, adding labels and captions and whatnot work as usual. 
@@ -87,6 +89,8 @@ In order to create word clouds to express word frequencies in lyrics, we combine
 ::: {.panel-tabset}
 
 ### Rock
+
+
 
 ```{r}
 #| label: Tab 1 - Rock
@@ -198,7 +202,11 @@ Rock4 <- ggplot(Rock_word_freqs |>
 ggarrange(Rock1, Rock2, Rock3, Rock4, ncol = 2, nrow = 2)
 ```
 
+
+
 ### Dance
+
+
 
 ```{r}
 #| label: Tab 2 - Dance
@@ -286,7 +294,11 @@ Dance3 <- ggplot(Dance_word_freqs |>
 ggarrange(Dance1, Dance2, Dance3, ncol = 2, nrow = 2)
 ```
 
+
+
 ### Slow
+
+
 
 ```{r}
 #| label: Tab 3 - Slow
@@ -313,6 +325,8 @@ colors = brewer.pal(10, "Dark2"),
 family = "sans"))
 ```
 
+
+
 :::
 
 The above three tabs portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970's through the 2000's. Likewise, the Dance genre is divided into three decades, specifically the 1960's through the 1980's. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner.
@@ -323,13 +337,9 @@ Similarly, the Dance tab portrays word frequencies within the genre via three wo
 
 Lastly, the Slow tab conveys word frequencies from the cumulative Slow music genre and displays "chain," "beat," "boogie," and "baby" as the terms with higher frequencies, supported by the alignment of these terms with the emotional themes of Slow music. "Chain" is a term often used in slower songs to represent emotional bondage and attachment. The term "beat" can be used to convey slower rhythms, and "boogie" is used in a nostalgic sense. "Baby" is often used in lyrics of love, which commonly occur in slower songs.
 
-<<<<<<< HEAD
-Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion.
-
-
-
-=======
 Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion. Furthermore, the isolation of various decades within the Rock and Dance genres highlights the relationship between the societal and musical movements that occurred and the words of highest frequency in song lyrics written during those years. Despite any commonly embodied themes across the three genres, each genre still exhibited unique concepts. The Rock genre as a whole conveys key concepts of love and expression. The Dance genre cumulatively represents energy and rhythm, and lastly the Slow genre conveys emotion and steady paces.
+
+
 
 ```{r}
 #| label: sentiment by year and genre
@@ -379,6 +389,8 @@ ggplotly(sentiment_by_genre, tooltip = "text")
 
 ```
 
+
+
 As shown above, we created two visualizations to explore the average sentiment of song lyrics by year and by genre. Hovering over a data point or bar reveals additional information about them, such as the average time, average bpm, and number of songs included in its year/genre.
 
 The line chart for the average sentiment of song lyrics of 483 out of the top 500 best songs list by year demonstrates the overall trends in sentiment from the 1950s to 2000s. We can see that words in song lyrics generally expressed positive sentiment, as 49 out of the 53 years had average sentiment scores greater than zero. The plot does reveal some interesting patterns that might help contextualize the shifts in artistic expression over time and the emotional climate of different years. The trend line for average sentiment seems to be slightly downward sloping over time, which can be due to many factors. For example, music genres such as heavy metal, rock, and rap have been popularized in recent times, and these genres tend to include more words with negative sentiments than other genres. Additionally, the decrease in average sentiment could have been influenced by major events that occurred in specific years. For example, the average sentiment in 2005 was slightly negative (-0.04), which could be due to the fact that Hurricane Katrina hit the United States this year, causing significant damage to the U.S. economy and costing many lives. However, it should be noted that the trend line displayed on the line chart could be skewed and biased, as the many of the points for the later years do not have many songs to use as data. Thus, the decrease in average sentiment likely does not reflect the true nature of the change in sentiment of lyrics over time.
@@ -388,6 +400,8 @@ The bar chart for the average sentiment of song lyrics of 483 out of the top 500
 ::: {.panel-tabset}
 
 ### Tab 1
+
+
 
 ```{r}
 #| label: average sentiment of each song versus time
@@ -416,7 +430,11 @@ ggplotly(sentiment_time_by_song, tooltip = "text")
 ```
 
 
+
+
 ### Tab 2
+
+
 
 ```{r}
 #| label: average sentiment of each song versus bpm
@@ -443,10 +461,13 @@ ggplotly(sentiment_bpm_by_song, tooltip = "text")
 
 ```
 
+
+
 ::: 
 
->>>>>>> 1af56f80ec500dd5cd000e7b19e4e76fdb73db1c
 ## Through the Decades 
+
+
 
 ```{r}
  #| label: decade favorability
@@ -486,6 +507,8 @@ ggplotly(sentiment_bpm_by_song, tooltip = "text")
            , axis.title.x = element_text(vjust = -0.3)
            , axis.text.x = element_text(size = rel(1.25)))
 ```
+
+
  
 The graphic above shows the distribution of the decades represented in <i>Rolling Stone</i> Magazine's Top 500 Songs of All Time. In this, we can see that the 1960s are the clear leader in terms of representation on the list. In fact, roughly 35% of the songs on the list are from the 60s. The 70s follow at around 25%, and the 50s, 80s, and 90s each represent around 10-13% of the list. There is a clear trend downward from the 60s to the 2000s, with the 2000s being the least represented decade. 
  
@@ -496,6 +519,8 @@ The graphic above shows the distribution of the decades represented in <i>Rollin
 ::: {.panel-tabset}
  
 ### Top Artists
+
+
 
 ```{r}
 #| label: decades of top artists' songs
@@ -536,7 +561,11 @@ The graphic above shows the distribution of the decades represented in <i>Rollin
 
 
 
+
+
 ### Top Sentiments
+
+
 
 ```{r}
 #| label: sentiment of top artists' songs
@@ -568,6 +597,8 @@ sentiment_by_artist |>
         # , axis.title.y = element_text(vjust = -0.3)
          )
 ```
+
+
 
 :::
 
@@ -692,6 +723,8 @@ Focus on completing the blog content first! You can play with features and custo
 
 I would strongly recommend  using **knitr**'s `include_graphics()` functions within code chunks to include images or gifs within your blog. This makes it easier to modify figures, add captions and links, and visually find the code for figures quickly if you need to modify something about the output. There is also [markdown syntax to display or embed images](https://quarto.org/docs/authoring/figures.html), but I would typically not recommend it.
 
+
+
 ```{r}
 #| fig-cap: "Image courtesy of giphy.com"
 #| fig-align: center 
@@ -700,6 +733,8 @@ I would strongly recommend  using **knitr**'s `include_graphics()` functions wit
 
 include_graphics("https://i.giphy.com/3og0IT6sIWd1eh7bJm.webp")
 ```
+
+
 
 Either approach will take either a filepath to a stored file or a URL to an image or gif. Width can be specified as a percentage of the width of the page (0% to 100%; my preferred approach) or as a fixed number of units (e.g. 400px, 3in, 10cm). 
 
@@ -763,6 +798,8 @@ The same syntax shown across the linked examples can be used to create subtables
 
 Two examples in @tbl-layout and @fig-layout below are borrowed and slightly modified from the linked sections. 
 
+
+
 ```{r}
 #| label: tbl-layout
 #| tbl-cap: "Two tables side-by-side"
@@ -779,7 +816,6 @@ pressure |>
   slice(1:3) |> 
   kable()
 ```
-
 
 ```{r}
 #| label: fig-layout
