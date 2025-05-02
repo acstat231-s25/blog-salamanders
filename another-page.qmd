@@ -1,3 +1,9 @@
+---
+title: "Sentiment Analysis"
+author: Albert Hu
+---
+
+## Sentiment Analysis
 
 ```{r}
 #| label: setup
@@ -21,7 +27,6 @@ library(scales)
 
 ```
 
-## Sentiment Analysis
 
 ### Sentiment by Year and by Genre
 
