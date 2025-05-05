@@ -130,7 +130,7 @@ Rock4 <- ggplot(Rock_word_freqs |>
     area_corr = TRUE
   ) +
   # Size scale for cloud
-  scale_size_area(max_size = 22) +
+  scale_size_area(max_size = 20) +
   scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
   ggtitle("Rock Word Cloud - 2000s") +
   theme_minimal() + 
