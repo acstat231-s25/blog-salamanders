@@ -23,6 +23,14 @@ library(RColorBrewer)
 library(wordcloud)
 library(ggpubr)
 library(scales)
+
+# consistent color palette
+ new_palette <- colorRampPalette(colors = c("#6b34eb"
+                                            , "#F3AB4D"
+                                            , "#eb6309"
+                                            , "#d92b1e"
+                                            , "#540340"
+                                            , "#C6C2B8" ))(6)
 ```
 
 ### Word Clouds for Word Frequencies in Lyrics by Genre
