@@ -23,6 +23,14 @@ library(RColorBrewer)
 library(wordcloud)
 library(ggpubr)
 library(scales)
+
+# consistent color palette
+ new_palette <- colorRampPalette(colors = c("#6b34eb"
+                                            , "#F3AB4D"
+                                            , "#eb6309"
+                                            , "#d92b1e"
+                                            , "#540340"
+                                            , "#C6C2B8" ))(6)
 ```
 
 ### Word Clouds for Word Frequencies in Lyrics by Genre
@@ -59,7 +67,7 @@ Rock1 <- ggplot(Rock_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 15) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  scale_color_gradientn(colors = new_palette) + 
   ggtitle("Rock Word Cloud - 1970s") +  
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -83,7 +91,7 @@ Rock2 <- ggplot(Rock_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 18) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  scale_color_gradientn(colors = new_palette) + 
   ggtitle("Rock Word Cloud - 1980s") +  
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -107,7 +115,7 @@ Rock3 <- ggplot(Rock_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 15) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) +  
+  scale_color_gradientn(colors = new_palette) +  
   ggtitle("Rock Word Cloud - 1990s") +  
   theme_minimal() + 
   theme(legend.position = "none", 
@@ -131,7 +139,7 @@ Rock4 <- ggplot(Rock_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 20) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  scale_color_gradientn(colors = new_palette) + 
   ggtitle("Rock Word Cloud - 2000s") +
   theme_minimal() + 
   theme(legend.position = "none", 
@@ -171,7 +179,7 @@ Dance1 <- ggplot(Dance_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 20) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  scale_color_gradientn(colors = new_palette) + 
   ggtitle("Dance Word Cloud - 1960s") +  
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -195,7 +203,7 @@ Dance2 <- ggplot(Dance_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 20) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  scale_color_gradientn(colors = new_palette) + 
   ggtitle("Dance Word Cloud - 1970s") +  
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -219,7 +227,7 @@ Dance3 <- ggplot(Dance_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 17) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) +  
+  scale_color_gradientn(colors = new_palette) +  
   ggtitle("Dance Word Cloud - 1980s") +  
   theme_minimal() + 
   theme(legend.position = "none", 
@@ -252,7 +260,7 @@ scale = c(4, 0.6),
 # Specify proportion of words with 90 degree rotation
 rot.per = 0.15,
 # Color words from least to most frequent
-colors = brewer.pal(10, "Dark2"),
+colors = new_palette,
 family = "sans"))
 ```
 
