@@ -82,19 +82,9 @@ lyrics_df <- tibble(# Create empty character vector the same
 # Iterate through links to grab nursery rhyme text
 for (i in 1:n_iter) {
   # Scrape song i's lyric table and save it to row i of the `text` variable
-  #tables <- song_lyrics1$url[i] |>
-  #  read_html() |>
-  #  html_elements("table") |>
-  #  purrr::pluck(6) |>
-  #  html_table()
-  # extract cell of table with lyrics
-  #lyrics_df$lyrics[i] <- tables[[3, 1]] |>
-  #  str_replace_all("[\r\n]+", " ")
-  
   if (i == 260) {
     next
   }
-  
   lyrics_df$lyrics[i] <- song_lyrics1$url[i] |>
   read_html() |>
   html_elements("table") |>
@@ -103,7 +93,6 @@ for (i in 1:n_iter) {
   html_text2() |>
   str_replace_all("[\\n\\r]+", " ") |>  # Replace line breaks with a space
   str_squish()
-  
 }
 # combine the two datafiles
 song_lyrics1 <- bind_cols(song_lyrics1, lyrics_df)
@@ -205,9 +194,38 @@ top_artists <- songs_chart |>
 # sort decades into logical order for legends
 top_artists$decade = 
    factor(top_artists$decade
-          , levels = c('2000s', '90s', '80s', '70s', '60s', '50s'))  
+          , levels = c('2000s', '90s', '80s', '70s', '60s', '50s')) 
+
+# 
+top_bigrams <- merged_songs_bigrams |>
+  filter(artist == "The Beatles" ) |>
+  group_by(artist)
+
+merged_top <- merged_songs_combined |>
+    unnest_tokens(output = bigram, input = lyrics, token = "ngrams", n = 1) |>
+   select(number, artist, title, bigram) |> 
+  filter(artist == "The Beatles"
+    )
+# Rock cumulative word cloud
+library(tm)
+merged_top |>
+    with(wordcloud(words = bigram,
+                   min.freq = 20,
+                  # min.freq = 20,
+                  max.words = 25,
+# Plot the words in a random order
+random.order = TRUE,
+# Specify the range of the size of the words
+scale = c(3, 0.5),
+# Specify proportion of words with 90 degree rotation
+rot.per = 0.15,
+# Color words from least to most frequent
+colors = rev(new_palette),
+# Change font family
+family = "sans")) 
 
 ```
+
 
 ```{r}
 
