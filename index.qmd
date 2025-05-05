@@ -87,6 +87,12 @@ In order to create word clouds to express word frequencies in lyrics, we combine
 
 # Limitations
 
+One important limitation of our research is that we only analyzed song lyrics and data from 483 songs out of the top 500 Rolling Stone Greatest Songs of All Time list. There have been millions of popular songs created in recent history, so in order to more thoroughly investigate deeper trends in music lyrics and other musical metrics, we would need to obtain data from a much larger array of songs (thousands perhaps). 
+
+Additionally, the songs we obtained data for were released between 1953 and 2006, so our analysis does not reveal any significant changes in lyrical trends from before 1953 or after 2006. Even among the songs we analyzed, a substantial number of them were from the 1960s
+
+Furthermore, our data does not represent the general song released 
+
 # References
 
 
