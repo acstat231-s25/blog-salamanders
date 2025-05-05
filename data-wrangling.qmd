@@ -365,7 +365,7 @@ Rock1 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1970s"),
     show.legend = FALSE,
     rm_outside = TRUE           
   ) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  scale_color_gradientn(colors = new_palette) + 
   ggtitle("Rock Word Cloud - 1970s") +  
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -386,7 +386,7 @@ Rock2 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1980s"),
     show.legend = FALSE,
     rm_outside = TRUE         
   ) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  scale_color_gradientn(colors = new_palette) + 
   ggtitle("Rock Word Cloud - 1980s") +  
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -407,7 +407,7 @@ Rock3 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "1990s"),
     show.legend = FALSE,
     rm_outside = TRUE             
   ) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) +  
+  scale_color_gradientn(colors = new_palette) +  
   ggtitle("Rock Word Cloud - 1990s") +  
   theme_minimal() + 
   theme(legend.position = "none", 
@@ -428,7 +428,7 @@ Rock4 <- ggplot(Rock_lyrics_word_freqs |> filter(decade == "2000s"),
     show.legend = FALSE,
     rm_outside = TRUE 
   ) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  scale_color_gradientn(colors = new_palette) + 
   ggtitle("Rock Word Cloud - 2000s") +
   theme_minimal() + 
   theme(legend.position = "none", 
@@ -477,7 +477,7 @@ Dance1 <- ggplot(Dance_lyrics_word_freqs |> filter(decade == "1960s"),
     show.legend = FALSE,
     rm_outside = TRUE          
   ) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  scale_color_gradientn(colors = new_palette) + 
   ggtitle("Dance Word Cloud - 1960s") +  
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -498,7 +498,7 @@ Dance2 <- ggplot(Dance_lyrics_word_freqs |> filter(decade == "1970s"),
     show.legend = FALSE ,
     rm_outside = TRUE           
   ) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) + 
+  scale_color_gradientn(colors = new_palette) + 
   ggtitle("Dance Word Cloud - 1970s") +  
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -519,7 +519,7 @@ Dance3 <- ggplot(Dance_lyrics_word_freqs |> filter(decade == "1980s"),
     show.legend = FALSE,
     rm_outside = TRUE             
   ) +
-  scale_color_gradientn(colors = brewer.pal(9, "Set1")) +  
+  scale_color_gradientn(colors = new_palette) +  
   ggtitle("Dance Word Cloud - 1980s") +  
   theme_minimal() + 
   theme(legend.position = "none", 
@@ -546,7 +546,7 @@ scale = c(3, 0.3),
 # Specify proportion of words with 90 degree rotation
 rot.per = 0.15,
 # Color words from least to most frequent
-colors = brewer.pal(10, "Dark2"),
+colors = new_palette,
 family = "sans"))
 
 ```
