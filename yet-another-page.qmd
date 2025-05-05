@@ -24,6 +24,7 @@ library(RColorBrewer)
 library(wordcloud)
 library(ggpubr)
 library(scales)
+library(ggtext)
 
 # set up color palette for the next few plots
  new_palette <- colorRampPalette(colors = c("#6b34eb"
@@ -74,12 +75,19 @@ decadent <- songs_chart |>
       #title = "Decades Represented: By Rank"
        x = "Decade of Release"
       , y = "Number of Songs"
-      , caption = "The above segmented bar chart shows the distribution across decades of Rolling Stone Magazine's 
-      Top 500 Songs of All Time from 2013. The segments show where on the list (Top 100, 200s, etc) 
-      you can find songs from a particular decade."
+      , caption = "Figure 1: The above segmented bar chart shows the distribution across decades <br> of 
+      Rolling Stone Magazine's Top 500 Songs of All Time from 2013. The colors <br>
+      of the segments show where on the list to find songs from a particular decade."
       ) +
      theme_linedraw() +
-     theme(plot.caption = element_text(hjust = 0, vjust = -1, size = rel(0.94))
+     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
+                                                   , size = rel(0.92)
+                                                   , color = "#3b3d3c"
+                                                   , box.color = "#3b3d3c"
+                                                   , linewidth = 0.5
+                                                   , linetype = 1
+                                                   , padding = unit(5, "pt")
+                                                   , margin = margin(t = 20))
            , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
            , axis.text.x = element_text(size = rel(1.25))
            , axis.title.y = element_text(size = rel(1.5))
@@ -126,27 +134,40 @@ While all the artists on this list are well-deserving of their flowers, there ar
     factor(top_artists$decade
            , levels = c('2000s', '90s', '80s', '70s', '60s', '50s'))  
  
- top_artists |> 
+ tops <- top_artists |> 
    # Create segmented histogram
    ggplot(aes(x = artist, fill = decade)) +
      geom_bar(color = "black") +
      scale_fill_manual(values = new_palette, name = "Decade") +
      labs(
-      title = "The Top 3 Most Represented Artists"
-      , subtitle = "By the Decade Their Songs Were Released"
-      , x = "Artist"
+      x = "Artist"
       , y = "Number of Songs"
       , tag = " "
-      , caption = " "
+      , caption = "Figure 2: The segmented bar chart above shows the number of songs each of the <br> 
+      top three most represented artists has on the list. The segments show the decade of <br>
+      release of these artists' songs."
       ) +
      theme_linedraw() +
-     theme(axis.title.x = element_text(size = rel(1.25), vjust = -0.25)
-           # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
-           ) 
+     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
+                                                   , size = rel(0.92)
+                                                   , color = "#3b3d3c"
+                                                   , box.color = "#3b3d3c"
+                                                   , linewidth = 0.5
+                                                   , linetype = 1
+                                                   , padding = unit(5, "pt")
+                                                   , margin = margin(t = 20))
+           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
+           , axis.text.x = element_text(size = rel(1.25))
+           , axis.title.y = element_text(size = rel(1.5))
+           , axis.text.y = element_text(size = rel(1.25))) 
  
 ```
 
+```{r}
+#| label: fig-tops
 
+tops
+```
 
 ### Top Sentiments
 
