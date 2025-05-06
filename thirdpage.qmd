@@ -25,11 +25,6 @@ library(scales)
                                             , "#d92b1e"
                                             , "sienna"
                                             , "midnightblue" ))(6)
- 
- new_jpalette2 <- colorRampPalette(colors = c("darkorchid1"
-                                            , "#F3AB4D"
-                                            , "#d92b1e"
-                                            , "midnightblue" ))(6)
 ```
 
 The following word clouds portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970s through the 2000s. Likewise, the Dance genre is divided into three decades, specifically the 1960s through the 1980s. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner. The word clouds were created using <b>ggwordcloud</b> (@ggwordcloud), which incorporates `ggplot` and `geom_text_wordcloud` functions, as well as <b>xfun</b> (@xfun), which provides helper functions to support other packages such as `knitr,` which is another common package used in our project.
@@ -76,7 +71,7 @@ Rock1 <- ggplot(Rock_word_freqs |>
 
 ```{r}
 #| label: fig-Rock1
-#| fig-cap: Word cloud for Rock genre in the 1970s
+#| fig-cap: Word cloud for word frequencies in Rock genre in the 1970s
 Rock1
 ```
 
