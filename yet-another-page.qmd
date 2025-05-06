@@ -40,7 +40,7 @@ The famous, often infamous, <i>Rolling Stone</i> magazine published its very fir
 
 ```{r}
 #| label: fig-cover
-#| fig-cap: Rolling Stone magazine's first ever issue (@cover)
+#| fig-cap: Rolling Stone magazine's first ever issue, @cover
 include_graphics("images/Rolling-Stone-Vol-1.jpg") 
 ```
 
@@ -99,7 +99,7 @@ Taking a closer look at where the songs fall in the ranking categories, i.e., To
  
 ### Rolling Stone's Top Three Artists
 
-While all the artists on this list are well-deserving of their flowers, there are three artists who stand out among the rest. Combined, these three artists created nearly 10% (@tbl-artists) of the songs on the list. These artists are, of course, <b>The Beatles</b>, <b>The Rolling Stones</b>, and <b>Bob Dylan</b>.
+While all the artists on this list are well-deserving of their flowers, there are three artists who stand out among the rest. Combined, these three artists created nearly 10%, @tbl-artists, of the songs on the list. These artists are, of course, <b>The Beatles</b>, <b>The Rolling Stones</b>, and <b>Bob Dylan</b>.
 
 ::: {.panel-tabset}
  
@@ -175,15 +175,22 @@ sent
 
 :::
 
-For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone's Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. @fig-tops demonstrates the margin by which The Beatles' songs outnumber the other two. The Beatles have a stunning 23 songs on the list---25 if you include John Lennon's <i>Imagine</i> and George Harrison's <i>My Sweet Lord</i>. The top ranking song from the supergroup is <i>Hey Jude</i> which ranks at 8 on the list. The Rolling Stones follow The Beatles with 14 songs with their first on the list, <i>Satisfaction</i>, taking slot 2. Finally, Bob Dylan's first feature of his 12 total on the list takes the number 1 slot, and that song is <i>Like a Rolling Stone</i>. 
+For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone's Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. @fig-tops demonstrates the margin by which The Beatles' songs outnumber the other two. The Beatles have a stunning 23 songs on the list---25 if we were to include John Lennon's <i>Imagine</i> and George Harrison's <i>My Sweet Lord</i>. The top ranking song from the supergroup is <i>Hey Jude</i> which ranks at 8 on the list. The Rolling Stones follow The Beatles with 14 songs with their first on the list, <i>Satisfaction</i>, taking slot 2. Finally, Bob Dylan's first feature of his 12 total on the list takes the number 1 slot, and that song is <i>Like a Rolling Stone</i>, @tbl-ten.
 
-With the magazine, top artists and, songs in mind, you may have noticed a theme among their names. The number one song on the chart, one of the top three artists, and the magazine itself all contain some form of the words "Rollin' Stone." The is no coincidence, the band The Rolling Stones, who debuted in 1962, and Bob Dylan's song <i>Like a Rolling Stone</i> (1965) are both named for the Muddy Waters song <i>Rollin' Stone</i> (1950) which is actually among the top 500, ranking in at a surprising late 459. The magazine is---with the additional influence of the proverb "a rolling stone gathers no moss"---named for all three of these astounding feats in music history. 
+With the magazine, top artists and, songs in mind, a theme among their names comes to light. The number one song on the chart, one of the top three artists, and the magazine itself all contain some form of the words "Rollin' Stone." The is no coincidence, the band The Rolling Stones, who debuted in 1962, and Bob Dylan's song <i>Like a Rolling Stone</i> (1965) are both named for the Muddy Waters song <i>Rollin' Stone</i> (1950) which is actually among the top 500, ranking in at a surprising late 459. The magazine is---with the additional influence of the proverb "a rolling stone gathers no moss", @stone---named for all three of these astounding feats in music history. For a more detailed history of the magazine, have a look [here](https://en.wikipedia.org/wiki/Rolling_Stone#:~:text=In%20the%20first%20issue%2C%20Wenner,%22Like%20a%20Rolling%20Stone%22.).
 
-The songwriting duo in the Beatles, John Lennon and Paul McCartney, known together as Lennon-McCartney wrote many hit songs in the 1960s (@fig-tops). Though the songs they wrote for the Beatles were almost always credited to both the young gentlemen, songs written by Paul McCartney were notably more positive. Looking at @fig-sent, we can see that the Beatles songs in the Top 500 tended to have a more positive sentiment, 0.83 on the AFINN's -5 to 5 scale. For reference, Bob Dylan's average song sentiment is around 0.035 and The Rolling Stones around -0.22. This coupled with the fact that the highest ranking Beatles song on the list is <i>Hey Jude</i>---a song written by Paul McCartney for Julian Lennon, John's son---suggests that Paul McCartney could be the primary songwriter for more of the songs on the list. 
+The songwriting duo in the Beatles, John Lennon and Paul McCartney, known together as Lennon-McCartney wrote many hit songs in the 1960s, @fig-tops. Though the songs they wrote for the Beatles were almost always credited to both the young gentlemen, songs written by Paul McCartney were notably more positive. Looking at @fig-sent, we can see that the Beatles songs in the Top 500 tended to have a more positive sentiment, 0.83 on the AFINN's -5 to 5 scale. For reference, Bob Dylan's average song sentiment is around 0.035 and The Rolling Stones around -0.22. This coupled with the fact that the highest ranking Beatles song on the list is <i>Hey Jude</i>---a song written by Paul McCartney for [Julian Lennon](https://faroutmagazine.co.uk/the-beatles-paul-mccartney-hey-jude-the-story-behind-the-song/), John's son---suggests that Paul McCartney could be the primary songwriter for more of the songs on the list. However, more analysis and research into the history of the Beatles would be needed to know for certain. 
 
-### Supplemental Tables
 
-The following tables are here to support your understanding of the above analyses and substantiate the numbers, percentages, and claims made in the text. 
+### Conclusions
+
+The 1960s will more than likely go down in history as one of the best decades for many more decades to come. These 10 years were a pivotal time in music. Several stars who have substantially influenced the modern era of music---such as the Beatles, The Rolling Stones, and Bob Dylan---were in their prime. The sentiments of songs of this decade were a [mixed bag](another-page.qmd), and that is, no doubt, a reflection of the era. Western involvement in the Vietnam war was kicking off, Martin Luther King Jr. gave his <i>I have a Dream</i> speech and then was assassinated, and humanity put a man on the moon. Music mirrors human experience, and the songs of the '60s are no different. 
+
+In the decades since, the music and events of the '60s have inspired countless songs, people, movements, and so much more. We see bits and pieces of the era everywhere, and while the list of <i>Rolling Stone</i> magazine's top 500 songs of all time heavily favors the 1960s, it is important that we appreciate the music of modern artists. Our analysis centers on the 2013 edition of the list, but we hope that in editions since this time, more modern songs can be recognized for their merits. 
+
+## Supplemental Tables
+
+The following tables are here to support the above analyses and substantiate the numbers, percentages, and claims made in the text. 
 
 ```{r}
 #| label: create tables 
@@ -253,4 +260,6 @@ gt(son) |>
   
 
 ```
-@tbl-ten shows the top ten songs on the list. We see here that each of the top 3 artists on the list has at least one song in the top 10. 
+@tbl-ten shows the top ten songs on the list, their ranks, and their years of release with the corresponding decade. 
+
+Additionally, this page uses packages `gt`, @gt, and `scales`, @scales.
