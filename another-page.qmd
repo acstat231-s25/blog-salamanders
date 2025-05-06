@@ -3,8 +3,6 @@ title: "Sentiment Analysis"
 author: Albert Hu
 ---
 
-## Sentiment Analysis
-
 ```{r}
 #| label: setup
 #| include: false
@@ -29,7 +27,7 @@ library(scales)
 
 Sentiment is the emotional feeling evoked by certain words and phrases. In order to analyze sentiment in song lyrics, we used the AFINN lexicon, which is a dataset that contains 2477 words with their corresponding sentiment scores. These scores are on a scale from -5 to 5, with -5 representing an extremely negative sentiment and 5 representing an extremely positive sentiment. For example, words like accomplished have an AFINN value of 2, while words like abandoned have an AFINN value of -2.
 
-### Sentiment by Year and by Genre
+## Sentiment by Year and by Genre
 
 ```{r}
 #| label: sentiment by year and genre
@@ -85,7 +83,7 @@ The line chart for the average sentiment of song lyrics of 483 out of the top 50
 
 The bar chart for the average sentiment of song lyrics of 483 out of the top 500 best songs list by genre demonstrates the differences in overall sentiment between different genres of music. We can see that genres like dance, disco, and easy generally had the most positive average sentiment scores. This reflects the positive, energetic, and uplifting natures of lyrics used in these genres. On the other hand, genres like Reggae and Slow had negative sentiment scores, which makes sense as songs in these genres often evoke more solemn emotions such as calmness, peace, and melancholy. For rock music, the plot reveals that rock songs in different decades had varying average sentiments. Rock songs in the 1950s, 1960s, and 1980s had lyrics with very positive sentiments (around 0.8), while those in the 1970s and 2000s had pretty low average sentiments. That being said, only one rock song from the 2000s was included on the top 500 best songs list, so that bar does not reflect the actual average sentiment of rock songs in the 2000s.
 
-### Sentiment versus Song Time and BPM
+## Sentiment versus Song Time and BPM
 
 ::: {.panel-tabset}
 
