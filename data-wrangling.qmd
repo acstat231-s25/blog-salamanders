@@ -84,7 +84,7 @@ lyrics_df <- tibble(# Create empty character vector the same
   # length as our song titles vector
   lyrics = vector(mode = "character", length = length(titles))) |>
   slice(1:n_iter) 
-# Iterate through links to grab lyrics and other song information
+# Iterate through links to grab lyrics
 for (i in 1:n_iter) {
   if (i == 260) {
     next
