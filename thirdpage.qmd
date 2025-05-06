@@ -3,7 +3,6 @@ title: "Mic Check: Most Common Words Across Genres"
 author: Jenna Holmes
 ---
 
-
 ```{r}
 #| label: setup
 #| include: false
@@ -14,7 +13,6 @@ options(scipen = 1, knitr.kable.NA = "")
 # Load necessary packages
 library(tidyverse)
 library(knitr)
-library(kableExtra)
 library(plotly)
 library(ggwordcloud)
 library(xfun)

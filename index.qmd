@@ -39,6 +39,8 @@ library(scales)
 ```
 
 ```{r}
+#| label: music image
+
 include_graphics("images/record.jpg")
 # https://pixabay.com/photos/plate-vinyl-record-records-vinyl-4725349/
 ```
@@ -88,6 +90,13 @@ To investigate how sentiments for song lyrics changed across different time peri
 In order to create word clouds to express word frequencies in lyrics, we combined each of the Rock decades to be one "Rock" category, rather than each individual decade. The same process was conducted for each of the Dance decades. Additional datasets were then created for each of the three genres to store word frequencies and their corresponding decades. 
 
 For further analysis, we created a new dataset with additional variables for the `decade` a song was released in and identifiers for the `rank`of a song---more specifically, the Top 100, 200s, and so on. We then created a subset of this dataset which contains only data for the top 3 most represented artists on the list. 
+
+# Tools
+
+We used a variety of RStudio packages throughout the completion of our project. Those that were unique to the creation of a certain subpage are referenced on said page, and the commonly used packages are the following:
+
+<b>tidyverse</b>: includes numerous core packages used in R, including `ggplot2` and `readr` (@tidyverse)
+<br> <b>knitr</b>: allows us to execute code and output results (@knitr)
 
 # Limitations
 
