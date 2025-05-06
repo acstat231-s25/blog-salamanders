@@ -47,14 +47,14 @@ Rock_word_freqs = read_csv("data/Rock_lyrics_word_freqs.csv")
 
 # 1970s Rock decade
 Rock1 <- ggplot(Rock_word_freqs |> 
+                  # only 1970s decade
                   filter(decade == "1970") |>
+                  # 44 most common words
                    slice_max(n, n = 44), 
                 aes(label = word, size = n, color = n)) +  
+  # generate word cloud
   geom_text_wordcloud(
-    family = "sans",             
-    random.order = TRUE,    
-    # Percentage of words rotated
-    rotate_ratio = 0.15,          
+    family = "sans",          
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
@@ -63,6 +63,7 @@ Rock1 <- ggplot(Rock_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 30) +
+  # using consistent color palette
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -87,14 +88,14 @@ Rock1
 
 # 1980s Rock decade
 Rock2 <- ggplot(Rock_word_freqs |> 
+                  # only 1980s decade
                   filter(decade == "1980") |>
+                  # 44 most common words
                    slice_max(n, n = 44), 
                 aes(label = word, size = n, color = n)) +  
+  # generate word cloud
   geom_text_wordcloud(
-    family = "sans",             
-    random.order = TRUE,  
-    # Percentage of words rotated
-    rotate_ratio = 0.15,           
+    family = "sans",           
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
@@ -103,6 +104,7 @@ Rock2 <- ggplot(Rock_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 30) +
+  # consistent color palette
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -127,15 +129,15 @@ Rock2
 
 # 1990s Rock decade
 Rock3 <- ggplot(Rock_word_freqs |> 
+                  # only 1990s decade
                   filter(decade == "1990") |>
+                  # 30 most common words
+                  # (accounting for previously seen spacing issue)
                    slice_max(n, n = 30), 
                 aes(label = word, size = n, color = n)) +  
+  # generate word cloud
   geom_text_wordcloud(
-    family = "sans",               
-    random.order = TRUE,
-    # Percentage of words rotated
-    rotate_ratio = 0.15, 
-    # Use `color` for word color, depending on frequency
+    family = "sans",
     show.legend = FALSE,
     rm_outside = TRUE,
     #word sizes proportionate to cloud area
@@ -143,6 +145,7 @@ Rock3 <- ggplot(Rock_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 30) +
+  # consistent color palette
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() + 
   theme(legend.position = "none", 
@@ -167,14 +170,14 @@ Rock3
 
 # 2000s Rock decade
 Rock4 <- ggplot(Rock_word_freqs |> 
+                  # only 2000s decade
                   filter(decade == "2000") |>
+                  # 44 most common words
                    slice_max(n, n = 44), 
                 aes(label = word, size = n, color = n)) +  
+  # generate word cloud
   geom_text_wordcloud(
     family = "sans",           
-    random.order = TRUE,     
-    # Percentage of words rotated
-    rotate_ratio = 0.15,           
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
@@ -183,6 +186,7 @@ Rock4 <- ggplot(Rock_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 30) +
+  # consistent color palette
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() + 
   theme(legend.position = "none", 
@@ -217,14 +221,14 @@ Dance_word_freqs = read_csv("data/Dance_lyrics_word_freqs.csv")
 
 # 1960s Dance decade
 Dance1 <- ggplot(Dance_word_freqs |> 
+                   # only 1960s decade
                    filter(decade == "1960") |>
+                   # 45 most common words
                    slice_max(n, n = 45), 
                 aes(label = word, size = n, color = n)) +  
+  # generate word cloud
   geom_text_wordcloud(
-    family = "sans",             
-    random.order = TRUE,
-    # Percentage of words rotated
-    rotate_ratio = 0.15,          
+    family = "sans",         
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
@@ -233,6 +237,7 @@ Dance1 <- ggplot(Dance_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 30) +
+  # consisent color palette
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -257,14 +262,14 @@ Dance1
 
 # 1970s Dance decade
 Dance2 <- ggplot(Dance_word_freqs |> 
+                   # only 1970s decade
                    filter(decade == "1970") |>
+                   # 45 most common words
                    slice_max(n, n = 45),
                 aes(label = word, size = n, color = n)) +  
+  # generate word cloud
   geom_text_wordcloud(
-    family = "sans",             
-    random.order = TRUE,
-    # Percentage of words rotated
-    rotate_ratio = 0.15,           
+    family = "sans",       
     # Use `color` for word color, depending on frequency
     show.legend = FALSE ,
     rm_outside = TRUE,
@@ -273,6 +278,7 @@ Dance2 <- ggplot(Dance_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 30) +
+  # consistent color palette
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() +  
   theme(legend.position = "none",  
@@ -297,14 +303,14 @@ Dance2
 
 # 1980s Dance decade
 Dance3 <- ggplot(Dance_word_freqs |> 
+                   # only 1980s decade
                    filter(decade == "1980") |>
+                   # 45 most common words
                    slice_max(n, n = 45), 
                 aes(label = word, size = n, color = n)) +  
+  # generate word cloud
   geom_text_wordcloud(
-    family = "sans",               
-    random.order = TRUE,
-    # Percentage of words rotated
-    rotate_ratio = 0.15, 
+    family = "sans", 
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
@@ -313,6 +319,7 @@ Dance3 <- ggplot(Dance_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 30) +
+  # consistent color palette
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() + 
   theme(legend.position = "none", 
@@ -344,13 +351,12 @@ Slow_word_freqs = read_csv("data/Slow_lyrics_word_freqs.csv")
 
 # Slow word cloud
 Slow <- ggplot(Slow_word_freqs |>
+                 # 45 most common words
                    slice_max(n, n = 45), 
                 aes(label = word, size = n, color = n)) +  
+  # generate word cloud
   geom_text_wordcloud(
-    family = "sans",               
-    random.order = TRUE,
-    # Percentage of words rotated
-    rotate_ratio = 0.15, 
+    family = "sans", 
     # Use `color` for word color, depending on frequency
     show.legend = FALSE,
     rm_outside = TRUE,
@@ -359,6 +365,7 @@ Slow <- ggplot(Slow_word_freqs |>
   ) +
   # Size scale for cloud
   scale_size_area(max_size = 30) +
+  # consistent color palette
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() + 
   theme(legend.position = "none", 
