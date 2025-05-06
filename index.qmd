@@ -52,8 +52,8 @@ Drawing from the Rolling Stone's "500 Greatest Songs of All Time" list, we used 
 
 We are interested in exploring the following 3 key research questions:
 
-1. How do the frequencies of certain words differ across lyrics from the following three music genres: Rock (1970's - 2000's), Dance (1960's - 1980's), and Slow?
-2. How do the sentiments of lyrics change across genres and time periods, and are sentiments related to certain characterstics of a song?
+1. How do the sentiments of lyrics change across genres and time periods, and are sentiments related to certain characterstics of a song?
+2. How do the frequencies of certain words differ across lyrics from the following three music genres: Rock (1970's - 2000's), Dance (1960's - 1980's), and Slow?
 3. Do certain BPMs, song durations, years, and artists appear more frequently in Rolling Stone’s 500 Greatest Songs of All Time Ranking?
 
 # Data Collection
