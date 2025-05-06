@@ -27,6 +27,7 @@ library(scales)
 
 ```
 
+Sentiment is the emotional feeling evoked by certain words and phrases. In order to analyze sentiment in song lyrics, we used the AFINN lexicon, which is a dataset that contains 2477 words with their corresponding sentiment scores. These scores are on a scale from -5 to 5, with -5 representing an extremely negative sentiment and 5 representing an extremely positive sentiment. For example, words like accomplished have an AFINN value of 2, while words like abandoned have an AFINN value of -2.
 
 ### Sentiment by Year and by Genre
 
