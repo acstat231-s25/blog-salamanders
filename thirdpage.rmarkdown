@@ -1,0 +1,416 @@
+---
+title: "Mic Check: Most Common Words Across Genres"
+author: Jenna Holmes
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Improve digit display and NA display for kable tables
+options(scipen = 1, knitr.kable.NA = "")
+
+# Load necessary packages
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(plotly)
+library(ggwordcloud)
+library(xfun)
+library(scales)
+
+# color palette for some consistency (based off `new_palette`)
+ new_jpalette <- colorRampPalette(colors = c("#6b34eb"
+                                            , "#F3AB4D"
+                                            , "#eb6309"
+                                            , "#d92b1e"
+                                            , "sienna"
+                                            , "midnightblue" ))(6)
+ 
+ new_jpalette2 <- colorRampPalette(colors = c("darkorchid1"
+                                            , "#F3AB4D"
+                                            , "#d92b1e"
+                                            , "midnightblue" ))(6)
+```
+
+
+
+The following word clouds portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970s through the 2000s. Likewise, the Dance genre is divided into three decades, specifically the 1960s through the 1980s. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner.
+
+### Rock Genre by Decade
+
+::: {.panel-tabset}
+
+### 1970s
+
+
+
+```{r}
+#| label: Rock 1970s tab
+#| include: true
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+
+Rock_word_freqs = read_csv("data/Rock_lyrics_word_freqs.csv")
+
+# 1970s Rock decade
+Rock1 <- ggplot(Rock_word_freqs |> 
+                  filter(decade == "1970") |>
+                   slice_max(n, n = 44), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",             
+    random.order = TRUE,    
+    # Percentage of words rotated
+    rotate_ratio = 0.15,          
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE,
+    rm_outside = TRUE,
+    #word sizes proportionate to cloud area
+    area_corr = TRUE
+  ) +
+  # Size scale for cloud
+  scale_size_area(max_size = 30) +
+  scale_color_gradientn(colors = new_jpalette) +
+  theme_minimal() +  
+  theme(legend.position = "none",  
+        plot.background = element_rect(fill = "white", color = "white"))
+```
+
+```{r}
+#| label: fig-Rock1
+#| fig-cap: Word cloud for Rock genre in the 1970s
+Rock1
+```
+
+
+
+### 1980s
+
+
+
+```{r}
+#| label: Rock 1980s tab
+#| include: true
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+
+# 1980s Rock decade
+Rock2 <- ggplot(Rock_word_freqs |> 
+                  filter(decade == "1980") |>
+                   slice_max(n, n = 44), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",             
+    random.order = TRUE,  
+    # Percentage of words rotated
+    rotate_ratio = 0.15,           
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE,
+    rm_outside = TRUE,
+    #word sizes proportionate to cloud area
+    area_corr = TRUE
+  ) +
+  # Size scale for cloud
+  scale_size_area(max_size = 30) +
+  scale_color_gradientn(colors = new_jpalette) +
+  theme_minimal() +  
+  theme(legend.position = "none",  
+        plot.background = element_rect(fill = "white", color = "white"))
+```
+
+```{r}
+#| label: fig-Rock2
+#| fig-cap: Word cloud for word frequencies in Rock genre in the 1980s
+Rock2
+```
+
+
+
+### 1990s
+
+
+
+```{r}
+#| label: Rock 1990s tab
+#| include: true
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+
+# 1990s Rock decade
+Rock3 <- ggplot(Rock_word_freqs |> 
+                  filter(decade == "1990") |>
+                   slice_max(n, n = 30), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",               
+    random.order = TRUE,
+    # Percentage of words rotated
+    rotate_ratio = 0.15, 
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE,
+    rm_outside = TRUE,
+    #word sizes proportionate to cloud area
+    area_corr = TRUE
+  ) +
+  # Size scale for cloud
+  scale_size_area(max_size = 30) +
+  scale_color_gradientn(colors = new_jpalette) +
+  theme_minimal() + 
+  theme(legend.position = "none", 
+        plot.background = element_rect(fill = "white", color = "white"))
+```
+
+```{r}
+#| label: fig-Rock3
+#| fig-cap: Word cloud for word frequencies in Rock genre in the 1990s
+Rock3
+```
+
+
+
+### 2000s
+
+
+
+```{r}
+#| label: Rock 2000s tab
+#| include: true
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+
+# 2000s Rock decade
+Rock4 <- ggplot(Rock_word_freqs |> 
+                  filter(decade == "2000") |>
+                   slice_max(n, n = 44), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",           
+    random.order = TRUE,     
+    # Percentage of words rotated
+    rotate_ratio = 0.15,           
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE,
+    rm_outside = TRUE,
+    #word sizes proportionate to cloud area
+    area_corr = TRUE
+  ) +
+  # Size scale for cloud
+  scale_size_area(max_size = 30) +
+  scale_color_gradientn(colors = new_jpalette) +
+  theme_minimal() + 
+  theme(legend.position = "none", 
+        plot.background = element_rect(fill = "white", color = "white"))
+```
+
+```{r}
+#| label: fig-Rock4
+#| fig-cap: Word cloud for word frequencies in Rock genre in the 2000s
+Rock4
+```
+
+
+
+:::
+
+According to @fig-Rock1, <b>time</b> and <b>lord</b> are two of the most common words in the 70's for the Rock genre, representing people's faith and desires for future change. Numerous anti-war protests, women's liberation acts, civil rights movements, etc. occurred during this decade, alluding to the aforementioned terms having higher frequencies in song lyrics. The terms <b>love</b> and <b>baby</b> are emphasized in @fig-Rock2, supporting the fact that this decade produced countless unforgettable love songs, including <i>Should I Stay or Should I Go</i> by The Clash, <i>With or Without You</i> by U2, <i>Love Shack</i> by The B-52's. @fig-Rock3 highlights the term <b>running,</b> symbolizing escape, freedom, and restlessness. The 90's encountered rebellion and unease, thus themes of escaping were common. @fig-Rock4 displays <b>life</b> and <b>lust</b> as having the highest word frequencies in Rock songs from this decade, which is sensible given that Indie rock was born in the early 2000s, bringing with it themes of independence and authenticity. The Rock genre overall conveys strong ideas of love as well as a representation of the societal/musical changes and movements that occurred during each decade.
+
+### Dance Genre by Decade
+
+::: {.panel-tabset}
+
+### 1960s
+
+
+
+```{r}
+#| label: Dance 1960s tab
+#| include: true
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+
+Dance_word_freqs = read_csv("data/Dance_lyrics_word_freqs.csv")
+
+# 1960s Dance decade
+Dance1 <- ggplot(Dance_word_freqs |> 
+                   filter(decade == "1960") |>
+                   slice_max(n, n = 45), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",             
+    random.order = TRUE,
+    # Percentage of words rotated
+    rotate_ratio = 0.15,          
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE,
+    rm_outside = TRUE,
+    #word sizes proportionate to cloud area
+    area_corr = TRUE
+  ) +
+  # Size scale for cloud
+  scale_size_area(max_size = 30) +
+  scale_color_gradientn(colors = new_jpalette) +
+  theme_minimal() +  
+  theme(legend.position = "none",  
+        plot.background = element_rect(fill = "white", color = "white"))
+```
+
+```{r}
+#| label: fig-Dance1
+#| fig-cap: Word cloud for word frequencies in Dance genre in the 1960s
+Dance1
+```
+
+
+
+### 1970s
+
+
+
+```{r}
+#| label: Dance 1970s tab
+#| include: true
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+
+# 1970s Dance decade
+Dance2 <- ggplot(Dance_word_freqs |> 
+                   filter(decade == "1970") |>
+                   slice_max(n, n = 45),
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",             
+    random.order = TRUE,
+    # Percentage of words rotated
+    rotate_ratio = 0.15,           
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE ,
+    rm_outside = TRUE,
+    #word sizes proportionate to cloud area
+    area_corr = TRUE
+  ) +
+  # Size scale for cloud
+  scale_size_area(max_size = 30) +
+  scale_color_gradientn(colors = new_jpalette) +
+  theme_minimal() +  
+  theme(legend.position = "none",  
+        plot.background = element_rect(fill = "white", color = "white"))
+```
+
+```{r}
+#| label: fig-Dance2
+#| fig-cap: Word cloud for word frequencies in Dance genre in the 1970s
+Dance2
+```
+
+
+
+### 1980s
+
+
+
+```{r}
+#| label: Dance 1980s tab
+#| include: true
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+
+# 1980s Dance decade
+Dance3 <- ggplot(Dance_word_freqs |> 
+                   filter(decade == "1980") |>
+                   slice_max(n, n = 45), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",               
+    random.order = TRUE,
+    # Percentage of words rotated
+    rotate_ratio = 0.15, 
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE,
+    rm_outside = TRUE,
+    #word sizes proportionate to cloud area
+    area_corr = TRUE
+  ) +
+  # Size scale for cloud
+  scale_size_area(max_size = 30) +
+  scale_color_gradientn(colors = new_jpalette) +
+  theme_minimal() + 
+  theme(legend.position = "none", 
+        plot.background = element_rect(fill = "white", color = "white"))
+```
+
+```{r}
+#| label: fig-Dance3
+#| fig-cap: Word cloud for word frequencies in Dance genre in the 1980s
+Dance3
+```
+
+
+
+:::
+
+Similarly, the Dance word clouds portrays word frequencies within the genre across each of the following decades: 1960s, 1970s, and 1980s. @fig-Dance1 shows <b>baby, love,</b> and <b>chain</b> as the words with higher frequencies in the Dance genre during the 60's, which is supported by the fact that love was one of the more popular themes in 1960s music. According to @fig-Dance2, <b>funk</b> and <b>light</b> had high word frequencies is the Dance music genre, given that funk and rhythm were popular in the 1970s. @fig-Dance3 demonstrates <b>beat</b> and <b>call</b> as words of higher frequencies in the 80's decade of Dance music, which aligns with the fact that telephones popularity skyrocketed during these years, including landlines, answering machines, and payphones. The term "call" became a term of love with these newfound methods of communication. <b>Love, attachment,</b> and <b>funk</b> are words of high frequency in the cumulative Dance genre (all three decades combined), and each decade had words of higher frequencies that were associated with popular themes during each of those years, such as the boogie and funk.
+
+
+### Slow Genre
+
+
+
+```{r}
+#| label: Slow word cloud
+#| include: true
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+
+Slow_word_freqs = read_csv("data/Slow_lyrics_word_freqs.csv")
+
+# Slow word cloud
+Slow <- ggplot(Slow_word_freqs |>
+                   slice_max(n, n = 45), 
+                aes(label = word, size = n, color = n)) +  
+  geom_text_wordcloud(
+    family = "sans",               
+    random.order = TRUE,
+    # Percentage of words rotated
+    rotate_ratio = 0.15, 
+    # Use `color` for word color, depending on frequency
+    show.legend = FALSE,
+    rm_outside = TRUE,
+    #word sizes proportionate to cloud area
+    area_corr = TRUE
+  ) +
+  # Size scale for cloud
+  scale_size_area(max_size = 30) +
+  scale_color_gradientn(colors = new_jpalette) +
+  theme_minimal() + 
+  theme(legend.position = "none", 
+        plot.background = element_rect(fill = "white", color = "white"))
+```
+
+```{r}
+#| label: fig-Slow
+#| fig-cap: Word cloud for cumulative Slow genre, decades inclusive
+Slow
+```
+
+
+
+Lastly, according to @fig-Slow, the Slow genre displays <b>love</b> and <b>baby</b> as the terms with higher frequencies, supported by the alignment of these terms with the emotional themes of Slow music. Love is an incredibly popular theme of slower songs, especially due to the intimacy and deep expression for which slow tempos allow. "Baby" is often used in these songs to refer to loved ones.
+
+Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion. Furthermore, the isolation of various decades within the Rock and Dance genres highlights the relationship between the societal and musical movements that occurred and the words of highest frequency in song lyrics written during those years. Despite any commonly embodied themes across the three genres, each genre still exhibited unique concepts. The Rock genre as a whole conveys key concepts of <b>love and expression</b>. The Dance genre cumulatively represents <b>energy</b> and <b>rhythm</b>, and lastly the Slow genre conveys <b>emotion</b> and <b>steady paces</b>.
