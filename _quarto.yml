@@ -13,9 +13,9 @@ website:
         icon: house # Get icon names: https://icons.getbootstrap.com/?q=home
       # Add or remove additional pages below in desired order of appearance
       - href: another-page.qmd
-      - text: "Sentiment Analysis"
+        text: "Sentiment Analysis"
       - href: thirdpage.qmd
-      - text: "Word Frequencies"
+       text: "Word Frequencies"
       - href: yet-another-page.qmd
         text: "Top Artists"
         

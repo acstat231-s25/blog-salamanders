@@ -482,7 +482,7 @@ Slow <- ggplot(Slow_word_freqs |>
         plot.background = element_rect(fill = "white", color = "white")) +
      labs(
       caption =
-        "Figure 8: Word cloud for cumulative Slow genre,decades inclusive") +
+        "Figure 8: Word cloud for cumulative Slow genre, decades inclusive") +
      theme_linedraw() +
      theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
                                                    , size = rel(0.92)
