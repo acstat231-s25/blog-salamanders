@@ -1,1 +1,43 @@
 /* css styles */
+
+body {
+  font-family: Garamond ;
+}
+
+a {
+  /*change default link color*/
+  color:  #d92b1e;
+}
+
+ .margin-sidebar .nav-link-active {
+   color:  #d92b1e;
+ }
+  .navbar-expand-lg {
+     background-color: #d92b1e;
+  }
+  
+  
+ .navbar-expand-lg .navbar-brand,
+ .navbar-expand-lg .menu-text,
+ .navbar-expand-lg .bi-house{
+     /* navbar font color */
+    color: white;
+    font-family: Garamond;
+    }
+    
+    .nav-item .nav-link {
+     /* 1-2-tab color */
+      color: #d92b1e;
+    }
+   .nav-link .active {
+     /* navigation panel highlight color */
+     background-color: white;
+      color: #d92b1e;
+    } 
+    
+   
+     
+
+
+
+ 
