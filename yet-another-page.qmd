@@ -43,7 +43,7 @@ new_palette2 = colorRampPalette(colors = c("#540340"
 
 # The 1960s were a Great Decade for Music 
 
-The famous, sometimes infamous, <i>Rolling Stone</i> magazine published its very first issue on November 9th, 1967. On the cover of the first volume of the magazine, John Lennon---one of four British Beatles---appears in a still shot from his role in the film <i>How I Won the War</i>. 
+The famous, often infamous, <i>Rolling Stone</i> magazine published its very first issue on November 9th, 1967. On the cover of the first volume of the magazine, John Lennon---one of four British Beatles---appears in a still shot from his role in the film <i>How I Won the War</i>. 
 
 ```{r}
 #| label: fig-cover
