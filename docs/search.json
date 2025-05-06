@@ -25,7 +25,7 @@
     "href": "another-page.html",
     "title": "Sentiment Analysis",
     "section": "",
-    "text": "Sentiment is the emotional feeling evoked by certain words and phrases. In order to analyze sentiment in song lyrics, we used the AFINN lexicon “Text mining”, which is a dataset that contains 2477 words with their corresponding sentiment scores. These scores are measured on a scale from -5 to 5, with -5 representing a word with an extremely negative sentiment and 5 representing one with an extremely positive sentiment. For example, words like “breathtaking” have an AFINN value of 5, while curse words might have AFINN values of -5. SuperAnnotate (2023)"
+    "text": "Sentiment is the emotional feeling evoked by certain words and phrases. In order to analyze sentiment in song lyrics, we used the AFINN lexicon AFIT, which is a dataset that contains 2477 words with their corresponding sentiment scores. These scores are measured on a scale from -5 to 5, with -5 representing a word with an extremely negative sentiment and 5 representing one with an extremely positive sentiment. For example, words like “breathtaking” have an AFINN value of 5, while curse words might have AFINN values of -5.\nImage from SuperAnnotate (2023)"
   },
   {
     "objectID": "another-page.html#sentiment-analysis",
