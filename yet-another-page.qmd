@@ -1,7 +1,6 @@
 ---
 title: "Through the Decades"
-author: 
-- "Claire Albus"
+author: "Claire Albus"
 abstract: ""
 ---
 
