@@ -40,9 +40,12 @@ The famous, often infamous, <i>Rolling Stone</i> magazine published its very fir
 
 ```{r}
 #| label: fig-cover
-#| fig-cap: Rolling Stone magazine's first ever issue
-include_graphics("images/Rolling-Stone-Vol-1.jpg")
+#| fig-cap: Rolling Stone magazine's first ever issue (@cover)
+include_graphics("images/Rolling-Stone-Vol-1.jpg") 
 ```
+
+
+
 While the first Top 500 list was not released until 2003, <i>Rolling Stone</i> has set the tone for music journalism from their first issue to this very moment. 
 
 ## The Rollin' Sixties

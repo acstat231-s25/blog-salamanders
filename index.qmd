@@ -39,10 +39,10 @@ library(scales)
 ```
 
 ```{r}
-#| label: music image
+#| label: fig-music
+#| fig-cap: Image courtesy of @music
 
 include_graphics("images/record.jpg")
-# https://pixabay.com/photos/plate-vinyl-record-records-vinyl-4725349/
 ```
 
 
@@ -56,11 +56,11 @@ The following subpages display our findings:
 
 1. [Sentiment Analysis](another-page.qmd) investigates the sentiments of lyrics, how they change across genres and time periods, and how sentiments related to certain characterstics of a song.
 2. [Word Frequencies](thirdpage.qmd) relays the frequencies of certain words across lyrics from the following three music genres: Rock (1970's - 2000's), Dance (1960's - 1980's), and Slow.
-3. [Top Artists](yes-another-page.qmd) conveys whether certain BPMs, song durations, years, and artists appear more frequently in Rolling Stone’s 500 Greatest Songs of All Time Ranking.
+3. [Top Artists](yes-another-page.qmd) examines if years or artists appear more frequently in Rolling Stone’s 500 Greatest Songs of All Time Ranking.
 
 # Data Collection
 
-On April 14, we collected data from an [online music database](https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html) created by Dave Tompkins, a professor at the University of Waterloo in Canada. The initial dataset we scraped contains 7 variables:
+On April 14th, 2025, we scraped our data from an [online music database](https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html) created by Dave Tompkins, a professor at the University of Waterloo in Canada. The initial dataset we scraped contains 7 variables:
 
 `number`: the number of the track
 <br>`artist`: the artist who created the song 
