@@ -38,15 +38,18 @@ library(gt)
 
 #he famous, sometimes infamous, <i>Rolling Stone</i> magazine #published its first issue on November 9th, 1967. 
 
-
-
 ```
+
 
 # The 1960s were a Great Decade for Music 
 
-The famous, sometimes infamous, <i>Rolling Stone</i> magazine published its very first issue on November 9th, 1967.   
+The famous, sometimes infamous, <i>Rolling Stone</i> magazine published its very first issue on November 9th, 1967. On the cover of the first volume of the magazine, John Lennon---one of four British Beatles---appears in a still shot from his role in the film <i>How I Won the War</i>. While the first Top 500 list was not released until 2003, <i>Rolling Stone</i> has set the tone for music journalism from their first issue to this very moment. 
 
-
+```{r}
+#| label: fig-cover
+#| fig-cap: Rolling Stone magazine's first ever issue
+include_graphics("images/Rolling-Stone-Vol-1.jpg")
+```
 
 Let's take a look at how the decades shape up compared to one another. 
 ```{r, message=FALSE}
