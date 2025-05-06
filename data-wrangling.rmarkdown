@@ -171,18 +171,18 @@ songs_chart <- songs_clean |>
       )
     , decade = case_when(
       # create var for decade
-      year > 1949 & year < 1960 ~ "50s"
-      , year > 1959 & year < 1970 ~ "60s"
-      , year > 1969 & year < 1980 ~ "70s"
-      , year > 1979 & year < 1990 ~ "80s"
-      , year > 1989 & year < 2000 ~ "90s"
-      , year > 1999 & year < 2010 ~ "2000s"
+      year > 1949 & year < 1960 ~ "The 1950s"
+      , year > 1959 & year < 1970 ~ "The 1960s"
+      , year > 1969 & year < 1980 ~ "The 1970s"
+      , year > 1979 & year < 1990 ~ "The 1980s"
+      , year > 1989 & year < 2000 ~ "The 1990s"
+      , year > 1999 & year < 2010 ~ "The 2000s"
       )
     )
 # sort decades into logical order for legends
 songs_chart$decade = 
    factor(songs_chart$decade
-          , levels = c('50s', '60s', '70s', "80s", '90s', '2000s'))
+          , levels = c('The 1950s', 'The 1960s', 'The 1970s', "The 1980s", 'The 1990s', 'The 2000s'))
 # sort rank blocks into order that best demonstrates top 100 distribution
 songs_chart$block =
   factor(songs_chart$block
@@ -194,17 +194,21 @@ top_artists <- songs_chart |>
 # sort decades into logical order for legends
 top_artists$decade = 
    factor(top_artists$decade
-          , levels = c('2000s', '90s', '80s', '70s', '60s', '50s')) 
+          , levels = c('The 2000s', 'The 1990s', 'The 1980s', 'The 1970s', 'The 1960s', 'The 1950s')) 
 
 # 
 top_bigrams <- merged_songs_bigrams |>
-  filter(artist == "The Beatles" 
-         | artist == "The Rolling Stones" 
-         | artist == "Bob Dylan") |>
+  filter(artist == "The Beatles" ) |>
   group_by(artist)
+
+merged_top <- merged_songs_combined |>
+    unnest_tokens(output = bigram, input = lyrics, token = "ngrams", n = 1) |>
+   select(number, artist, title, bigram) |> 
+  filter(artist == "The Beatles"
+    )
 # Rock cumulative word cloud
 library(tm)
-top_bigrams |>
+merged_top |>
     with(wordcloud(words = bigram,
                    min.freq = 20,
                   # min.freq = 20,
@@ -212,13 +216,13 @@ top_bigrams |>
 # Plot the words in a random order
 random.order = TRUE,
 # Specify the range of the size of the words
-scale = c(3, 0.3),
+scale = c(3, 0.5),
 # Specify proportion of words with 90 degree rotation
 rot.per = 0.15,
 # Color words from least to most frequent
-colors = brewer.pal(10, "Dark2"),
+colors = rev(new_palette),
 # Change font family
-family = "sans"))
+family = "sans")) 
 
 ```
 
@@ -559,70 +563,6 @@ rot.per = 0.15,
 # Color words from least to most frequent
 colors = new_palette,
 family = "sans"))
-
-```
-
-```{r}
-# Claire visualization workspace
-
-# decade vis
-#| fig-width: 4
-#| fig-height: 6
-songs_chart |> 
-  # Create segmented histogram
-  ggplot(aes(x = decade, fill = block)) +
-    geom_bar(position = "stack", color = "black") +
-    
-    scale_fill_manual(values = new_palette, name = "Rank") +
-    labs(
-     title = "Decades in the Rolling Stone Top 500"
-     , subtitle = "Broken Down By Rank"
-     , x = "Decade of Release"
-     , y = "Number of Songs"
-     ) +
-    theme_linedraw() +
-    theme(plot.caption = element_text(hjust = -0.5)
-          , axis.title.x = element_text(vjust = -0.3)
-          , axis.text.x = element_text(size = rel(1.25)))
-
-
-
-top_artists |> 
-  # Create segmented bar chart
-  ggplot(aes(x = artist, fill = decade)) +
-    geom_bar(color = "black") +
-    
-    scale_fill_manual(values = new_palette, name = "Decade") +
-    labs(
-     title = "The Top 3 Most Represented Artists in the Rolling Stone Top 500"
-     , subtitle = "Broken Down by the Decade Their Songs Were Released"
-     , x = "Artist"
-     , y = "Number of Songs"
-     , tag = " "
-     , caption = " "
-     ) +
-    theme_linedraw() +
-    theme(axis.title.x = element_text(size = rel(1.25), vjust = -0.25)
-          # , axis.text.y = element_text(angle = 45, margin = margin(r=1))
-          ) 
-prop.table(table(songs_chart$decade))
-
-
-sentiment_by_artist |>
-  ggplot(aes(x = artist, y = mean, fill = artist)) +
-  scale_fill_manual(values = new_palette2) +
-  labs(
-    y = "Average Sentiment"
-    , x = "Artist"
-  ) +
-  geom_col(stat = "identity") +
-  theme_linedraw() +
-  geom_hline(yintercept = 0, linetype = "dashed") +
-  guides(fill = FALSE) +
-  theme(axis.title.x = element_text(vjust = -0.3)
-       # , axis.title.y = element_text(vjust = -0.3)
-        )
-
 
 ```
 

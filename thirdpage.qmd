@@ -24,7 +24,7 @@ library(wordcloud)
 library(ggpubr)
 library(scales)
 
-# color palette for some consistency
+# color palette for some consistency (based off `new_palette`)
  new_jpalette <- colorRampPalette(colors = c("#6b34eb"
                                             , "#F3AB4D"
                                             , "#eb6309"
@@ -71,7 +71,7 @@ Rock1 <- ggplot(Rock_word_freqs |>
     area_corr = TRUE
   ) +
   # Size scale for cloud
-  scale_size_area(max_size = 15) +
+  scale_size_area(max_size = 17) +
   scale_color_gradientn(colors = new_jpalette) + 
   ggtitle("Rock Word Cloud - 1970s") +  
   theme_minimal() +  
@@ -95,7 +95,7 @@ Rock2 <- ggplot(Rock_word_freqs |>
     area_corr = TRUE
   ) +
   # Size scale for cloud
-  scale_size_area(max_size = 18) +
+  scale_size_area(max_size = 17) +
   scale_color_gradientn(colors = new_jpalette) + 
   ggtitle("Rock Word Cloud - 1980s") +  
   theme_minimal() +  
@@ -119,7 +119,7 @@ Rock3 <- ggplot(Rock_word_freqs |>
     area_corr = TRUE
   ) +
   # Size scale for cloud
-  scale_size_area(max_size = 15) +
+  scale_size_area(max_size = 16) +
   scale_color_gradientn(colors = new_jpalette) +  
   ggtitle("Rock Word Cloud - 1990s") +  
   theme_minimal() + 
