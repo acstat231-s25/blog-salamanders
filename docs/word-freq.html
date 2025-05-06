@@ -7,11 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jenna Holmes">
-<meta name="author" content="Claire Albus">
-<meta name="author" content="Albert Hu">
 <meta name="dcterms.date" content="2025-05-06">
 
-<title>Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Greatest Songs of All Time – Salamanders</title>
+<title>Mic Check: Most Common Words Across Genres – Salamanders</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +113,7 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="./index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -124,7 +122,7 @@ div.csl-indent {
 <span class="menu-text">Sentiment Analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./word-freq.html"> 
+    <a class="nav-link active" href="./word-freq.html" aria-current="page"> 
 <span class="menu-text">Word Frequencies</span></a>
   </li>  
   <li class="nav-item">
@@ -148,11 +146,10 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
-  <li><a href="#data-wrangling-methods" id="toc-data-wrangling-methods" class="nav-link" data-scroll-target="#data-wrangling-methods">Data Wrangling &amp; Methods</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a></li>
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#rock-genre-by-decade" id="toc-rock-genre-by-decade" class="nav-link active" data-scroll-target="#rock-genre-by-decade">Rock Genre by Decade</a></li>
+  <li><a href="#dance-genre-by-decade" id="toc-dance-genre-by-decade" class="nav-link" data-scroll-target="#dance-genre-by-decade">Dance Genre by Decade</a></li>
+  <li><a href="#slow-genre" id="toc-slow-genre" class="nav-link" data-scroll-target="#slow-genre">Slow Genre</a></li>
+  <li><a href="#in-short" id="toc-in-short" class="nav-link" data-scroll-target="#in-short">In Short…</a></li>
   </ul>
 </nav>
     </div>
@@ -161,7 +158,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Analyzing Lyrics and Sentiment Trends from the Rolling Stones Top 500 Greatest Songs of All Time</h1>
+<h1 class="title">Mic Check: Most Common Words Across Genres</h1>
 </div>
 
 
@@ -169,11 +166,9 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
              <p>Jenna Holmes </p>
-             <p>Claire Albus </p>
-             <p>Albert Hu </p>
           </div>
   </div>
     
@@ -187,85 +182,174 @@ div.csl-indent {
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">Abstract</div>
-    Music is an essential part of many peoples’ lives. In this project, we utilize text analysis, sentiment analysis, and data visualization to explore trends in musical lyrics and more from the 1950s to 2000s. By exploring lyrics across decades and genres, we aim to uncover how language, emotion, and musical structure have evolved over time.
-  </div>
-</div>
 
 
 </header>
 
 
+<p>The following word clouds portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970s through the 2000s. Likewise, the Dance genre is divided into three decades, specifically the 1960s through the 1980s. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner. The word clouds were created using the <b>ggwordcloud</b> package (<span class="citation" data-cites="ggwordcloud">Le Pennec (<a href="#ref-ggwordcloud" role="doc-biblioref">2024-05-30</a>)</span>), which incorporates <code>ggplot</code> and <code>geom_text_wordcloud</code> functions. The <b>xfun</b> (<span class="citation" data-cites="xfun">Xie et al. (<a href="#ref-xfun" role="doc-biblioref">2025-04-02</a>)</span>) package was also used in the word cloud generation process, and it provides helper functions to support other packages such as <code>knitr,</code> which is another common package used in our project.</p>
+<section id="rock-genre-by-decade" class="level3">
+<h3 class="anchored" data-anchor-id="rock-genre-by-decade">Rock Genre by Decade</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">1970s</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">1980s</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">1990s</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">2000s</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-music" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-Rock1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-music-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/record.jpg" class="img-fluid figure-img" width="640">
+<div aria-describedby="fig-Rock1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="word-freq_files/figure-html/fig-Rock1-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-music-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Image courtesy of <span class="citation" data-cites="music">Bru-nO (<a href="#ref-music" role="doc-biblioref">2019</a>)</span>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Rock1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Word cloud for word frequencies in Rock genre in the 1970s
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Music is a major source of entertainment that strongly influences the lives of many individuals. From the high-energy spirit of rock to the calming nature of R&amp;B, song lyrics can reflect the values and cultural shifts of each generation. This project seeks to investigate how different lyrical themes and musical characteristics have changed across decades, uncovering patterns within some of the most iconic and memorable songs in recent history.</p>
-<p>Drawing from the Rolling Stone’s “500 Greatest Songs of All Time” list, we used data visualization, text analysis, and sentiment analysis to examine trends in lyrics and other musical data from the 1950s to 2000s. Our goal is to gain insight into how language has evolved over time and how these changes might relate to broader historical shifts.</p>
-<p>The following subpages display our findings:</p>
-<ol type="1">
-<li><a href="another-page.qmd">Sentiment Analysis</a> investigates the sentiments of lyrics, how they change across genres and time periods, and how sentiments related to certain characterstics of a song.</li>
-<li><a href="thirdpage.qmd">Word Frequencies</a> relays the frequencies of certain words across lyrics from the following three music genres: Rock (1970’s - 2000’s), Dance (1960’s - 1980’s), and Slow.</li>
-<li><a href="yes-another-page.qmd">Top Artists</a> examines if years or artists appear more frequently in Rolling Stone’s 500 Greatest Songs of All Time Ranking.</li>
-</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-Rock2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Rock2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="word-freq_files/figure-html/fig-Rock2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Rock2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Word cloud for word frequencies in Rock genre in the 1980s
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-Rock3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Rock3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="word-freq_files/figure-html/fig-Rock3-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Rock3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Word cloud for word frequencies in Rock genre in the 1990s
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-Rock4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Rock4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="word-freq_files/figure-html/fig-Rock4-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Rock4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Word cloud for word frequencies in Rock genre in the 2000s
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>According to <a href="#fig-Rock1" class="quarto-xref">Figure&nbsp;1</a>, <b>time</b> and <b>lord</b> are two of the most common words in the 70’s for the Rock genre, representing people’s faith and desires for future change. Numerous anti-war protests, women’s liberation acts, civil rights movements, etc. occurred during this decade, alluding to the aforementioned terms having higher frequencies in song lyrics. The terms <b>love</b> and <b>baby</b> are emphasized in <a href="#fig-Rock2" class="quarto-xref">Figure&nbsp;2</a>, supporting the fact that this decade produced countless unforgettable love songs, including <i>Should I Stay or Should I Go</i> by The Clash, <i>With or Without You</i> by U2, and <i>Love Shack</i> by The B-52’s. <a href="#fig-Rock3" class="quarto-xref">Figure&nbsp;3</a> highlights the term <b>running,</b> symbolizing escape, freedom, and restlessness. The 90’s encountered rebellion and unease, thus themes of escaping were common. <a href="#fig-Rock4" class="quarto-xref">Figure&nbsp;4</a> displays <b>life</b> and <b>lust</b> as having the highest word frequencies in Rock songs from the 2000s, which is sensible given that Indie rock was born in the early 2000s, bringing with it themes of independence and authenticity. The Rock genre overall conveys strong ideas of love as well as a representation of the societal/musical changes and movements that occurred during each decade.</p>
 </section>
-<section id="data-collection" class="level1">
-<h1>Data Collection</h1>
-<p>On April 14th, 2025, we scraped our data from an online music database created by Dave Tompkins (<span class="citation" data-cites="tompkins">Tompkins (<a href="#ref-tompkins" role="doc-biblioref">2025</a>)</span>), a professor at the University of Waterloo in Canada. The initial dataset we scraped contains 7 variables:</p>
-<p><code>number</code>: the number of the track <br><code>artist</code>: the artist who created the song <br><code>title</code>: the name of the song <br><code>time</code>: the length of the song <br><code>bpm</code>: the beats per minute of the song <br><code>year</code>: the year the song was released <br><code>genre</code>: the genre the song belongs to</p>
-<p>The lyrics for each song were each contained in a separate webpage linked to the original, so we iterated through and scraped the song lyrics for 485 songs (15 of the songs did not have lyrics available). It is also worth noting that a good portion (144) of the songs we are analyzing do not have a specific genre because they were labeled as “TBD” (to be determined) in the database.</p>
+<section id="dance-genre-by-decade" class="level3">
+<h3 class="anchored" data-anchor-id="dance-genre-by-decade">Dance Genre by Decade</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">1960s</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">1970s</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">1980s</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-Dance1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Dance1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="word-freq_files/figure-html/fig-Dance1-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Dance1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Word cloud for word frequencies in Dance genre in the 1960s
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-Dance2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Dance2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="word-freq_files/figure-html/fig-Dance2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Dance2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Word cloud for word frequencies in Dance genre in the 1970s
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-Dance3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Dance3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="word-freq_files/figure-html/fig-Dance3-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Dance3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Word cloud for word frequencies in Dance genre in the 1980s
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Similarly, the Dance word clouds portray word frequencies within the genre across each of the following decades: 1960s, 1970s, and 1980s. <a href="#fig-Dance1" class="quarto-xref">Figure&nbsp;5</a> shows <b>baby, love,</b> and <b>chain</b> as the words with higher frequencies in the Dance genre during the 60’s, which is supported by the fact that love was one of the more popular themes in 1960s music. According to <a href="#fig-Dance2" class="quarto-xref">Figure&nbsp;6</a>, <b>funk</b> and <b>light</b> had high word frequencies in the Dance music genre, given that funk and rhythm were popular in the 1970s. <a href="#fig-Dance3" class="quarto-xref">Figure&nbsp;7</a> demonstrates <b>beat</b> and <b>call</b> as words of higher frequencies in the 80’s decade of Dance music, which aligns with the fact that telephone popularity skyrocketed during these years, including landlines, answering machines, and payphones. The term “call” became a term of love with these newfound methods of communication. <b>Love, attachment,</b> and <b>funk</b> are words of high frequency in the cumulative Dance genre (all three decades combined), and each decade had words of higher frequencies that were associated with popular themes during each of those years, such as <b>love</b> and <b>funk</b>.</p>
 </section>
-<section id="data-wrangling-methods" class="level1">
-<h1>Data Wrangling &amp; Methods</h1>
-<p>In order to answer our research questions, we needed to wrangle our scraped data.</p>
-<p>We combined the lyrics dataset with the initial dataset, resulting in a merged dataset with 11 variables, which includes the following 4 variables in addition to the 7 aforementioned variables:</p>
-<p><code>track</code>: identification for each song in the database (necessary for url) <br><code>track_gen</code>: alternate version of <code>track</code> (also necessary for url) <br><code>url</code>: the link to the song in the online music database <br><code>lyrics</code>: the lyrics corresponding to the song</p>
-<p>This dataset was then used to create additional datasets that contained the necessary variables for creating specific plots.</p>
-<p>To investigate how sentiments for song lyrics changed across different time periods and genres, we created two datasets, one that included the average sentiment of lyrics of all songs released in each year and another that included the average sentiment for each genre. Additionally, we included in these datasets statistics for numerous other variables, such as each song’s average time (sec), average bpm, as well as the number of songs categorized in each year/genre. Next, to investigate whether sentiment scores were related to song length and bpm, we created a dataset that included the average sentiment by song of all 485 songs. Like the previous two datasets, this one included variables like the title, artist, year, genre, time, and bpm of each song.</p>
-<p>In order to create word clouds to express word frequencies in lyrics, we combined each of the Rock decades to be one “Rock” category, rather than each individual decade. The same process was conducted for each of the Dance decades. Additional datasets were then created for each of the three genres to store word frequencies and their corresponding decades.</p>
-<p>For further analysis, we created a new dataset with additional variables for the <code>decade</code> a song was released in and identifiers for the <code>rank</code>of a song—more specifically, the Top 100, 200s, and so on. We then created a subset of this dataset which contains only data for the top 3 most represented artists on the list.</p>
+<section id="slow-genre" class="level3">
+<h3 class="anchored" data-anchor-id="slow-genre">Slow Genre</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-Slow" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Slow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="word-freq_files/figure-html/fig-Slow-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Slow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Word cloud for cumulative Slow genre, decades inclusive
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Lastly, according to <a href="#fig-Slow" class="quarto-xref">Figure&nbsp;8</a>, the Slow genre displays <b>love</b> and <b>baby</b> as the terms with higher frequencies, supported by the alignment of these terms with the emotional themes of Slow music. Love is an incredibly popular theme of slower songs, especially due to the intimacy and deep expression for which slow tempos allow. “Baby” is often used in these songs to refer to loved ones.</p>
 </section>
-<section id="tools" class="level1">
-<h1>Tools</h1>
-<p>We used a variety of RStudio packages throughout the completion of our project. Those that were unique to the creation of a certain subpage are referenced on said page, and the commonly used packages are the following:</p>
-<p><b>tidyverse</b>: includes numerous core packages used in R, including <code>ggplot2</code> and <code>readr</code> (<span class="citation" data-cites="tidyverse">Hadley (<a href="#ref-tidyverse" role="doc-biblioref">2023-02-22</a>)</span>) <br> <b>knitr</b>: allows us to execute code and output results (<span class="citation" data-cites="knitr">Yihui (<a href="#ref-knitr" role="doc-biblioref">2025-03-16</a>)</span>)</p>
-</section>
-<section id="limitations" class="level1">
-<h1>Limitations</h1>
-<p>Despite our findings being applicable to anyone with an interest in music, which is an incredibly broad population, one important limitation of our research is that we only analyzed song lyrics and data from 483 songs out of the top 500 Rolling Stone Greatest Songs of All Time list. There have been millions of popular songs created in recent history, so in order to more thoroughly investigate deeper trends in music lyrics and other musical metrics, we would need to obtain data from a much larger array of songs (thousands perhaps).</p>
-<p>Additionally, this particular iteration of the list was released in 2013, and there have been many updates to the list since then. The songs we obtained data for were released between 1953 and 2006, so our analysis does not reveal any significant changes in lyrical trends from before 1953 or after 2006. Even among the songs we analyzed, a substantial number of them were from the 1960s, while not too many were released in the 2000s. Thus, even within this time period (1953-2006), we cannot be confident that our findings reveal the true trends of music data during this era.</p>
-<p>Furthermore, our data does not represent the average song released throughout from the 1950s to 2000s. Our data was based on a subjective list of the best songs of all time, so it likely doesn’t represent overall trends in all music lyrics and other data. Additionally, the rock genre was overly represented in our data, consisting of more than 40% of the songs analyzed. Thus, our findings cannot be generalized to all songs as a whole, as our data was not representative of the population of songs in the first place. In order to diminish this subjectivity in and improve our study in the future, we could scrape data from multiple sources with the “best” songs to gather a variety of information and subjective rankings. We could also potentially steer away from the rankings and just use the 500 most listened to songs, which would eliminate any possible bias from an author’s opinionated ranking.</p>
+<section id="in-short" class="level3">
+<h3 class="anchored" data-anchor-id="in-short">In Short…</h3>
+<p>Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion. Furthermore, the isolation of various decades within the Rock and Dance genres highlights the relationship between the societal and musical movements that occurred and the words of highest frequency in song lyrics written during those years. Despite these unique concepts represented when the genres were divided by decade, the overall genres exhibited similar concepts of <b>love, expression, energy, passion,</b> and <b>rhythm</b>.</p>
 
 
 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-music" class="csl-entry" role="listitem">
-Bru-nO (2019), <span>“Plate, vinyl record, records image. Free for use.”</span> Available at <a href="https://pixabay.com/photos/plate-vinyl-record-records-vinyl-4725349/">https://pixabay.com/photos/plate-vinyl-record-records-vinyl-4725349/</a>.
+<div id="ref-ggwordcloud" class="csl-entry" role="listitem">
+Le Pennec, E. (2024-05-30), <span>“Ggwordcloud: A word cloud geom for ggplot2,”</span> Available at <a href="https://cran.r-project.org/web/packages/ggwordcloud/vignettes/ggwordcloud.html">https://cran.r-project.org/web/packages/ggwordcloud/vignettes/ggwordcloud.html</a>.
 </div>
-<div id="ref-tidyverse" class="csl-entry" role="listitem">
-Hadley, W. (2023-02-22), <span>“Tidyverse: Easily install and load the ’tidyverse’,”</span> Available at <a href="https://cran.r-project.org/web/packages/tidyverse/index.html">https://cran.r-project.org/web/packages/tidyverse/index.html</a>.
-</div>
-<div id="ref-tompkins" class="csl-entry" role="listitem">
-Tompkins, D. (2025), <span>“Lists::best::rolling stone - 500 greatest songs,”</span> Available at <a href="https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html">https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html</a>.
-</div>
-<div id="ref-knitr" class="csl-entry" role="listitem">
-Yihui, et al., Xie (2025-03-16), <span>“Knitr: A general-purpose package for dynamic report generation in r,”</span> Available at <a href="https://cran.r-project.org/web/packages/knitr/index.html">https://cran.r-project.org/web/packages/knitr/index.html</a>.
+<div id="ref-xfun" class="csl-entry" role="listitem">
+Xie, Y., Wu, W., Li, D., Tan, X., Brüggemann, S., and Dervieux, C. (2025-04-02), <span>“Xfun: Supporting functions for packages maintained by <span>‘yihui xie’</span>,”</span> Available at <a href="https://cran.r-project.org/web/packages/xfun/index.html">https://cran.r-project.org/web/packages/xfun/index.html</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
