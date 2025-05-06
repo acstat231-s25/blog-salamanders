@@ -262,4 +262,5 @@ gt(son) |>
 ```
 @tbl-ten shows the top ten songs on the list, their ranks, and their years of release with the corresponding decade. 
 
-Additionally, this page uses packages `gt`, @gt, and `scales`, @scales.
+## Additional Packages
+This page uses packages `gt`, @gt, and `scales`, @scales.
