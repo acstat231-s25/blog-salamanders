@@ -15,16 +15,10 @@ options(scipen = 1, knitr.kable.NA = "")
 library(tidyverse)
 library(knitr)
 library(kableExtra)
-library(ggplot2)
 library(plotly)
 library(ggwordcloud)
 library(xfun)
-library(RColorBrewer)
-library(wordcloud)
-library(ggpubr)
 library(scales)
-library(ggtext)
-library(gt)
 
 # color palette for some consistency (based off `new_palette`)
  new_jpalette <- colorRampPalette(colors = c("#6b34eb"
@@ -79,26 +73,12 @@ Rock1 <- ggplot(Rock_word_freqs |>
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() +  
   theme(legend.position = "none",  
-        plot.background = element_rect(fill = "white", color = "white")) +
-     labs(
-      caption = "Figure 1: Word cloud for Rock genre in the 1970s") +
-     theme_linedraw() +
-     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
-           , axis.text.x = element_text(size = rel(1.25))
-           , axis.title.y = element_text(size = rel(1.5))
-           , axis.text.y = element_text(size = rel(1.25)))
+        plot.background = element_rect(fill = "white", color = "white"))
 ```
 
 ```{r}
 #| label: fig-Rock1
+#| fig-cap: Word cloud for Rock genre in the 1970s
 Rock1
 ```
 
@@ -133,26 +113,12 @@ Rock2 <- ggplot(Rock_word_freqs |>
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() +  
   theme(legend.position = "none",  
-        plot.background = element_rect(fill = "white", color = "white")) +
-     labs(
-      caption = "Figure 2: Word cloud for word frequencies in Rock genre in the 1980s") +
-     theme_linedraw() +
-     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
-           , axis.text.x = element_text(size = rel(1.25))
-           , axis.title.y = element_text(size = rel(1.5))
-           , axis.text.y = element_text(size = rel(1.25)))
+        plot.background = element_rect(fill = "white", color = "white"))
 ```
 
 ```{r}
 #| label: fig-Rock2
+#| fig-cap: Word cloud for word frequencies in Rock genre in the 1980s
 Rock2
 ```
 
@@ -187,26 +153,12 @@ Rock3 <- ggplot(Rock_word_freqs |>
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() + 
   theme(legend.position = "none", 
-        plot.background = element_rect(fill = "white", color = "white")) +
-     labs(
-      caption = "Figure 3: Word cloud for word frequencies in Rock genre in the 1990s") +
-     theme_linedraw() +
-     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
-           , axis.text.x = element_text(size = rel(1.25))
-           , axis.title.y = element_text(size = rel(1.5))
-           , axis.text.y = element_text(size = rel(1.25)))
+        plot.background = element_rect(fill = "white", color = "white"))
 ```
 
 ```{r}
 #| label: fig-Rock3
+#| fig-cap: Word cloud for word frequencies in Rock genre in the 1990s
 Rock3
 ```
 
@@ -241,29 +193,12 @@ Rock4 <- ggplot(Rock_word_freqs |>
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() + 
   theme(legend.position = "none", 
-        plot.background = element_rect(fill = "white", color = "white")) +
-     labs(
-      caption = "Figure 4: Word cloud for word frequencies in Rock genre in the 2000s") +
-     theme_linedraw() +
-     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
-           , axis.text.x = element_text(size = rel(1.25))
-           , axis.title.y = element_text(size = rel(1.5))
-           , axis.text.y = element_text(size = rel(1.25)))
-
-#arrange four clouds for one tab
-#ggarrange(Rock1, Rock2, Rock3, Rock4, ncol = 2, nrow = 2)
+        plot.background = element_rect(fill = "white", color = "white"))
 ```
 
 ```{r}
 #| label: fig-Rock4
+#| fig-cap: Word cloud for word frequencies in Rock genre in the 2000s
 Rock4
 ```
 
@@ -308,26 +243,12 @@ Dance1 <- ggplot(Dance_word_freqs |>
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() +  
   theme(legend.position = "none",  
-        plot.background = element_rect(fill = "white", color = "white")) +
-     labs(
-      caption = "Figure 5: Word cloud for word frequencies in Dance genre in the 1960s") +
-     theme_linedraw() +
-     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
-           , axis.text.x = element_text(size = rel(1.25))
-           , axis.title.y = element_text(size = rel(1.5))
-           , axis.text.y = element_text(size = rel(1.25)))
+        plot.background = element_rect(fill = "white", color = "white"))
 ```
 
 ```{r}
 #| label: fig-Dance1
+#| fig-cap: Word cloud for word frequencies in Dance genre in the 1960s
 Dance1
 ```
 
@@ -362,26 +283,12 @@ Dance2 <- ggplot(Dance_word_freqs |>
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() +  
   theme(legend.position = "none",  
-        plot.background = element_rect(fill = "white", color = "white")) +
-     labs(
-      caption = "Figure 6: Word cloud for word frequencies in Dance genre in the 1970s") +
-     theme_linedraw() +
-     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
-           , axis.text.x = element_text(size = rel(1.25))
-           , axis.title.y = element_text(size = rel(1.5))
-           , axis.text.y = element_text(size = rel(1.25)))
+        plot.background = element_rect(fill = "white", color = "white"))
 ```
 
 ```{r}
 #| label: fig-Dance2
+#| fig-cap: Word cloud for word frequencies in Dance genre in the 1970s
 Dance2
 ```
 
@@ -416,29 +323,12 @@ Dance3 <- ggplot(Dance_word_freqs |>
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() + 
   theme(legend.position = "none", 
-        plot.background = element_rect(fill = "white", color = "white")) +
-     labs(
-      caption = "Figure 7: Word cloud for word frequencies in Dance genre in the 1980s") +
-     theme_linedraw() +
-     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
-           , axis.text.x = element_text(size = rel(1.25))
-           , axis.title.y = element_text(size = rel(1.5))
-           , axis.text.y = element_text(size = rel(1.25)))
-
-#arrange three clouds for one tab
-#ggarrange(Dance1, Dance2, Dance3, ncol = 2, nrow = 2)
+        plot.background = element_rect(fill = "white", color = "white"))
 ```
 
 ```{r}
 #| label: fig-Dance3
+#| fig-cap: Word cloud for word frequencies in Dance genre in the 1980s
 Dance3
 ```
 
@@ -479,27 +369,12 @@ Slow <- ggplot(Slow_word_freqs |>
   scale_color_gradientn(colors = new_jpalette) +
   theme_minimal() + 
   theme(legend.position = "none", 
-        plot.background = element_rect(fill = "white", color = "white")) +
-     labs(
-      caption =
-        "Figure 8: Word cloud for cumulative Slow genre, decades inclusive") +
-     theme_linedraw() +
-     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
-           , axis.text.x = element_text(size = rel(1.25))
-           , axis.title.y = element_text(size = rel(1.5))
-           , axis.text.y = element_text(size = rel(1.25)))
+        plot.background = element_rect(fill = "white", color = "white"))
 ```
 
 ```{r}
 #| label: fig-Slow
+#| fig-cap: Word cloud for cumulative Slow genre, decades inclusive
 Slow
 ```
 
