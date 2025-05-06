@@ -78,9 +78,6 @@ decadent <- songs_chart |>
       #title = "Decades Represented: By Rank"
        x = "Decade of Release"
       , y = "Number of Songs"
-      , caption = "Figure 2: The above segmented bar chart shows the distribution across decades
-      <br> of Rolling Stone Magazine's Top 500 Songs of All Time from 2013. The colors 
-      <br> of the segments show where on the list to find songs from a particular decade."
       ) +
      theme_linedraw() +
      theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
@@ -101,6 +98,8 @@ decadent <- songs_chart |>
 
 ```{r}
 #| label: fig-decade
+#| fig-cap: The above segmented bar chart shows the distribution across decades of Rolling Stone Magazine's Top 500 Songs of All Time from 2013. The colors of the segments show where on the list to find songs from a particular decade.
+
 decadent
 ```
  
@@ -140,9 +139,6 @@ While all the artists on this list are well-deserving of their flowers, there ar
       x = "Artist"
       , y = "Number of Songs"
       , tag = " "
-      , caption = "Figure 3: The segmented bar chart above shows the number of songs each of the <br> 
-      top three most represented artists has on the list. The segments show the decade of <br>
-      release of these artists' songs."
       ) +
      theme_linedraw() +
      theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
@@ -162,7 +158,7 @@ While all the artists on this list are well-deserving of their flowers, there ar
 
 ```{r}
 #| label: fig-tops
-#| fig-cap: Number of Songs
+#| fig-cap: The segmented bar chart above shows the number of songs each of the top three most represented artists has on the list. The segments show the decade of release of these artists' songs.
 tops
 ```
 
