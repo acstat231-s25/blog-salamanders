@@ -24,7 +24,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -200,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-collection" class="level1">
 <h1>Data Collection</h1>
-<p>In April, we collected data from an <a href="https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html">online music database</a> created by Dave Tompkins, a professor at the University of Waterloo in Canada. The initial dataset we scraped contains 7 variables:</p>
+<p>On April 14, we collected data from an <a href="https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html">online music database</a> created by Dave Tompkins, a professor at the University of Waterloo in Canada. The initial dataset we scraped contains 7 variables:</p>
 <p><code>number</code>: the number of the track <br><code>artist</code>: the artist who created the song <br><code>title</code>: the name of the song <br><code>time</code>: the length of the song <br><code>bpm</code>: the beats per minute of the song <br><code>year</code>: the year the song was released <br><code>genre</code>: the genre the song belongs to</p>
 <p>The lyrics for each song were contained in another webpage linked to the original, so we iterated through and scraped the song lyrics for 485 songs (15 of the songs did not have lyrics available). It is also worth noting that a good portion (144) of the songs we are analyzing do not have a specific genre because they were labeled as “TBD” (to be determined) in the database.</p>
 </section>
@@ -213,6 +233,8 @@ ul.task-list li input[type="checkbox"] {
 <p>To investigate how sentiments for song lyrics changed across different time periods and genres, we created two datasets, one that included the average sentiment of lyrics of all songs released in each year and another that included the average sentiment for each genre. Additionally, we included in these datasets statistics for numerous other variables, such as each song’s average time (sec), average bpm, as well as the number of songs categorized in each year/genre. Next, to investigate whether sentiment scores were related to song length and bpm, we created a dataset that included the average sentiment by song of all 485 songs. Like the previous two datasets, this one included variables like the title, artist, year, genre, time, and bpm of each song.</p>
 <p>In order to create word clouds to express word frequencies in lyrics, we combined each of the Rock decades to be one “Rock” category, rather than each individual decade. The same process was conducted for each of the Dance decades. Additional datasets were then created for each of the three genres to store word frequencies and their corresponding decades.</p>
 <p>For further analysis, we created a new dataset with additional variables for the <code>decade</code> a song was released in and identifiers for the <code>rank</code>of a song—more specifically, the Top 100, 200s, and so on. We then created a subset of this dataset which contains only data for the top 3 most represented artists on the list.</p>
+<p>We used the following new (aside from those used during class) RStudio packages that we used during the creative process for our visualizations:</p>
+<p><span class="citation" data-cites="ggwordcloud">(<a href="#ref-ggwordcloud" role="doc-biblioref"><strong>ggwordcloud?</strong></a>)</span>: allows us to create word frequency word clouds, incorporating <code>ggplot</code> and <code>geom_text_wordcloud</code> functions <br> <span class="citation" data-cites="xfun">Xie et al. (<a href="#ref-xfun" role="doc-biblioref">n.d.</a>)</span>: provides helper functions to support other packages such as <code>knitr,</code> which is another common package used in our project</p>
 </section>
 <section id="limitations" class="level1">
 <h1>Limitations</h1>
@@ -229,9 +251,14 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-xfun" class="csl-entry" role="listitem">
+Xie, Y., Wu, W., Li, D., Tan, X., Brüggemann, S., and Dervieux, C. (n.d.). <span>“Xfun: Supporting functions for packages maintained by <span>‘yihui xie’</span>,”</span> Available at <a href="https://cran.r-project.org/web/packages/xfun/index.html">https://cran.r-project.org/web/packages/xfun/index.html</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

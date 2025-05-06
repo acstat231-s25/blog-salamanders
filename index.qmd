@@ -91,8 +91,8 @@ For further analysis, we created a new dataset with additional variables for the
 
 We used the following new (aside from those used during class) RStudio packages that we used during the creative process for our visualizations: 
 
-`ggwordcloud`: allows us to create word frequency word clouds, incorporating "ggplot" and "geom_text_wordcloud" functions 
-<br> `xfun`: provides helper functions to support other packages such as "knitr," which is another common package used in our project
+@ggwordcloud: allows us to create word frequency word clouds, incorporating `ggplot` and `geom_text_wordcloud` functions 
+<br> @xfun: provides helper functions to support other packages such as `knitr,` which is another common package used in our project
 
 # Limitations
 
