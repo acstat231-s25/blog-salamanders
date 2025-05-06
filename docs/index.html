@@ -151,6 +151,7 @@ div.csl-indent {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
   <li><a href="#data-wrangling-methods" id="toc-data-wrangling-methods" class="nav-link" data-scroll-target="#data-wrangling-methods">Data Wrangling &amp; Methods</a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
   </ul>
 </nav>
@@ -232,8 +233,11 @@ div.csl-indent {
 <p>To investigate how sentiments for song lyrics changed across different time periods and genres, we created two datasets, one that included the average sentiment of lyrics of all songs released in each year and another that included the average sentiment for each genre. Additionally, we included in these datasets statistics for numerous other variables, such as each song’s average time (sec), average bpm, as well as the number of songs categorized in each year/genre. Next, to investigate whether sentiment scores were related to song length and bpm, we created a dataset that included the average sentiment by song of all 485 songs. Like the previous two datasets, this one included variables like the title, artist, year, genre, time, and bpm of each song.</p>
 <p>In order to create word clouds to express word frequencies in lyrics, we combined each of the Rock decades to be one “Rock” category, rather than each individual decade. The same process was conducted for each of the Dance decades. Additional datasets were then created for each of the three genres to store word frequencies and their corresponding decades.</p>
 <p>For further analysis, we created a new dataset with additional variables for the <code>decade</code> a song was released in and identifiers for the <code>rank</code>of a song—more specifically, the Top 100, 200s, and so on. We then created a subset of this dataset which contains only data for the top 3 most represented artists on the list.</p>
-<p>We used the following new (aside from those used during class) RStudio packages that we used during the creative process for our visualizations:</p>
-<p><span class="citation" data-cites="ggwordcloud">Le Pennec (<a href="#ref-ggwordcloud" role="doc-biblioref">2024-05-30</a>)</span>: allows us to create word frequency word clouds, incorporating <code>ggplot</code> and <code>geom_text_wordcloud</code> functions <br> <span class="citation" data-cites="xfun">Xie et al. (<a href="#ref-xfun" role="doc-biblioref">2025-04-02</a>)</span>: provides helper functions to support other packages such as <code>knitr,</code> which is another common package used in our project</p>
+</section>
+<section id="tools" class="level1">
+<h1>Tools</h1>
+<p>We used a variety of RStudio packages throughout the completion of our project. Those that were unique to the creation of a certain subpage are referenced on said page, and the commonly used packages are the following:</p>
+<p><b>tidyverse</b>: includes numerous core packages used in R, including <code>ggplot2</code> and <code>readr</code> (<span class="citation" data-cites="tidyverse">Hadley (<a href="#ref-tidyverse" role="doc-biblioref">2023-02-22</a>)</span>) <br> <b>knitr</b>: allows us to execute code and output results (<span class="citation" data-cites="knitr">Yihui (<a href="#ref-knitr" role="doc-biblioref">2025-03-16</a>)</span>)</p>
 </section>
 <section id="limitations" class="level1">
 <h1>Limitations</h1>
@@ -246,11 +250,11 @@ div.csl-indent {
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-ggwordcloud" class="csl-entry" role="listitem">
-Le Pennec, E. (2024-05-30), <span>“Ggwordcloud: A word cloud geom for ggplot2,”</span> Available at <a href="https://cran.r-project.org/web/packages/ggwordcloud/vignettes/ggwordcloud.html">https://cran.r-project.org/web/packages/ggwordcloud/vignettes/ggwordcloud.html</a>.
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Hadley, W. (2023-02-22), <span>“Tidyverse: Easily install and load the ’tidyverse’,”</span> Available at <a href="https://cran.r-project.org/web/packages/tidyverse/index.html">https://cran.r-project.org/web/packages/tidyverse/index.html</a>.
 </div>
-<div id="ref-xfun" class="csl-entry" role="listitem">
-Xie, Y., Wu, W., Li, D., Tan, X., Brüggemann, S., and Dervieux, C. (2025-04-02), <span>“Xfun: Supporting functions for packages maintained by <span>‘yihui xie’</span>,”</span> Available at <a href="https://cran.r-project.org/web/packages/xfun/index.html">https://cran.r-project.org/web/packages/xfun/index.html</a>.
+<div id="ref-knitr" class="csl-entry" role="listitem">
+Yihui, et al., Xie (2025-03-16), <span>“Knitr: A general-purpose package for dynamic report generation in r,”</span> Available at <a href="https://cran.r-project.org/web/packages/knitr/index.html">https://cran.r-project.org/web/packages/knitr/index.html</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
