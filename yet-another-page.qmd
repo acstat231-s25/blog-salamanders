@@ -108,7 +108,7 @@ Taking a closer look at where the songs fall in the ranking categories, i.e., To
  
 ### Rolling Stone's Top Three Artists
 
-While all the artists on this list are well-deserving of their flowers, there are three artists who stand out among the rest. Combined, these three artists make up nearly 10% of the songs on the list. These artists are, of course, <b>The Beatles</b>, <b>The Rolling Stones</b>, and <b>Bob Dylan</b>
+While all the artists on this list are well-deserving of their flowers, there are three artists who stand out among the rest. Combined, these three artists make up nearly 10% (@tbl-artists) of the songs on the list. These artists are, of course, <b>The Beatles</b>, <b>The Rolling Stones</b>, and <b>Bob Dylan</b>.
 
 ::: {.panel-tabset}
  
@@ -206,7 +206,7 @@ sentiment_by_artist |>
 
 For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone's Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. The Top Artists chart above demonstrates the margin by which The Beatles' songs outnumber the other two. The Beatles have a stunning 23 songs on the list---24 if you include John Lennon's <i>Imagine</i>. The top ranking song from the supergroup is <i>Hey Jude</i> which ranks at 8 on the list. The Rolling Stones follow The Beatles with 14 songs, their first on the list, <i>Satisfaction</i>, at slot 2. Finally, Bob Dylan's first feature of his 12 total on the list takes the number 1 slot, and that song is <i>Like a Rolling Stone</i>. 
 
-With the magazine, top artists and, songs in mind, you may have noticed a theme among their names. The number one song on the chart, one of the top three artists, and the magazine itself all contain some form of the words "Rollin' Stone." The is no coincidence, the band The Rolling Stones, who debuted in 1962, and Bob Dylan's song <i>Like a Rolling Stone</i> (1965) are both named for the Muddy Waters song <i>Rollin' Stone</i> (1950) which is actually among the top 500, ranking in at a surprising 459. The magazine is, in turn, speculatively named for all three of these astounding feats in music history. 
+With the magazine, top artists and, songs in mind, you may have noticed a theme among their names. The number one song on the chart, one of the top three artists, and the magazine itself all contain some form of the words "Rollin' Stone." The is no coincidence, the band The Rolling Stones, who debuted in 1962, and Bob Dylan's song <i>Like a Rolling Stone</i> (1965) are both named for the Muddy Waters song <i>Rollin' Stone</i> (1950) which is actually among the top 500, ranking in at a surprising 459. The magazine is, with the additional influence of the proverb "a rolling stone gathers no moss," named for all three of these astounding feats in music history. 
 
 
 

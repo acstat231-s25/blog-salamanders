@@ -196,34 +196,6 @@ top_artists$decade =
    factor(top_artists$decade
           , levels = c('The 2000s', 'The 1990s', 'The 1980s', 'The 1970s', 'The 1960s', 'The 1950s')) 
 
-# 
-top_bigrams <- merged_songs_bigrams |>
-  filter(artist == "The Beatles" ) |>
-  group_by(artist)
-
-merged_top <- merged_songs_combined |>
-    unnest_tokens(output = bigram, input = lyrics, token = "ngrams", n = 1) |>
-   select(number, artist, title, bigram) |> 
-  filter(artist == "The Beatles"
-    )
-# Rock cumulative word cloud
-library(tm)
-merged_top |>
-    with(wordcloud(words = bigram,
-                   min.freq = 20,
-                  # min.freq = 20,
-                  max.words = 25,
-# Plot the words in a random order
-random.order = TRUE,
-# Specify the range of the size of the words
-scale = c(3, 0.5),
-# Specify proportion of words with 90 degree rotation
-rot.per = 0.15,
-# Color words from least to most frequent
-colors = rev(new_palette),
-# Change font family
-family = "sans")) 
-
 ```
 
 
