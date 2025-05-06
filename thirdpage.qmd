@@ -1,5 +1,5 @@
 ---
-title: "Word Frequencies"
+title: "Mic Check: Most Common Words Across Genres"
 author: Jenna Holmes
 ---
 
@@ -40,13 +40,13 @@ library(gt)
                                             , "midnightblue" ))(6)
 ```
 
-The following word clouds portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970's through the 2000's. Likewise, the Dance genre is divided into three decades, specifically the 1960's through the 1980's. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner.
+The following word clouds portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970s through the 2000s. Likewise, the Dance genre is divided into three decades, specifically the 1960s through the 1980s. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner.
 
 ### Rock Genre by Decade
 
 ::: {.panel-tabset}
 
-### 1970's
+### 1970s
 
 ```{r}
 #| label: Rock 1970s tab
@@ -81,7 +81,7 @@ Rock1 <- ggplot(Rock_word_freqs |>
   theme(legend.position = "none",  
         plot.background = element_rect(fill = "white", color = "white")) +
      labs(
-      caption = "Figure 1: Word cloud for Rock genre in the 1970's") +
+      caption = "Figure 1: Word cloud for Rock genre in the 1970s") +
      theme_linedraw() +
      theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
                                                    , size = rel(0.92)
@@ -102,7 +102,7 @@ Rock1 <- ggplot(Rock_word_freqs |>
 Rock1
 ```
 
-### 1980's
+### 1980s
 
 ```{r}
 #| label: Rock 1980s tab
@@ -135,7 +135,7 @@ Rock2 <- ggplot(Rock_word_freqs |>
   theme(legend.position = "none",  
         plot.background = element_rect(fill = "white", color = "white")) +
      labs(
-      caption = "Figure 2: Word cloud for word frequencies in Rock genre in the 1980's") +
+      caption = "Figure 2: Word cloud for word frequencies in Rock genre in the 1980s") +
      theme_linedraw() +
      theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
                                                    , size = rel(0.92)
@@ -156,7 +156,7 @@ Rock2 <- ggplot(Rock_word_freqs |>
 Rock2
 ```
 
-### 1990's
+### 1990s
 
 ```{r}
 #| label: Rock 1990s tab
@@ -189,7 +189,7 @@ Rock3 <- ggplot(Rock_word_freqs |>
   theme(legend.position = "none", 
         plot.background = element_rect(fill = "white", color = "white")) +
      labs(
-      caption = "Figure 3: Word cloud for word frequencies in Rock genre in the 1990's") +
+      caption = "Figure 3: Word cloud for word frequencies in Rock genre in the 1990s") +
      theme_linedraw() +
      theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
                                                    , size = rel(0.92)
@@ -210,7 +210,7 @@ Rock3 <- ggplot(Rock_word_freqs |>
 Rock3
 ```
 
-### 2000's
+### 2000s
 
 ```{r}
 #| label: Rock 2000s tab
@@ -243,7 +243,7 @@ Rock4 <- ggplot(Rock_word_freqs |>
   theme(legend.position = "none", 
         plot.background = element_rect(fill = "white", color = "white")) +
      labs(
-      caption = "Figure 4: Word cloud for word frequencies in Rock genre in the 2000's") +
+      caption = "Figure 4: Word cloud for word frequencies in Rock genre in the 2000s") +
      theme_linedraw() +
      theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
                                                    , size = rel(0.92)
@@ -269,13 +269,13 @@ Rock4
 
 :::
 
-According to @fig-Rock1, <b>"time"</b> and <b>"lord"</b> are two of the most common words in the 70's for the Rock genre, representing people's faith and desires for future change. Numerous anti-war protests, women's liberation acts, civil rights movements, etc. occurred during this decade, alluding to the aforementioned terms having higher frequencies in song lyrics. The terms <b>"love"</b> and <b>"baby"</b> are emphasized in @fig-Rock2, supporting the fact that this decade produced countless unforgettable love songs, including "Should I Stay or Should I Go" by The Clash, "With or Without You" by U2, "Love Shack" by The B-52's. @fig-Rock3 highlights the term <b>"running,"</b> symbolizing escape, freedom, and restlessness. The 90's encountered rebellion and unease, thus themes of escaping were common. @fig-Rock4 displays <b>"life"</b> and <b>"lust"</b> as having the highest word frequencies in Rock songs from this decade, which is sensible given that Indie rock was born in the early 2000's, bringing with it themes of independence and authenticity. The Rock genre overall conveys strong ideas of love as well as a representation of the societal/musical changes and movements that occurred during each decade.
+According to @fig-Rock1, <b>time</b> and <b>lord</b> are two of the most common words in the 70's for the Rock genre, representing people's faith and desires for future change. Numerous anti-war protests, women's liberation acts, civil rights movements, etc. occurred during this decade, alluding to the aforementioned terms having higher frequencies in song lyrics. The terms <b>love</b> and <b>baby</b> are emphasized in @fig-Rock2, supporting the fact that this decade produced countless unforgettable love songs, including <i>Should I Stay or Should I Go</i> by The Clash, <i>With or Without You</i> by U2, <i>Love Shack</i> by The B-52's. @fig-Rock3 highlights the term <b>running,</b> symbolizing escape, freedom, and restlessness. The 90's encountered rebellion and unease, thus themes of escaping were common. @fig-Rock4 displays <b>life</b> and <b>lust</b> as having the highest word frequencies in Rock songs from this decade, which is sensible given that Indie rock was born in the early 2000s, bringing with it themes of independence and authenticity. The Rock genre overall conveys strong ideas of love as well as a representation of the societal/musical changes and movements that occurred during each decade.
 
 ### Dance Genre by Decade
 
 ::: {.panel-tabset}
 
-### 1960's
+### 1960s
 
 ```{r}
 #| label: Dance 1960s tab
@@ -310,7 +310,7 @@ Dance1 <- ggplot(Dance_word_freqs |>
   theme(legend.position = "none",  
         plot.background = element_rect(fill = "white", color = "white")) +
      labs(
-      caption = "Figure 5: Word cloud for word frequencies in Dance genre in the 1960's") +
+      caption = "Figure 5: Word cloud for word frequencies in Dance genre in the 1960s") +
      theme_linedraw() +
      theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
                                                    , size = rel(0.92)
@@ -331,7 +331,7 @@ Dance1 <- ggplot(Dance_word_freqs |>
 Dance1
 ```
 
-### 1970's
+### 1970s
 
 ```{r}
 #| label: Dance 1970s tab
@@ -364,7 +364,7 @@ Dance2 <- ggplot(Dance_word_freqs |>
   theme(legend.position = "none",  
         plot.background = element_rect(fill = "white", color = "white")) +
      labs(
-      caption = "Figure 6: Word cloud for word frequencies in Dance genre in the 1970's") +
+      caption = "Figure 6: Word cloud for word frequencies in Dance genre in the 1970s") +
      theme_linedraw() +
      theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
                                                    , size = rel(0.92)
@@ -385,7 +385,7 @@ Dance2 <- ggplot(Dance_word_freqs |>
 Dance2
 ```
 
-### 1980's
+### 1980s
 
 ```{r}
 #| label: Dance 1980s tab
@@ -418,7 +418,7 @@ Dance3 <- ggplot(Dance_word_freqs |>
   theme(legend.position = "none", 
         plot.background = element_rect(fill = "white", color = "white")) +
      labs(
-      caption = "Figure 7: Word cloud for word frequencies in Dance genre in the 1980's") +
+      caption = "Figure 7: Word cloud for word frequencies in Dance genre in the 1980s") +
      theme_linedraw() +
      theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
                                                    , size = rel(0.92)
@@ -444,7 +444,7 @@ Dance3
 
 :::
 
-Similarly, the Dance word clouds portrays word frequencies within the genre across each of the following decades: 1960's, 1970's, and 1980's. @fig-Dance1 shows <b>"baby," "love,"</b> and <b>"chain"</b> as the words with higher frequencies in the Dance genre during the 60's, which is supported by the fact that love was one of the more popular themes in 1960's music. According to @fig-Dance2, <b>"funk"</b> and <b>"light"</b> had high word frequencies is the Dance music genre, given that funk and rhythm were popular in the 1970's. @fig-Dance3 demonstrates <b>"beat"</b> and <b>"call"</b> as words of higher frequencies in the 80's decade of Dance music, which aligns with the fact that telephones popularity skyrocketed during these years, including landlines, answering machines, and payphones. The term "call" became a term of love with these newfound methods of communication. <b>Love, attachment,</b> and <b>funk</b> are words of high frequency in the cumulative Dance genre (all three decades combined), and each decade had words of higher frequencies that were associated with popular themes during each of those years, such as the boogie and funk.
+Similarly, the Dance word clouds portrays word frequencies within the genre across each of the following decades: 1960s, 1970s, and 1980s. @fig-Dance1 shows <b>baby, love,</b> and <b>chain</b> as the words with higher frequencies in the Dance genre during the 60's, which is supported by the fact that love was one of the more popular themes in 1960s music. According to @fig-Dance2, <b>funk</b> and <b>light</b> had high word frequencies is the Dance music genre, given that funk and rhythm were popular in the 1970s. @fig-Dance3 demonstrates <b>beat</b> and <b>call</b> as words of higher frequencies in the 80's decade of Dance music, which aligns with the fact that telephones popularity skyrocketed during these years, including landlines, answering machines, and payphones. The term "call" became a term of love with these newfound methods of communication. <b>Love, attachment,</b> and <b>funk</b> are words of high frequency in the cumulative Dance genre (all three decades combined), and each decade had words of higher frequencies that were associated with popular themes during each of those years, such as the boogie and funk.
 
 
 ### Slow Genre
@@ -503,6 +503,6 @@ Slow <- ggplot(Slow_word_freqs |>
 Slow
 ```
 
-Lastly, according to @fig-Slow, the Slow genre displays <b>"love"</b> and <b>"baby"</b> as the terms with higher frequencies, supported by the alignment of these terms with the emotional themes of Slow music. Love is an incredibly popular theme of slower songs, especially due to the intimacy and deep expression for which slow tempos allow. "Baby" is often used in these songs to refer to loved ones.
+Lastly, according to @fig-Slow, the Slow genre displays <b>love</b> and <b>baby</b> as the terms with higher frequencies, supported by the alignment of these terms with the emotional themes of Slow music. Love is an incredibly popular theme of slower songs, especially due to the intimacy and deep expression for which slow tempos allow. "Baby" is often used in these songs to refer to loved ones.
 
 Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion. Furthermore, the isolation of various decades within the Rock and Dance genres highlights the relationship between the societal and musical movements that occurred and the words of highest frequency in song lyrics written during those years. Despite any commonly embodied themes across the three genres, each genre still exhibited unique concepts. The Rock genre as a whole conveys key concepts of <b>love and expression</b>. The Dance genre cumulatively represents <b>energy</b> and <b>rhythm</b>, and lastly the Slow genre conveys <b>emotion</b> and <b>steady paces</b>.
