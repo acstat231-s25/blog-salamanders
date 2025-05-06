@@ -25,7 +25,12 @@ library(scales)
 
 ```
 
-Sentiment is the emotional feeling evoked by certain words and phrases. In order to analyze sentiment in song lyrics, we used the AFINN lexicon, which is a dataset that contains 2477 words with their corresponding sentiment scores. These scores are on a scale from -5 to 5, with -5 representing an extremely negative sentiment and 5 representing an extremely positive sentiment. For example, words like accomplished have an AFINN value of 2, while words like abandoned have an AFINN value of -2.
+Sentiment is the emotional feeling evoked by certain words and phrases. In order to analyze sentiment in song lyrics, we used the AFINN lexicon, which is a dataset that contains 2477 words with their corresponding sentiment scores. These scores are measured on a scale from -5 to 5, with -5 representing a word with an extremely negative sentiment and 5 representing one with an extremely positive sentiment. For example, words like "breathtaking" have an AFINN value of 5, while curse words might have AFINN values of -5.
+
+```{r}
+
+include_graphics("images/sentiment_image.webp")
+```
 
 ## Sentiment by Year and by Genre
 
@@ -39,6 +44,7 @@ sentiment_data_yearly = read_csv("data/sentiment_by_year.csv")
 
 sentiment_by_year = ggplot(sentiment_data_yearly, aes(x = year, y = average_sentiment)) +
   geom_point(color = "skyblue4", 
+             # Create custom text labels when hovering over points
              aes(text = paste0("Year: ", year, "<br>",
                                "Average Sentiment: ", average_sentiment, "<br>",
                                "Average Time (sec): ", average_time_seconds, "<br>",
@@ -46,11 +52,12 @@ sentiment_by_year = ggplot(sentiment_data_yearly, aes(x = year, y = average_sent
                                "Number of Songs: ", num_songs))) +
   geom_smooth() +
   geom_line(color = "skyblue4", linewidth = 0.75, alpha = 0.55) +
+  # Create custom x-axis scaling with ticks marking every other year
   scale_x_continuous(breaks = seq(min(sentiment_data_yearly$year), 
                                   max(sentiment_data_yearly$year), by = 2)) +
   labs(title = "Average Sentiment by Year of 483 Songs out of Top 500 Rolling Stone's Best Songs",
-       subtitle = "higher sentiment = more positive, lower sentiment = more negative",
        x = "Year (1953-2006)", y = "Average Sentiment of Lyrics") +
+  # Format axis labels 
   theme(axis.text.x = element_text(angle = 55, hjust = 1))
 ```
 
@@ -77,14 +84,15 @@ sentiment_data_genre = read_csv("data/sentiment_by_genre.csv")
 
 sentiment_by_genre = ggplot(sentiment_data_genre, aes(x = genre, y = average_sentiment)) +
   geom_col(fill = "skyblue4", color = "black",
+           # Create custom text labels when hovering over bars
            aes(text = paste0("Genre: ", genre, "<br>",
                              "Average Sentiment: ", average_sentiment, "<br>",
                              "Average Time (sec): ", average_time_seconds, "<br>",
                              "Average BPM (beats per minute): ", average_bpm, "<br>",
                              "Number of Songs: ", num_songs))) +
   labs(title = "Average Sentiment by Genre of 483 Songs out of Top 500 Rolling Stone's Best Songs",
-       subtitle = "higher sentiment = more positive, lower sentiment = more negative",
        x = "Genre", y = "Average Sentiment of Lyrics") +
+  # Format axis labels 
   theme(axis.text.x = element_text(angle = 55, hjust = 1))
 ```
 
@@ -125,6 +133,7 @@ sentiment_time_by_song = ggplot(sentiment_data_song,
                                 aes(x = time_seconds, y = average_sentiment)) +
   geom_point(size = 0.75,
              aes(color = genre_grouped,
+                 # Create custom text labels when hovering over points
                  text = paste0("Title: ", title, "<br>",
                                "Artist: ", artist, "<br>",
                                "Average Sentiment: ", average_sentiment, "<br>",
@@ -162,6 +171,7 @@ sentiment_bpm_by_song = ggplot(sentiment_data_song,
                                aes(x = bpm, y = average_sentiment)) +
   geom_point(size = 0.75,
              aes(color = genre_grouped,
+                  # Create custom text labels when hovering over points
                  text = paste0("Title: ", title, "<br>",
                                "Artist: ", artist, "<br>",
                                "Average Sentiment: ", average_sentiment, "<br>",
