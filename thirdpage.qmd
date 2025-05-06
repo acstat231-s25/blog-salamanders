@@ -1,7 +1,6 @@
 ---
 title: "Word Frequencies"
-author:
-- Jenna Holmes
+author: Jenna Holmes
 ---
 
 
