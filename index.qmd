@@ -60,7 +60,7 @@ The following subpages display our findings:
 
 # Data Collection
 
-On April 14th, 2025, we scraped our data from an [online music database](https://cs.uwaterloo.ca/~dtompkin/music/list/Best9.html) created by Dave Tompkins, a professor at the University of Waterloo in Canada. The initial dataset we scraped contains 7 variables:
+On April 14th, 2025, we scraped our data from an online music database created by Dave Tompkins (@tompkins), a professor at the University of Waterloo in Canada. The initial dataset we scraped contains 7 variables:
 
 `number`: the number of the track
 <br>`artist`: the artist who created the song 
