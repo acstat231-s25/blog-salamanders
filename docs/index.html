@@ -152,7 +152,6 @@ div.csl-indent {
   <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
   <li><a href="#data-wrangling-methods" id="toc-data-wrangling-methods" class="nav-link" data-scroll-target="#data-wrangling-methods">Data Wrangling &amp; Methods</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -234,29 +233,24 @@ div.csl-indent {
 <p>In order to create word clouds to express word frequencies in lyrics, we combined each of the Rock decades to be one “Rock” category, rather than each individual decade. The same process was conducted for each of the Dance decades. Additional datasets were then created for each of the three genres to store word frequencies and their corresponding decades.</p>
 <p>For further analysis, we created a new dataset with additional variables for the <code>decade</code> a song was released in and identifiers for the <code>rank</code>of a song—more specifically, the Top 100, 200s, and so on. We then created a subset of this dataset which contains only data for the top 3 most represented artists on the list.</p>
 <p>We used the following new (aside from those used during class) RStudio packages that we used during the creative process for our visualizations:</p>
-<p><span class="citation" data-cites="ggwordcloud">(<a href="#ref-ggwordcloud" role="doc-biblioref"><strong>ggwordcloud?</strong></a>)</span>: allows us to create word frequency word clouds, incorporating <code>ggplot</code> and <code>geom_text_wordcloud</code> functions <br> <span class="citation" data-cites="xfun">Xie et al. (<a href="#ref-xfun" role="doc-biblioref">n.d.</a>)</span>: provides helper functions to support other packages such as <code>knitr,</code> which is another common package used in our project</p>
+<p><span class="citation" data-cites="ggwordcloud">Le Pennec (<a href="#ref-ggwordcloud" role="doc-biblioref">2024-05-30</a>)</span>: allows us to create word frequency word clouds, incorporating <code>ggplot</code> and <code>geom_text_wordcloud</code> functions <br> <span class="citation" data-cites="xfun">Xie et al. (<a href="#ref-xfun" role="doc-biblioref">2025-04-02</a>)</span>: provides helper functions to support other packages such as <code>knitr,</code> which is another common package used in our project</p>
 </section>
 <section id="limitations" class="level1">
 <h1>Limitations</h1>
 <p>One important limitation of our research is that we only analyzed song lyrics and data from 483 songs out of the top 500 Rolling Stone Greatest Songs of All Time list. There have been millions of popular songs created in recent history, so in order to more thoroughly investigate deeper trends in music lyrics and other musical metrics, we would need to obtain data from a much larger array of songs (thousands perhaps).</p>
 <p>Additionally, the songs we obtained data for were released between 1953 and 2006, so our analysis does not reveal any significant changes in lyrical trends from before 1953 or after 2006. Even among the songs we analyzed, a substantial number of them were from the 1960s, while not too many were released in the 2000s. Thus, even within this time period (1953-2006), we cannot be confident that our findings reveal the true trends of music data during this era.</p>
 <p>Furthermore, our data does not represent the average song released throughout from the 1950s to 2000s. Our data was based on a subjective list of the best songs of all time, so it likely doesn’t represent overall trends in all music lyrics and other data. Additionally, the rock genre was overly represented in our data, consisting of more than 40% of the songs analyzed. Thus, our findings cannot be generalized to all songs as a whole, as our data was not representative of the population of songs in the first place.</p>
-</section>
-<section id="references" class="level1">
-<h1>References</h1>
-<ul>
-<li><p>Rolling Stone Magazine. “The 500 Greatest Songs of All Time.”</p></li>
-<li><p>Tompkins, Dave. Online Music Database. University of Waterloo.</p></li>
-<li><p>Pixabay License - Record Image</p></li>
-</ul>
 
 
 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ggwordcloud" class="csl-entry" role="listitem">
+Le Pennec, E. (2024-05-30), <span>“Ggwordcloud: A word cloud geom for ggplot2,”</span> Available at <a href="https://cran.r-project.org/web/packages/ggwordcloud/vignettes/ggwordcloud.html">https://cran.r-project.org/web/packages/ggwordcloud/vignettes/ggwordcloud.html</a>.
+</div>
 <div id="ref-xfun" class="csl-entry" role="listitem">
-Xie, Y., Wu, W., Li, D., Tan, X., Brüggemann, S., and Dervieux, C. (n.d.). <span>“Xfun: Supporting functions for packages maintained by <span>‘yihui xie’</span>,”</span> Available at <a href="https://cran.r-project.org/web/packages/xfun/index.html">https://cran.r-project.org/web/packages/xfun/index.html</a>.
+Xie, Y., Wu, W., Li, D., Tan, X., Brüggemann, S., and Dervieux, C. (2025-04-02), <span>“Xfun: Supporting functions for packages maintained by <span>‘yihui xie’</span>,”</span> Available at <a href="https://cran.r-project.org/web/packages/xfun/index.html">https://cran.r-project.org/web/packages/xfun/index.html</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

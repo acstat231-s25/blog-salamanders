@@ -34,7 +34,7 @@ library(scales)
                                             , "midnightblue" ))(6)
 ```
 
-The following word clouds portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970s through the 2000s. Likewise, the Dance genre is divided into three decades, specifically the 1960s through the 1980s. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner.
+The following word clouds portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970s through the 2000s. Likewise, the Dance genre is divided into three decades, specifically the 1960s through the 1980s. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner. The word clouds were created using <b>ggwordcloud</b> (@ggwordcloud), which incorporates `ggplot` and `geom_text_wordcloud` functions, as well as <b>xfun</b> (@xfun), which provides helper functions to support other packages such as `knitr,` which is another common package used in our project.
 
 ### Rock Genre by Decade
 
@@ -382,5 +382,5 @@ Lastly, according to @fig-Slow, the Slow genre displays <b>love</b> and <b>baby<
 
 Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion. Furthermore, the isolation of various decades within the Rock and Dance genres highlights the relationship between the societal and musical movements that occurred and the words of highest frequency in song lyrics written during those years. Despite any commonly embodied themes across the three genres, each genre still exhibited unique concepts. The Rock genre as a whole conveys key concepts of <b>love and expression</b>. The Dance genre cumulatively represents <b>energy</b> and <b>rhythm</b>, and lastly the Slow genre conveys <b>emotion</b> and <b>steady paces</b>.
 
-### References
+
 

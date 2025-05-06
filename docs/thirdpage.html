@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -166,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The following word clouds portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970s through the 2000s. Likewise, the Dance genre is divided into three decades, specifically the 1960s through the 1980s. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner.</p>
+<p>The following word clouds portray word frequencies for Rock, Dance, and Slow music genres. Our dataset had numerous genres, however Rock, Dance, and Slow were the three genres with most songs, thus they were chosen to be represented in the word clouds. The Rock genre is divided into four decades, namely the 1970s through the 2000s. Likewise, the Dance genre is divided into three decades, specifically the 1960s through the 1980s. One cumulative word cloud is displayed for the Slow genre, representing various decades in a cohesive manner. The word clouds were created using <i>ggwordcloud</i> (<span class="citation" data-cites="ggwordcloud">Le Pennec (<a href="#ref-ggwordcloud" role="doc-biblioref">2024-05-30</a>)</span>), which incorporates <code>ggplot</code> and <code>geom_text_wordcloud</code> functions, as well as <i>xfun</i> (<span class="citation" data-cites="xfun">Xie et al. (<a href="#ref-xfun" role="doc-biblioref">2025-04-02</a>)</span>), which provides helper functions to support other packages such as <code>knitr,</code> which is another common package used in our project.</p>
 <section id="rock-genre-by-decade" class="level3">
 <h3 class="anchored" data-anchor-id="rock-genre-by-decade">Rock Genre by Decade</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -317,9 +337,17 @@ Figure&nbsp;8: Word cloud for cumulative Slow genre, decades inclusive
 <p>Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion. Furthermore, the isolation of various decades within the Rock and Dance genres highlights the relationship between the societal and musical movements that occurred and the words of highest frequency in song lyrics written during those years. Despite any commonly embodied themes across the three genres, each genre still exhibited unique concepts. The Rock genre as a whole conveys key concepts of <b>love and expression</b>. The Dance genre cumulatively represents <b>energy</b> and <b>rhythm</b>, and lastly the Slow genre conveys <b>emotion</b> and <b>steady paces</b>.</p>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ggwordcloud" class="csl-entry" role="listitem">
+Le Pennec, E. (2024-05-30), <span>“Ggwordcloud: A word cloud geom for ggplot2,”</span> Available at <a href="https://cran.r-project.org/web/packages/ggwordcloud/vignettes/ggwordcloud.html">https://cran.r-project.org/web/packages/ggwordcloud/vignettes/ggwordcloud.html</a>.
+</div>
+<div id="ref-xfun" class="csl-entry" role="listitem">
+Xie, Y., Wu, W., Li, D., Tan, X., Brüggemann, S., and Dervieux, C. (2025-04-02), <span>“Xfun: Supporting functions for packages maintained by <span>‘yihui xie’</span>,”</span> Available at <a href="https://cran.r-project.org/web/packages/xfun/index.html">https://cran.r-project.org/web/packages/xfun/index.html</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
