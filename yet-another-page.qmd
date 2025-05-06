@@ -180,7 +180,6 @@ sent <- sentiment_by_artist |>
    labs(
        y = "Average Sentiment"
      , x = "Artist"
-     , caption = "Figure 4: The above graph displays the average sentiment of all songs each of the top three artists <br> has on the list."
    ) +
    geom_text(aes(label = mean), vjust = -0.125) +
    theme_linedraw() +
@@ -201,7 +200,7 @@ sent <- sentiment_by_artist |>
 ```
 ```{r}
 #| label: fig-sent
-#| fig-cap: Top Artist Sentiments
+#| fig-cap: The above graph displays the average sentiment of all songs each of the top three artists has on the list.
 sent
 ```
 
@@ -255,7 +254,7 @@ pro <- gt(props) |>
 ```
 As the Title implies, this supplemental @tbl-dec breaks down the number of songs the percentage of the total songs each decade holds. 
 
-~~~~
+~~*~~
 
 ```{r}
 #| label: tbl-artists
@@ -271,7 +270,7 @@ gt(to) |>
   )
 ```
 
-~~~
+~~*~~
 
 ```{r}
 #| label: tbl-ten
