@@ -25,9 +25,13 @@ library(scales)
 
 ```
 
+
+
 Sentiment is the emotional feeling evoked by certain words and phrases. In order to analyze sentiment in song lyrics, we used the AFINN lexicon, which is a dataset that contains 2477 words with their corresponding sentiment scores. These scores are on a scale from -5 to 5, with -5 representing an extremely negative sentiment and 5 representing an extremely positive sentiment. For example, words like accomplished have an AFINN value of 2, while words like abandoned have an AFINN value of -2.
 
 ## Sentiment by Year and by Genre
+
+
 
 ```{r}
 #| label: sentiment-by-year
@@ -66,7 +70,6 @@ sentiment_by_year = ggplot(sentiment_data_yearly, aes(x = year, y = average_sent
 ggplotly(sentiment_by_year, tooltip = "text")
 ```
 
-
 ```{r}
 #| label: sentiment-by-genre
 #| include: true
@@ -101,6 +104,8 @@ ggplotly(sentiment_by_genre, tooltip = "text")
 
 ```
 
+
+
 As shown above, we created two visualizations to explore the average sentiment of song lyrics by year and by genre. Hovering over a data point or bar reveals additional information about them, such as the average time, average bpm, and number of songs included in its year/genre.
 
 The line chart for the average sentiment of song lyrics (@fig-sentiment-by-year) by year demonstrates the overall trends in sentiment from the 1950s to 2000s. We can see that words in song lyrics generally expressed positive sentiment, as 49 out of the 53 years had average sentiment scores greater than zero. The plot does reveal some interesting patterns that might help contextualize the shifts in artistic expression over time and the emotional climate of different years. The trend line for average sentiment seems to be slightly downward sloping over time, which can be due to many factors. For example, music genres such as heavy metal, rock, and rap have been popularized in recent times, and these genres tend to include more words with negative sentiments than other genres. Additionally, the decrease in average sentiment could have been influenced by major events that occurred in specific years. For example, the average sentiment in 2005 was slightly negative (-0.04), which could be due to the fact that Hurricane Katrina hit the United States this year, causing significant damage to the U.S. economy and costing many lives. However, it should be noted that the trend line displayed on the line chart could be skewed and biased, as the many of the points for the later years do not have many songs to use as data. Thus, the decrease in average sentiment likely does not reflect the true nature of the change in sentiment of lyrics over time.
@@ -112,6 +117,8 @@ The bar chart for the average sentiment of song lyrics (@fig-sentiment-by-genre)
 ::: {.panel-tabset}
 
 ### Sentiment versus Song Time
+
+
 
 ```{r}
 #| label: average-sentiment-vs-time
@@ -150,7 +157,11 @@ sentiment_time_by_song = ggplot(sentiment_data_song,
 ggplotly(sentiment_time_by_song, tooltip = "text")
 ```
 
+
+
 ### Sentiment versus BPM
+
+
 
 ```{r}
 #| label: average-sentiment-vs-bpm
@@ -186,6 +197,8 @@ sentiment_bpm_by_song = ggplot(sentiment_data_song,
 ggplotly(sentiment_bpm_by_song, tooltip = "text")
 ```
 
+
+
 ::: 
 
 The two scatterplots above demonstrate the relationship between sentiment and two variables: song time and beats per minute (bpm). The points (songs) are also colored by their respective genres. Just like the previous plots, hovering over a data point or bar provides a dropdown with more information about the song, such as its title and artist.
@@ -193,3 +206,4 @@ The two scatterplots above demonstrate the relationship between sentiment and tw
 The plot for average sentiment versus song time (@fig-average-sentiment-vs-time) reveals that there is not a well-defined relationship between the two variables. The trend line is generally slightly negatively sloped, which could be an indicator that average sentiment decreases as song time increases. However, this is a very weak relationship that is likely skewed by the few very long songs (over 600 seconds) that have relatively low average sentiments. Thus, it doesn't seem like song time is a good predictor of average sentiment. By isolating genres using the legend, we can see time trends for certain genres. For example, country songs generally have times ranging from 140 to 200, and disco songs generally are around 250 seconds long. 
 
 The second scatterplot (@fig-average-sentiment-vs-bpm) also reveals that there is not a strong relationship between average sentiment and bpm. Although the trend line is generally slightly positively sloped, the points are scattered pretty randomly throughout the plot, indicating no clear linear relationship between the two variables. The positive slope shown in this plot is also likely due to the few high bpm songs that have relatively high average sentiments. We can conclude that bpm is not a very good predictor of average sentiment among the 483 songs out the top 500 Rolling Stones best songs list. By isolating genres using the legend, we can see bpm trends for each genre. For example, country and disco songs usually have bpms ranging from 100 to 125.  
+
