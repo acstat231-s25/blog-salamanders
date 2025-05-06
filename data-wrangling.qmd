@@ -191,7 +191,8 @@ songs_chart <- songs_clean |>
 # sort decades into logical order for legends
 songs_chart$decade = 
    factor(songs_chart$decade
-          , levels = c('The 1950s', 'The 1960s', 'The 1970s', "The 1980s", 'The 1990s', '2000s'))
+          , levels = c('The 1950s', 'The 1960s', 'The 1970s', "The 1980s"
+                       , 'The 1990s', '2000s'))
 # sort rank blocks into order that best demonstrates top 100 distribution
 songs_chart$block =
   factor(songs_chart$block
@@ -203,8 +204,9 @@ top_artists <- songs_chart |>
 # sort decades into logical order for legends
 top_artists$decade = 
    factor(top_artists$decade
-          , levels = c('The 2000s', 'The 1990s', 'The 1980s', 'The 1970s', 'The 1960s', 'The 1950s')) 
-d
+          , levels = c('The 2000s', 'The 1990s', 'The 1980s', 'The 1970s'
+                       , 'The 1960s', 'The 1950s')) 
+
 
 ```
 
@@ -256,8 +258,6 @@ sentiment_by_song <- words_with_sentiment |>
   arrange(title)
   
 # calculate average sentiment by artist
-
-
 sentiment_by_artist <- sentiment_by_song |> 
   filter(artist == "The Beatles" 
          | artist == "The Rolling Stones" 
