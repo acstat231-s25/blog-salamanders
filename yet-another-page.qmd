@@ -104,7 +104,7 @@ decadent
 
  
  
-@fig-decade above shows the distribution of the decades represented in <i>Rolling Stone</i> Magazine's Top 500 Songs of All Time. In this, we can see that the 1960s are the clear leader in terms of representation on the list. In fact, roughly 35% of the songs on the list are from the 60s. The 70s follow at around 25%, and the 50s, 80s, and 90s each represent around 10-13% of the list. There is a clear trend downward from the 60s to the 2000s, with the 2000s being the least represented decade. 
+@fig-decade above shows the distribution of the decades represented in <i>Rolling Stone</i> Magazine's Top 500 Songs of All Time. In this, we can see that the 1960s are the clear leader in terms of representation on the list. In fact, roughly 35% of the songs on the list are from the 60s. The 70s follow at around 25%, and the 50s, 80s, and 90s each represent around 10-13% of the list. For more information on this breakdown, see @tbl-dec. There is a clear trend downward from the 60s to the 2000s, with the 2000s being the least represented decade. 
  
  Taking a closer look at where the songs fall in the ranking categories, i.e., Top 100, 200s, and so on, we can see that the 1960s have the most songs in the top 100 among all decades, but this follows from 60s songs' representation in the list. Interestingly, even though the 70s have many more songs on the list than the 50s, the 50s have slightly more songs in the Top 100.
  
@@ -209,12 +209,60 @@ For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will
 ### Supplemental Tables
 
 ```{r}
+#| label: create tables 
 props <- songs_chart |>
   count(decade) |>
   mutate(Percent = (n/500) * 100) |>
-  rename(Count = n, Decade = decade)
+  rename(Count = n, Decade = decade) 
 
-gt(props) |>
-  tab_options(quarto.disable_processing = TRUE)
+to <- top_artists |>
+  count(artist) |>
+  add_row(artist = "Total", n = 49) |>
+  mutate(Percent = (n/500) * 100) |>
+  rename(Artist = artist, Count = n) 
+
+son <- songs_chart |>
+  select(Number = number, Artist = artist, Title = title, Year = year
+         , Decade = decade) |>
+  slice(1:10) 
+
+```
+
+
+```{r}
+#| label: tbl-dec
+#| tbl-cap: Decades
+
+pro <- gt(props) |>
+  tab_header(
+    title = "Songs on List by Decade"
+  ) |>
+  tab_spanner(
+    label = "Metrics"
+    , columns = c(Count, Percent)
+  )
+  pro
+  
+```
+```{r}
+#| label: tbl-artists
+#| tbl-cap: Artists
+
+gt(to) |>
+  tab_header(
+    title = "Songs on List by Artist"
+  ) |>
+  tab_spanner(
+    label = "Metrics"
+    , columns = c(Count, Percent)
+  )
+```
+
+```{r}
+#| label: tbl-ten
+#| tbl-cap: Top Ten
+
+gt(son)
+
 ```
 
