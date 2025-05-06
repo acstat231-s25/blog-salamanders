@@ -15,7 +15,7 @@ website:
       - href: another-page.qmd
         text: "Sentiment Analysis"
       - href: thirdpage.qmd
-       text: "Word Frequencies"
+        text: "Word Frequencies"
       - href: yet-another-page.qmd
         text: "Top Artists"
         
