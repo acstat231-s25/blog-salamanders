@@ -89,6 +89,11 @@ In order to create word clouds to express word frequencies in lyrics, we combine
 
 For further analysis, we created a new dataset with additional variables for the `decade` a song was released in and identifiers for the `rank`of a song---more specifically, the Top 100, 200s, and so on. We then created a subset of this dataset which contains only data for the top 3 most represented artists on the list. 
 
+We used the following new (aside from those used during class) RStudio packages that we used during the creative process for our visualizations: 
+
+`ggwordcloud`: allows us to create word frequency word clouds, incorporating "ggplot" and "geom_text_wordcloud" functions 
+<br> `xfun`: provides helper functions to support other packages such as "knitr," which is another common package used in our project
+
 # Limitations
 
 One important limitation of our research is that we only analyzed song lyrics and data from 483 songs out of the top 500 Rolling Stone Greatest Songs of All Time list. There have been millions of popular songs created in recent history, so in order to more thoroughly investigate deeper trends in music lyrics and other musical metrics, we would need to obtain data from a much larger array of songs (thousands perhaps). 

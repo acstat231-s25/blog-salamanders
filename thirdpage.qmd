@@ -381,3 +381,6 @@ Slow
 Lastly, according to @fig-Slow, the Slow genre displays <b>love</b> and <b>baby</b> as the terms with higher frequencies, supported by the alignment of these terms with the emotional themes of Slow music. Love is an incredibly popular theme of slower songs, especially due to the intimacy and deep expression for which slow tempos allow. "Baby" is often used in these songs to refer to loved ones.
 
 Each of the three genres differ in terms of the themes conveyed by their most frequent words, however love is a commonly represented notion. Furthermore, the isolation of various decades within the Rock and Dance genres highlights the relationship between the societal and musical movements that occurred and the words of highest frequency in song lyrics written during those years. Despite any commonly embodied themes across the three genres, each genre still exhibited unique concepts. The Rock genre as a whole conveys key concepts of <b>love and expression</b>. The Dance genre cumulatively represents <b>energy</b> and <b>rhythm</b>, and lastly the Slow genre conveys <b>emotion</b> and <b>steady paces</b>.
+
+### References
+
