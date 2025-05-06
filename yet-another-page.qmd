@@ -179,13 +179,14 @@ For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will
 
 With the magazine, top artists and, songs in mind, a theme among their names comes to light. The number one song on the chart, one of the top three artists, and the magazine itself all contain some form of the words "Rollin' Stone." The is no coincidence, the band The Rolling Stones, who debuted in 1962, and Bob Dylan's song <i>Like a Rolling Stone</i> (1965) are both named for the Muddy Waters song <i>Rollin' Stone</i> (1950) which is actually among the top 500, ranking in at a surprising late 459. The magazine is---with the additional influence of the proverb "a rolling stone gathers no moss" (@stone)---named for all three of these astounding feats in music history. For a more detailed history of the magazine, have a look [here](https://en.wikipedia.org/wiki/Rolling_Stone#:~:text=In%20the%20first%20issue%2C%20Wenner,%22Like%20a%20Rolling%20Stone%22.).
 
-The songwriting duo in the Beatles, John Lennon and Paul McCartney, known together as Lennon-McCartney wrote many hit songs in the 1960s (@fig-tops). Though the songs they wrote for the Beatles were almost always credited to both the young gentlemen, songs written by Paul McCartney were notably more positive. Looking at @fig-sent, we can see that the Beatles songs in the Top 500 tended to have a more positive sentiment, 0.83 on the AFINN's -5 to 5 scale. For reference, Bob Dylan's average song sentiment is around 0.035 and The Rolling Stones around -0.22. This coupled with the fact that the highest ranking Beatles song on the list is <i>Hey Jude</i>---a song written by Paul McCartney for [Julian Lennon](https://faroutmagazine.co.uk/the-beatles-paul-mccartney-hey-jude-the-story-behind-the-song/), John's son---suggests that Paul McCartney could be the primary songwriter for more of the songs on the list. 
+The songwriting duo in the Beatles, John Lennon and Paul McCartney, known together as Lennon-McCartney wrote many hit songs in the 1960s (@fig-tops). Though the songs they wrote for the Beatles were almost always credited to both the young gentlemen, songs written by Paul McCartney were notably more positive. Looking at @fig-sent, we can see that the Beatles songs in the Top 500 tended to have a more positive sentiment, 0.83 on the AFINN's -5 to 5 scale. For reference, Bob Dylan's average song sentiment is around 0.035 and The Rolling Stones around -0.22. This coupled with the fact that the highest ranking Beatles song on the list is <i>Hey Jude</i>---a song written by Paul McCartney for [Julian Lennon](https://faroutmagazine.co.uk/the-beatles-paul-mccartney-hey-jude-the-story-behind-the-song/), John's son---suggests that Paul McCartney could be the primary songwriter for more of the songs on the list. However, more analysis and research into the history of the Beatles would be needed to know for certain. 
 
 
 ### Conclusions
 
+The 1960s will more than likely go down in history as one of the best decades for music for the foreseeable future. 
 
-### Supplemental Tables
+## Supplemental Tables
 
 The following tables are here to support the above analyses and substantiate the numbers, percentages, and claims made in the text. 
 
