@@ -34,19 +34,26 @@ library(gt)
                                             , "#d92b1e"
                                             , "#540340"
                                             , "#C6C2B8" ))(6)
- # Rolling Stone
-
-#he famous, sometimes infamous, <i>Rolling Stone</i> magazine #published its first issue on November 9th, 1967. 
-
-
+ # palette for plot
+new_palette2 = colorRampPalette(colors = c("#540340"
+                                            , "#eb6309"
+                                            , "#d92b1e"))(3)
 
 ```
 
+
 # The 1960s were a Great Decade for Music 
 
-The famous, sometimes infamous, <i>Rolling Stone</i> magazine published its very first issue on November 9th, 1967.   
+The famous, sometimes infamous, <i>Rolling Stone</i> magazine published its very first issue on November 9th, 1967. On the cover of the first volume of the magazine, John Lennon---one of four British Beatles---appears in a still shot from his role in the film <i>How I Won the War</i>. 
 
+```{r}
+#| label: fig-cover
+#| fig-cap: Rolling Stone magazine's first ever issue
+include_graphics("images/Rolling-Stone-Vol-1.jpg")
+```
+While the first Top 500 list was not released until 2003, <i>Rolling Stone</i> has set the tone for music journalism from their first issue to this very moment. 
 
+## The Rollin' Sixties
 
 Let's take a look at how the decades shape up compared to one another. 
 ```{r, message=FALSE}
@@ -72,7 +79,7 @@ decadent <- songs_chart |>
       #title = "Decades Represented: By Rank"
        x = "Decade of Release"
       , y = "Number of Songs"
-      , caption = "Figure 1: The above segmented bar chart shows the distribution across decades
+      , caption = "Figure 2: The above segmented bar chart shows the distribution across decades
       <br> of Rolling Stone Magazine's Top 500 Songs of All Time from 2013. The colors 
       <br> of the segments show where on the list to find songs from a particular decade."
       ) +
@@ -108,7 +115,7 @@ Taking a closer look at where the songs fall in the ranking categories, i.e., To
  
 ### Rolling Stone's Top Three Artists
 
-While all the artists on this list are well-deserving of their flowers, there are three artists who stand out among the rest. Combined, these three artists make up nearly 10% of the songs on the list. These artists are, of course, <b>The Beatles</b>, <b>The Rolling Stones</b>, and <b>Bob Dylan</b>
+While all the artists on this list are well-deserving of their flowers, there are three artists who stand out among the rest. Combined, these three artists make up nearly 10% (@tbl-artists) of the songs on the list. These artists are, of course, <b>The Beatles</b>, <b>The Rolling Stones</b>, and <b>Bob Dylan</b>.
 
 ::: {.panel-tabset}
  
@@ -134,7 +141,7 @@ While all the artists on this list are well-deserving of their flowers, there ar
       x = "Artist"
       , y = "Number of Songs"
       , tag = " "
-      , caption = "Figure 2: The segmented bar chart above shows the number of songs each of the <br> 
+      , caption = "Figure 3: The segmented bar chart above shows the number of songs each of the <br> 
       top three most represented artists has on the list. The segments show the decade of <br>
       release of these artists' songs."
       ) +
@@ -156,7 +163,7 @@ While all the artists on this list are well-deserving of their flowers, there ar
 
 ```{r}
 #| label: fig-tops
-
+#| fig-cap: Number of Songs
 tops
 ```
 
@@ -171,18 +178,14 @@ tops
 # songs_chart = read_csv("data/songs_chart.csv")
 sentiment_by_artist = read_csv("data/sentiment_by_artists.csv")
 
-# palette for plot
-new_palette2 = colorRampPalette(colors = c("#540340"
-                                            , "#eb6309"
-                                            , "#d92b1e"))(3)
-sentiment_by_artist |>
+sent <- sentiment_by_artist |>
    ggplot(aes(x = artist, y = mean, fill = artist)) +
    scale_fill_manual(values = new_palette2) +
    geom_col(stat = "identity") +
    labs(
        y = "Average Sentiment"
      , x = "Artist"
-     , caption = "flaehjkbhvliaejbrfliawjb"
+     , caption = "Figure 4: The above graph displays the average sentiment of all songs each of the top three artists <br> has on the list."
    ) +
    geom_text(aes(label = mean), vjust = -0.125) +
    theme_linedraw() +
@@ -201,16 +204,23 @@ sentiment_by_artist |>
            , axis.title.y = element_text(size = rel(1.5))
            , axis.text.y = element_text(size = rel(1.25)))
 ```
+```{r}
+#| label: fig-sent
+#| fig-cap: Top Artist Sentiments
+sent
+```
 
 :::
 
 For music lovers and <i>Rolling Stone</i> Magazine subscription-holders, it will come as little surprise that the top 3 artists represented in Rolling Stone's Top 500 are, in order, The Beatles, The Rolling Stones, and Bob Dylan. The Top Artists chart above demonstrates the margin by which The Beatles' songs outnumber the other two. The Beatles have a stunning 23 songs on the list---24 if you include John Lennon's <i>Imagine</i>. The top ranking song from the supergroup is <i>Hey Jude</i> which ranks at 8 on the list. The Rolling Stones follow The Beatles with 14 songs, their first on the list, <i>Satisfaction</i>, at slot 2. Finally, Bob Dylan's first feature of his 12 total on the list takes the number 1 slot, and that song is <i>Like a Rolling Stone</i>. 
 
-With the magazine, top artists and, songs in mind, you may have noticed a theme among their names. The number one song on the chart, one of the top three artists, and the magazine itself all contain some form of the words "Rollin' Stone." The is no coincidence, the band The Rolling Stones, who debuted in 1962, and Bob Dylan's song <i>Like a Rolling Stone</i> (1965) are both named for the Muddy Waters song <i>Rollin' Stone</i> (1950) which is actually among the top 500, ranking in at a surprising 459. The magazine is, in turn, speculatively named for all three of these astounding feats in music history. 
+With the magazine, top artists and, songs in mind, you may have noticed a theme among their names. The number one song on the chart, one of the top three artists, and the magazine itself all contain some form of the words "Rollin' Stone." The is no coincidence, the band The Rolling Stones, who debuted in 1962, and Bob Dylan's song <i>Like a Rolling Stone</i> (1965) are both named for the Muddy Waters song <i>Rollin' Stone</i> (1950) which is actually among the top 500, ranking in at a surprising 459. The magazine is, with the additional influence of the proverb "a rolling stone gathers no moss," named for all three of these astounding feats in music history. 
 
-
+The songwriting duo in the Beatles, John Lennon and Paul McCartney, known together as Lennon-McCartney wrote many hit songs in the 1960s (@fig-tops). Though the songs they wrote for the Beatles were almost always credited to both the young gentlemen, songs written by Paul McCartney were notably more positive. Looking at @fig-sent, we can see that the Beatles songs in the Top 500 tended to have a more positive sentiment, 0.83 on the AFINN's -5 to 5 scale. For reference, Bob Dylan's average song sentiment is around 0.035 and The Rolling Stones around -0.22. This coupled with the fact that the highest ranking Beatles song on the list is <i>Hey Jude</i>---a song written by Paul McCartney for Julian Lennon, John's son---suggests that Paul McCartney might be the primary songwriter for more of the songs on the list than John Lennon. 
 
 ### Supplemental Tables
+
+The following tables are here to support your understanding of the above analyses and substantiate the numbers, percentages, and claims made in the text. 
 
 ```{r}
 #| label: create tables 
@@ -248,6 +258,10 @@ pro <- gt(props) |>
   pro
   
 ```
+As the Title implies, this supplemental @tbl-dec breaks down the number of songs the percentage of the total songs each decade holds. 
+
+~~~~
+
 ```{r}
 #| label: tbl-artists
 #| tbl-cap: Artists
@@ -261,6 +275,8 @@ gt(to) |>
     , columns = c(Count, Percent)
   )
 ```
+
+~~~
 
 ```{r}
 #| label: tbl-ten

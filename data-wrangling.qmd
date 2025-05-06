@@ -81,21 +81,11 @@ song_lyrics1 <- tibble(title = titles, url = urls2) |>
   slice(1:n_iter)
 
 lyrics_df <- tibble(# Create empty character vector the same
-  # length as our titles vector
+  # length as our song titles vector
   lyrics = vector(mode = "character", length = length(titles))) |>
   slice(1:n_iter) 
-# Iterate through links to grab nursery rhyme text
+# Iterate through links to grab lyrics
 for (i in 1:n_iter) {
-  # Scrape song i's lyric table and save it to row i of the `text` variable
-  #tables <- song_lyrics1$url[i] |>
-  #  read_html() |>
-  #  html_elements("table") |>
-  #  purrr::pluck(6) |>
-  #  html_table()
-  # extract cell of table with lyrics
-  #lyrics_df$lyrics[i] <- tables[[3, 1]] |>
-  #  str_replace_all("[\r\n]+", " ")
-  
   if (i == 260) {
     next
   }
@@ -180,18 +170,19 @@ songs_chart <- songs_clean |>
       )
     , decade = case_when(
       # create var for decade
-      year > 1949 & year < 1960 ~ "50s"
-      , year > 1959 & year < 1970 ~ "60s"
-      , year > 1969 & year < 1980 ~ "70s"
-      , year > 1979 & year < 1990 ~ "80s"
-      , year > 1989 & year < 2000 ~ "90s"
+      year > 1949 & year < 1960 ~ "The 1950s"
+      , year > 1959 & year < 1970 ~ "The 1960s"
+      , year > 1969 & year < 1980 ~ "The 1970s"
+      , year > 1979 & year < 1990 ~ "The 1980s"
+      , year > 1989 & year < 2000 ~ "The 1990s"
       , year > 1999 & year < 2010 ~ "2000s"
       )
     )
 # sort decades into logical order for legends
 songs_chart$decade = 
    factor(songs_chart$decade
-          , levels = c('50s', '60s', '70s', "80s", '90s', '2000s'))
+          , levels = c('The 1950s', 'The 1960s', 'The 1970s', "The 1980s"
+                       , 'The 1990s', '2000s'))
 # sort rank blocks into order that best demonstrates top 100 distribution
 songs_chart$block =
   factor(songs_chart$block
@@ -203,7 +194,9 @@ top_artists <- songs_chart |>
 # sort decades into logical order for legends
 top_artists$decade = 
    factor(top_artists$decade
-          , levels = c('2000s', '90s', '80s', '70s', '60s', '50s'))  
+          , levels = c('The 2000s', 'The 1990s', 'The 1980s', 'The 1970s'
+                       , 'The 1960s', 'The 1950s')) 
+
 
 ```
 
@@ -255,8 +248,6 @@ sentiment_by_song <- words_with_sentiment |>
   arrange(title)
   
 # calculate average sentiment by artist
-
-
 sentiment_by_artist <- sentiment_by_song |> 
   filter(artist == "The Beatles" 
          | artist == "The Rolling Stones" 
