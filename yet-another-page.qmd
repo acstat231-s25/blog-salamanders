@@ -61,6 +61,7 @@ Let's take a look at how the decades shape up compared to one another.
  # The inclusion of "The" was a workaround for R reading the decade as an integer
  songs_chart <- songs_chart |>
    mutate(decade = str_remove(songs_chart$decade, "The "))
+ 
  # build plot
 decadent <- songs_chart |> 
    # Create segmented histogram
@@ -68,20 +69,11 @@ decadent <- songs_chart |>
      geom_bar(position = "stack", color = "black") +
      scale_fill_manual(values = new_palette, name = "Rank") +
      labs(
-      #title = "Decades Represented: By Rank"
-       x = "Decade of Release"
-      , y = "Number of Songs"
+         x = "Decade of Release"
+       , y = "Number of Songs"
       ) +
      theme_linedraw() +
-     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
+     theme(axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
            , axis.text.x = element_text(size = rel(1.25))
            , axis.title.y = element_text(size = rel(1.5))
            , axis.text.y = element_text(size = rel(1.25))) 
@@ -128,20 +120,11 @@ While all the artists on this list are well-deserving of their flowers, there ar
      geom_bar(color = "black") +
      scale_fill_manual(values = new_palette, name = "Decade") +
      labs(
-      x = "Artist"
-      , y = "Number of Songs"
-      , tag = " "
-      ) +
+         x = "Artist"
+       , y = "Number of Songs"
+       ) +
      theme_linedraw() +
-     theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
+     theme(axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
            , axis.text.x = element_text(size = rel(1.25))
            , axis.title.y = element_text(size = rel(1.5))
            , axis.text.y = element_text(size = rel(1.25))) 
@@ -169,23 +152,15 @@ sent <- sentiment_by_artist |>
    ggplot(aes(x = artist, y = mean, fill = artist)) +
    scale_fill_manual(values = new_palette2) +
    geom_col(stat = "identity") +
-   labs(
-       y = "Average Sentiment"
-     , x = "Artist"
-   ) +
+   labs( 
+       x = "Artist"
+     , y = "Average Sentiment"
+        ) +
    geom_text(aes(label = mean), vjust = -0.125) +
    theme_linedraw() +
    geom_hline(yintercept = 0, linetype = "dashed") +
    guides(fill = FALSE) +
-   theme(plot.caption = ggtext::element_markdown(hjust = 0, vjust = -1
-                                                   , size = rel(0.92)
-                                                   , color = "#3b3d3c"
-                                                   , box.color = "#3b3d3c"
-                                                   , linewidth = 0.5
-                                                   , linetype = 1
-                                                   , padding = unit(5, "pt")
-                                                   , margin = margin(t = 20))
-           , axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
+   theme(axis.title.x = element_text(vjust = -0.3, size = rel(1.5))
            , axis.text.x = element_text(size = rel(1.25))
            , axis.title.y = element_text(size = rel(1.5))
            , axis.text.y = element_text(size = rel(1.25)))
